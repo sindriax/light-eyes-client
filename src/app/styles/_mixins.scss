@@ -1,0 +1,9 @@
+$backround-grey:  #D9D9D9;
+
+
+
+@mixin layout-position {   
+    display: block;
+    grid-area: main;
+};
+

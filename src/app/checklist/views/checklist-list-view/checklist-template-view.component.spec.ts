@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChecklistTemplateViewComponent } from './checklist-template-view.component';
+import { ChecklistTemplateViewComponent } from './checklist-list-view.component';
 
 describe('ChecklistTemplateViewComponent', () => {
   let component: ChecklistTemplateViewComponent;
