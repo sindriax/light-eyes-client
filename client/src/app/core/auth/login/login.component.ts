@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
     })
   }
   
-  submit(){
+  async submit(){
     const user:User={
       email: this.loginForm.controls["email"].value,
       password: this.loginForm.controls["password"].value,
@@ -30,11 +30,13 @@ export class LoginComponent implements OnInit{
 
     if(this.loginForm.valid){
       console.log('pass1');
-      this.loginService.login(user).subscribe(r=>{
-        localStorage.setItem('token',r.accesToken)
-      });
+      this.loginService.login(user)
+      
+      const result= await this.loginService.login(user)
+      this.route.navigate(['/home'])
+      };
       console.log("pass2",user)
     }
   }
-}
+
 
