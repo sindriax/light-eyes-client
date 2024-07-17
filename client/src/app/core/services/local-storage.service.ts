@@ -8,7 +8,7 @@ export class LocalStorageService {
     const value = localStorage.getItem(key)
     if(value)
       return JSON.parse(value)
-    // localStorage.getItem(key);
+    localStorage.getItem(key);
   }
   setItem(key:string,value:string){
     if(value)
@@ -21,15 +21,11 @@ export class LocalStorageService {
     localStorage.clear();
   }
 
-  // getItem(){
-  //   return window.localStorage.getItem('token');
-  // }
+  setToken( token: string ){
+    window.localStorage.setItem('token', token );
+  }
 
-  // setToken( token: string ){
-  //   window.localStorage.setItem('token', token );
-  // }
-
-  // removeToken(){
-  //   window.localStorage.removeItem('token');
-  // }
+  removeToken(){
+    window.localStorage.removeItem('token');
+  }
 }

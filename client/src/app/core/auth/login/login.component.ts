@@ -12,36 +12,31 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
+
 export class LoginComponent implements OnInit{
   private loginService = inject(AuthService)
-  private formBuilder=inject(FormBuilder);
-  private localStorageService=inject(LocalStorageService)
-  private router=inject(Router);
+  private formBuilder= inject(FormBuilder)
   loginForm!:FormGroup;
-  
+
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
       email:["",Validators.required],
       password:["",Validators.required]
     })
   }
-  
-  async submit(){
-    const user:User={
-      email: this.loginForm.controls["email"].value,
-      password: this.loginForm.controls["password"].value,
-    }
 
-    if(this.loginForm.valid){
-      console.log('pass1');
-      this.loginService.login(user)
-          try {
-      await this.loginService.login(user)
-      const {id} = this.localStorageService.getItem('user') as User
-      this.router.navigate(['/profile', id])
-    } catch (error) {
-      console.error('Login failed', error);
+  submit(){
+    const user:User={
+      email:this.loginForm.controls["email"].value,
+      password:this.loginForm.controls["password"].value,
     }
+    if(this.loginForm.valid){
+      console.log("pass1");
+      const logResult = this.loginService.login(user);
+
+      console.log("logResult",logResult)
+      console.log("pass2",user)
     }
   }
+
 }
