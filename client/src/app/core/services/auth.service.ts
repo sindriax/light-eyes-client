@@ -16,8 +16,22 @@ type LoginResponseType = {
 export class AuthService {
   private url = environment.apiUrl;
   http = inject(HttpClient)
+  localStorageService = inject (LocalStorageService)
+  token: string = '';
 
   login(user:User){
-    return this.http.post<User>(`${this.url}/login`, user).pipe(catchError(  e=>of(e)))
+    return this.http.post<User>(`${this.url}/login`, user).pipe(
+      tap((response: any) => {
+        if (response && response.accessToken) {
+          this.localStorageService.setItem('token', response.accessToken);
+          this.token = response.accessToken;
+        }
+      }),
+      catchError(  e=>of(e)))
 }
+//FOR GUARD:
+  isAuth() {
+    this.token = this.localStorageService.getItem('token');
+    return this.token.length > 0;
+  }
 }
