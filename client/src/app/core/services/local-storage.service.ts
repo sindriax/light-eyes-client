@@ -21,11 +21,11 @@ export class LocalStorageService {
     localStorage.clear();
   }
 
-  setToken( token: string ){
-    window.localStorage.setItem('token', token );
-  }
+  // setToken( token: string ){
+  //   window.localStorage.setItem('token', token );
+  // }
 
-  removeToken(){
-    window.localStorage.removeItem('token');
-  }
+  // removeToken(){
+  //   window.localStorage.removeItem('token');
+  // }
 }

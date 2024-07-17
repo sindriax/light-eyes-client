@@ -18,6 +18,6 @@ export class AuthService {
   http = inject(HttpClient)
 
   login(user:User){
-    return this.http.post<User>(`${this.url}/login`, user).pipe(catchError(  e=>of(e))).subscribe(r=>console.log(r))
+    return this.http.post<User>(`${this.url}/login`, user).pipe(catchError(  e=>of(e)))
 }
 }

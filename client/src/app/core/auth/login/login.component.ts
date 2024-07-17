@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   private loginService = inject(AuthService)
   private formBuilder= inject(FormBuilder)
+  route = inject(Router);
   loginForm!:FormGroup;
 
   ngOnInit(): void {
@@ -32,7 +33,10 @@ export class LoginComponent implements OnInit{
     }
     if(this.loginForm.valid){
       console.log("pass1");
-      const logResult = this.loginService.login(user);
+      const logResult = this.loginService.login(user).subscribe(r=>{
+      //   localStorage.setItem('token', r.accessToken)
+      this.route.navigate(['/profile'])
+    });
 
       console.log("logResult",logResult)
       console.log("pass2",user)
