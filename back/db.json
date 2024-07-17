@@ -1,14 +1,9 @@
 {
   "users": [
     {
-      "email": "holiii@gmail.com",
-      "password": "1230948578493",
-      "id": "88fe"
-    },
-    {
-      "id": "1d62",
-      "email": "asfsdd@gmail.com",
-      "password": "123456"
+      "email": "a@a.com",
+      "password": "$2a$10$Vh8.Eh8zc2FugdoMiG.bb.CHFpYdeMKvd79X13uOjONfrZoxLE9bq",
+      "id": "FmEPy0i"
     }
   ]
 }
