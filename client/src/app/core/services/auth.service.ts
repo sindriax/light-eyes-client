@@ -1,44 +1,50 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from 'app/shared/models/user';
-import { environment } from 'environments/environment.development';
-import { catchError, firstValueFrom, of, tap } from 'rxjs'
+import { environment } from 'environments/environment';
+import { catchError, firstValueFrom, of, tap } from 'rxjs';
+import { LocalStorageService } from './local-storage.service';
+
+type LoginResponseType = {
+  accessToken: string;
+  user: User;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-http = inject(HttpClient)
+private url = environment.apiUrl;
+private http = inject(HttpClient);
+private localStorageService = inject (LocalStorageService)
 
-  // login(user: User){
-  //   this.http.post<User>
-  //   (`${environment.API_URL}/login`, user).pipe(catchError(e => of (e))).subscribe(r => localStorage.setItem('token',r.accesToken))
+async login(credentials: User) {
+  if (!this.url) {
+    throw new Error('API URL is not defined');
+  }
 
-    // login(user:User){
+  console.log('Sending login request to:', `${this.url}/login`);
+  console.log('Request payload:', credentials);
 
-    //   return this.http.post<User>(`${environment.API_URL}/login`, user).pipe(
-    //   tap((response:any)=>{
-    //   console.log(response.body)
-    //   localStorage.setItem('id',response.body.user.id)
-    //   }),
-    //   catchError(  e=>of(e)))
-    // } 
-
-    async login(user:User){
-      try {
-        const result = await firstValueFrom(this.http.post<User>(`${environment.API_URL}/login`, user).pipe(catchError(e=>of(e))))
-        localStorage.setItem('id',result.user.id)
-        return result
-      } catch (e) {
-        return console.log(e)
-      }
-      }
-
-    // getToken,setToken,RemoveToken
-    // Después de esto nos aparecerá en la consola en access token.
-
-// cambiamos el console.log(event.body)por
-
-// localStorage.setItem('token',*event*.body.accessToken)
+  try {
+    const result = await firstValueFrom(this.http.post<LoginResponseType>(`${this.url}/login`, credentials));
+    const { accessToken, user } = result;
+    this.localStorageService.setItem('user', JSON.stringify(user));
+  } catch (e) {
+    console.error('Error during login request:', e);
+    throw (e);
+  }
 }
 
+// getToken(): string | null {
+//   return this.localStorageService.getItem('token');
+// }
+
+// setToken(token: string): void {
+//   this.localStorageService.setItem('token', token);
+// }
+
+// removeToken(): void {
+//   this.localStorageService.removeItem('token');
+// }
+}

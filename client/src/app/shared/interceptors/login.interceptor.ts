@@ -1,16 +1,26 @@
 import { HttpEvent, HttpInterceptorFn, HttpResponse } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { LocalStorageService } from 'app/core/services/local-storage.service';
 import { tap } from 'rxjs';
 
 export const loginInterceptor: HttpInterceptorFn = (req, next) => {
-//   return next(req).pipe(tap((event: any) => {console.log(event.body)}));
-// };
+
+  // import localStorageService and implement underneath!!!!!
 
 return next(req).pipe(tap((event: HttpEvent <any>) => {
   if (event instanceof HttpResponse){
     localStorage.setItem('token',event.body.accessToken)
-    console.log(event.body)
+    // console.log(event.body)
   } 
   return event
-  // Hay que borrar cualquier otro setItem que tengamos en login.ts or wherever porque sino no cogerá el token bien.
 }))
 };
+
+// TO DO:
+// Para obtener el token es interesante en AuthService tener un getToken ( ), setToken ( ), removeToken ( ).
+
+// Después de esto nos aparecerá en la consola en access token.
+
+// cambiamos el console.log(event.body)por
+
+// localStorage.setItem('token',*event*.body.accessToken)
