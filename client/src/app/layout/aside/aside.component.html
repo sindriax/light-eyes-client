@@ -1,7 +1,18 @@
 
 <div id="aside">
-    <ul>
-        <li><a routerLinkActive="active" [routerLink]="['/checklists']">Checklists</a></li>
-        <li><a routerLinkActive="active" [routerLink]="['/reports']">Reports</a></li>
-    </ul>
+
+
+
+    <section>
+      
+      <div class="example-button-row">
+        <button mat-flat-button routerLinkActive="active" [routerLink]="['/checklists']">Checklists</button>
+        <button mat-flat-button routerLinkActive="active" [routerLink]="['/reports']">Reports</button>
+      </div>
+    </section>
+
+    <button mat-flat-button>Log out</button>
 </div>
+
+
+

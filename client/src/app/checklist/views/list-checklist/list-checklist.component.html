@@ -1,1 +1,9 @@
-<p>list-checklist works!</p>
+      <button mat-fab extended>
+        <mat-icon>edit</mat-icon>
+        Create Checklist
+      </button>
+<section>
+  @for (checklist of (checklists | async) || []; track $index) {
+    <app-checklist-card [checklist]="checklist"></app-checklist-card>
+  }
+</section>

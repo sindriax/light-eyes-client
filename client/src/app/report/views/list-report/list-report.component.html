@@ -1,1 +1,6 @@
-<p>list-report works!</p>
+
+@for (report of (reports | async) || []; track $index) {
+    <app-report-card [report]="report"></app-report-card>
+}
+
+
