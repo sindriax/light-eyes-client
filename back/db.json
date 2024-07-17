@@ -1,14 +1,50 @@
 {
   "users": [
     {
-      "email": "holiii@gmail.com",
-      "password": "1230948578493",
-      "id": "88fe"
-    },
+      "id": "1",
+      "email": "holi@hola.com",
+      "password": "1234"
+  },
     {
       "id": "1d62",
       "email": "asfsdd@gmail.com",
       "password": "123456"
     }
+  ], 
+
+  "checklists": [
+    {
+      "id": "1",
+      "creator": "Daniel Cueto",
+      "creationDate":"15/07/2024 - 17:00", 
+      "checklistTitle": "NIS2",
+      "checklistDescription":"Best ISO to obtain"
+    },
+    {
+      "id": "2",
+      "creator": "Daniel Cueto",
+      "creationDate":"15/07/1999 - 17:00", 
+      "checklistTitle": "NIS1",
+      "checklistDescription":"Deprecated ISO"
+    }
+  ],
+
+
+    "reports": [
+    {
+      "id": "1",
+      "creator": "Daniel Cueto",
+      "creationDate":"15/07/2024 - 17:00", 
+      "reportTitle": "NIS2",
+      "reportDescription":"Best ISO to obtain"
+    },
+    {
+      "id": "2",
+      "creator": "Daniel Cueto",
+      "creationDate":"15/07/1999 - 17:00", 
+      "reportTitle": "NIS1",
+      "reportDescription":"Deprecated ISO"
+    }
   ]
+
 }
