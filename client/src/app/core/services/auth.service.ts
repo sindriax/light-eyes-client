@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from 'app/shared/models/user';
 import { environment } from 'environments/environment';
-import { catchError, firstValueFrom, of, tap } from 'rxjs';
+import { catchError, firstValueFrom, Observable, of, tap } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
 
 type LoginResponseType = {
@@ -29,6 +29,13 @@ export class AuthService {
       }),
       catchError(  e=>of(e)))
 }
+
+  register(user:any):Observable<any>{
+    return this.http.post(`${this.url}/users`, user);
+  }
+
+
+
 //FOR GUARD:
   isAuth() {
     this.token = this.localStorageService.getItem('token');

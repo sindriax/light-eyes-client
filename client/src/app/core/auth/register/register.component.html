@@ -1,0 +1,17 @@
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+    <div>
+        <label for="email"><input type="email" formControlName="email">email</label>
+        @if(registerForm.controls.email.touched && registerForm.controls.email.errors?.['email']){
+            <p>Email should have a valid format</p>
+        }
+        @if(registerForm.controls.email.touched && registerForm.controls.email.errors?.['pattern']){
+            <p>Email should have a valid format</p>
+        }
+    </div>
+    <label for="password"><input type="password" formControlName="password">password</label>
+    @if((registerForm.controls.password.touched && registerForm.controls.password.errors?.['minlength']) || (registerForm.controls.password.touched && registerForm.controls.password.errors?.['required'])){
+        <p>Password must be at least 8 characters</p>
+    }
+    <button type="submit">Sign Up</button>
+    <button type="reset" (click)="resetForm()">Reset</button>
+</form>
