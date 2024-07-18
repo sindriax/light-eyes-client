@@ -1,0 +1,5 @@
+@import "../../../styles/mixins";
+
+#report-card {
+    @include cards; 
+}

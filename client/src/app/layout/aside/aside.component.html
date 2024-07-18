@@ -1,4 +1,4 @@
-
+<!-- 
 <div id="aside">
 
 
@@ -11,8 +11,21 @@
       </div>
     </section>
 
-    <button mat-flat-button>Log out</button>
-</div>
+    <button mat-flat-button>Log out</button> </div> 
+  -->
 
 
 
+<mat-sidenav-container>
+
+  <mat-sidenav-content class="sidenav" position="stat">
+    <button mat-flat-button routerLinkActive="active" [routerLink]="['/checklists']">Checklists</button>
+    <button mat-flat-button routerLinkActive="active" [routerLink]="['/reports']">Reports</button>
+  </mat-sidenav-content>
+  <span class="space"></span>
+  <mat-sidenav-content class="logoutContainer" position="end">
+    <button mat-flat-button class="logoutBut">Log out</button>
+  </mat-sidenav-content>
+
+  
+</mat-sidenav-container>

@@ -1,9 +1,11 @@
-      <button mat-fab extended>
-        <mat-icon>edit</mat-icon>
-        Create Checklist
-      </button>
+
 <section>
-  @for (checklist of (checklists | async) || []; track $index) {
+  <div>      <button mat-fab extended>
+    <mat-icon>edit</mat-icon>
+    Create Checklist
+  </button></div>
+  <div class="checklistContainerCard">  @for (checklist of (checklists | async) || []; track $index) {
     <app-checklist-card [checklist]="checklist"></app-checklist-card>
-  }
+  }</div>
+
 </section>

@@ -2,4 +2,7 @@
 
 :host{
     @include layout-position;
+    display: flex;
+    flex-direction: row;
 }
+

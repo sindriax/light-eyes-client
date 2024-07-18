@@ -1,18 +1,27 @@
+#aside{
+    display: flex;
+    flex-direction: column;
+}
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
 
-#aside {
-    background-color: #D9D9D9;
+}
+
+.logoutContainer{
+    display: flex;
+    height: 45vh;
+    align-items: flex-end;
+   
+}
+
+.logoutBut{
+    bottom: 0;
     width: 100%;
-    height: 100%;
-
 }
-
-a{
+.headerText  {
     text-decoration: none;
-    color: black;
 }
 
-li{
-    text-decoration: none;
-    list-style-type: none; 
 
-}
