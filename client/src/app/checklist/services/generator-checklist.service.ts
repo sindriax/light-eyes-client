@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Checklist } from 'app/shared/models/checklist';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,9 @@ export class GeneratorChecklistService {
 
   http = inject(HttpClient);
 
-
+saveChecklist(checklist: Checklist): Observable<any>{
+  return this.http.post(this.url, checklist)
+}
 
   constructor() { }
 }

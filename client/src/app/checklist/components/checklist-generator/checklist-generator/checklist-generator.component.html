@@ -2,16 +2,16 @@
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
 <mat-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+  <mat-step [stepControl]="titleForm1">
+    <form [formGroup]="titleForm1" (ngSubmit)="onSubmit()">
       <div class="language-title-container">  
 
         <mat-form-field>
           <mat-label>Select checklist language</mat-label>
-          <mat-select>
-            @for (language of languages; track languages) {
-            <mat-option [value]="language.value">{{language.viewValue}}</mat-option>
-            }
+          <mat-select formControlName="language">
+            <mat-option *ngFor="let language of languages" [value]="language.value">
+              {{language.viewValue}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
   
@@ -22,7 +22,7 @@
         <input matInput placeholder="Introduce a checklist title" formControlName="firstCtrl" required>
       </mat-form-field></div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button  type="submit" mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
