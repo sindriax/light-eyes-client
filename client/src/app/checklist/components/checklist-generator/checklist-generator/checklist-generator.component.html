@@ -1,4 +1,3 @@
-<p>checklist-generator works!</p>
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
@@ -17,6 +16,7 @@
         </mat-form-field>
   
       <ng-template matStepLabel>Language and title</ng-template>
+    
       <mat-form-field>
         <mat-label>Create a new Checklist</mat-label>
         <input matInput placeholder="Introduce a checklist title" formControlName="firstCtrl" required>
@@ -29,12 +29,16 @@
 
 
   <mat-step [stepControl]="checklistDescriptionForm2" label="Checklist description / summary">
-    <mat-label>Checklist description or summary</mat-label>
+    
     <form [formGroup]="checklistDescriptionForm2">
-      <mat-form-field>
-        <mat-label>Checklist description / summary</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Provide an introduction for the checklist" required>n
-      </mat-form-field>
+      <mat-label>Checklist description or summary</mat-label>
+      <div class="description-input">
+        <mat-form-field>
+          <mat-label>Checklist description / summary</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Provide an introduction for the checklist" required>
+        </mat-form-field>
+      </div>
+  
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
