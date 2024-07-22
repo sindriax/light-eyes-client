@@ -1,0 +1,38 @@
+<div class="landing-page">
+    <div class="left-side">
+        <div class="landing-text">
+            <img src="../../../../assets/icons/light-eyes-logo 1.png" alt="Light-Eyes Logo">
+            <h1>Light Eyes</h1>
+        </div>
+            <p>
+                <span>Light Eyes </span> ensures the best compliance and protection of your digital assets and provides customized solutions to meet the specific needs of your business.
+            </p>
+    </div>
+    <div class="right-side">
+        <mat-tab-group>
+            <mat-tab label="Login">
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                    <mat-form-field class="loginFormMat" appearance="fill">
+                        <mat-label>Username:</mat-label>
+                        <input type="text" matInput formControlName="username" [errorStateMatcher]="matcher"
+                            placeholder="Username" />
+                        <mat-hint>Please enter your username.</mat-hint>
+                        @if (loginForm.controls.username.touched && loginForm.controls.username.errors?.['required']) {
+                            <mat-error>Username is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+                    
+                    <mat-form-field class="loginFormMat" appearance="fill">
+                        <mat-label>Password:</mat-label>
+                        <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher"/>
+                    </mat-form-field>
+
+                    <button mat-raised-button type="submit">Login</button>
+                </form>
+            </mat-tab>
+            <mat-tab label="Sign Up">
+                <app-register></app-register>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
