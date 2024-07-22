@@ -1,3 +1,12 @@
+@keyframes flip {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
 .landing-page{
     width: 100%;
     display: flex;
@@ -9,7 +18,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-left: 3em;
+        margin-left: 7em;
+        margin-right: -7em;
+        margin-top: -5em;
 
         .landing-text{
             width: 70%;
@@ -24,6 +35,11 @@
 
             img{
                 height: 15vh;
+            }
+            
+            img:hover{
+                animation: flip 2s linear;
+                transform-style: preserve-3d; 
             }
         }
 
@@ -50,7 +66,7 @@
         mat-tab-group{
             width: 50%;
             border: 1px solid #E6E0E9;
-            margin-left: 10em;
+            margin-left: 18em;
 
         }
 
