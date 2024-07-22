@@ -1,5 +1,41 @@
-<form [formGroup]="loginForm" (ngSubmit)="submit()">
-    <input type="text" formControlName="email">
-    <input type="password" formControlName="password">
-    <button type="submit">Submit</button>
-</form>
+<div class="landing-page">
+    <div class="left-side">
+        <div class="landing-text">
+            <img src="../../../../assets/icons/light-eyes-logo 1.png" alt="Light-Eyes Logo">
+            <h1>Light Eyes</h1>
+        </div>
+            <p>
+                <span>Light Eyes </span> ensures the best compliance and protection of your digital assets and provides customized solutions to meet the specific needs of your business.
+            </p>
+    </div>
+    <div class="right-side">
+        <mat-tab-group>
+            <mat-tab label="Login">
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                    <mat-form-field class="loginFormMat" appearance="fill">
+                        <mat-label>Email:</mat-label>
+                        <input type="text" matInput formControlName="email" [errorStateMatcher]="matcher"
+                            placeholder="Ex. sandra@example.com" />
+                        <mat-hint>Please enter an email.</mat-hint>
+                        @if (emailFormControl?.hasError('email') && !emailFormControl?.hasError('required')) {
+                            <mat-error>Please enter a valid email address</mat-error>
+                        }
+                        @if (emailFormControl?.hasError('required')) {
+                            <mat-error>Email is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+
+                    <mat-form-field class="loginFormMat" appearance="fill">
+                        <mat-label>Password:</mat-label>
+                        <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher"/>
+                    </mat-form-field>
+
+                    <button mat-raised-button type="submit">Submit</button>
+                </form>
+            </mat-tab>
+            <mat-tab label="Sign Up">
+                <app-register></app-register>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

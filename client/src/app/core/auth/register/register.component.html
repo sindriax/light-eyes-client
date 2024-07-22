@@ -1,17 +1,24 @@
-<form [formGroup]="registerForm" (ngSubmit)="submit()">
-    <div>
-        <label for="email"><input type="email" formControlName="email">email</label>
-        @if(registerForm.controls.email.touched && registerForm.controls.email.errors?.['email']){
-            <p>Email should have a valid format</p>
-        }
-        @if(registerForm.controls.email.touched && registerForm.controls.email.errors?.['pattern']){
-            <p>Email should have a valid format</p>
-        }
-    </div>
-    <label for="password"><input type="password" formControlName="password">password</label>
-    @if((registerForm.controls.password.touched && registerForm.controls.password.errors?.['minlength']) || (registerForm.controls.password.touched && registerForm.controls.password.errors?.['required'])){
-        <p>Password must be at least 8 characters</p>
-    }
-    <button type="submit">Sign Up</button>
-    <button type="reset" (click)="resetForm()">Reset</button>
-</form>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+        <mat-form-field class="registerFormMat" appearance="fill">
+            <mat-label>Email:</mat-label>
+            <input type="text" matInput formControlName="email" placeholder="Ex. sandra@example.com">
+            <mat-hint>Please enter an email.</mat-hint>
+            @if(registerForm.controls.email.touched && registerForm.controls.email.errors?.['email']){
+                <mat-error>Email should have a valid format</mat-error>
+            }
+            @if(registerForm.controls.email.touched && registerForm.controls.email.errors?.['pattern']){
+                <mat-error>Email should have a valid format</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field class="passwordFormMat" appearance="fill">
+            <mat-label>Password:</mat-label>
+            <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher">
+            @if((registerForm.controls.password.touched && registerForm.controls.password.errors?.['minlength']) || (registerForm.controls.password.touched && registerForm.controls.password.errors?.['required'])){
+                <mat-error>Password must be at least 8 characters</mat-error>
+                }
+        </mat-form-field>
+        <div class="buttons">
+        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+        <button mat-raised-button type="reset" (click)="resetForm()">Reset</button>
+        </div>
+    </form>

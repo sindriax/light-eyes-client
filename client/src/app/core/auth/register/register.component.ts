@@ -1,12 +1,23 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatError, MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatTab, MatTabGroup, MatTabLabel } from '@angular/material/tabs';
 import { AuthService } from 'app/core/services/auth.service';
 import { User } from 'app/shared/models/user';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+
+export class CustomErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    return !!(control && control.invalid && (control.dirty || control.touched));
+  }
+}
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatLabel, MatTabLabel, MatTabGroup, MatTab, MatFormField, MatError, MatHint, MatInputModule, MatButton],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -14,6 +25,8 @@ export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
   authService = inject(AuthService)
+  matcher = new CustomErrorStateMatcher(); 
+
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -22,7 +35,7 @@ export class RegisterComponent {
         [
           Validators.required,
           Validators.email,
-          // Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+          Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
         ]
       ],
       password: [
@@ -30,7 +43,7 @@ export class RegisterComponent {
         [
           Validators.required,
           Validators.minLength(8),
-          // Validators.pattern(/^[a-zA-Z0-9]+$/)
+          Validators.pattern(/^[a-zA-Z0-9]+$/)
         ]
       ]
     });
