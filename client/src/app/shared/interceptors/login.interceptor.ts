@@ -1,19 +1,26 @@
-import { HttpErrorResponse, HttpEvent, HttpInterceptorFn, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { LocalStorageService } from 'app/core/services/local-storage.service';
-import { catchError, tap } from 'rxjs';
+import { environment } from 'environments/environment';
+import { Observable, tap } from 'rxjs';
 
-export const loginInterceptor: HttpInterceptorFn = (req, next) => {
-  const localStorageService = inject(LocalStorageService)
+export const loginInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> => {
+  const localStorageService = inject(LocalStorageService);
 
-return next(req).pipe(tap((event: HttpEvent <any>) => {
-  if (event instanceof HttpResponse){
-    localStorageService.setItem('token',event.body.accessToken)
-    console.log(event.body)
-  } 
-  return event
-})
-)
+  return next(req).pipe(tap(( response : any) => {
+    console.log( req );
+    console.log( response );
+
+    if (response.ok && response.url?.startsWith(`${environment.apiUrl}/account/login`) ){
+      console.log( 'login response is ok', response );
+      localStorageService.setToken(response.body.token);
+    } else if (response.ok && response.url?.startsWith(`${environment.apiUrl}/account/register`)) {
+      console.log('register response is ok', response );
+      localStorageService.setToken(response.body.token);
+    }
+    return response
+  })
+  )
 };
 
 

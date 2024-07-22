@@ -13,24 +13,21 @@
             <mat-tab label="Login">
                 <form [formGroup]="loginForm" (ngSubmit)="submit()">
                     <mat-form-field class="loginFormMat" appearance="fill">
-                        <mat-label>Email:</mat-label>
-                        <input type="text" matInput formControlName="email" [errorStateMatcher]="matcher"
-                            placeholder="Ex. sandra@example.com" />
-                        <mat-hint>Please enter an email.</mat-hint>
-                        @if (emailFormControl?.hasError('email') && !emailFormControl?.hasError('required')) {
-                            <mat-error>Please enter a valid email address</mat-error>
-                        }
-                        @if (emailFormControl?.hasError('required')) {
-                            <mat-error>Email is <strong>required</strong></mat-error>
+                        <mat-label>Username:</mat-label>
+                        <input type="text" matInput formControlName="username" [errorStateMatcher]="matcher"
+                            placeholder="Username" />
+                        <mat-hint>Please enter your username.</mat-hint>
+                        @if (loginForm.controls.username.touched && loginForm.controls.username.errors?.['required']) {
+                            <mat-error>Username is <strong>required</strong></mat-error>
                         }
                     </mat-form-field>
-
+                    
                     <mat-form-field class="loginFormMat" appearance="fill">
                         <mat-label>Password:</mat-label>
                         <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher"/>
                     </mat-form-field>
 
-                    <button mat-raised-button type="submit">Submit</button>
+                    <button mat-raised-button type="submit">Login</button>
                 </form>
             </mat-tab>
             <mat-tab label="Sign Up">

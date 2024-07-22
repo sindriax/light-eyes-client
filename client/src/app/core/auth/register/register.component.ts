@@ -1,10 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatError, MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatTab, MatTabGroup, MatTabLabel } from '@angular/material/tabs';
 import { AuthService } from 'app/core/services/auth.service';
-import { User } from 'app/shared/models/user';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 
@@ -27,41 +26,52 @@ export class RegisterComponent {
   authService = inject(AuthService)
   matcher = new CustomErrorStateMatcher(); 
 
-
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email,
-          Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
-        ]
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.pattern(/^[a-zA-Z0-9]+$/)
-        ]
-      ]
+      // firstName: ['', Validators.required],
+      // lastName: [''],
+      username: ['', Validators.required, Validators.minLength(8)],
+      email: ['', [Validators.required, Validators.email, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
+      password: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/), Validators.minLength(8)]],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: this.mustMatch('password', 'confirmPassword')
     });
+  }
+
+  mustMatch(password: string, confirmPassword: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[password];
+      const matchingControl = formGroup.controls[confirmPassword];
+
+      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+        return;
+      }
+
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
   }
 
   submit() {
     this.submitted = true;
     if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe(
-        response => {
-      alert('You have successfully signed up.');
-        }    
-    )
-    } else {
-      alert('Please correct the errors in the form.');
+      const newUser = {
+        userName: this.registerForm.value.username,
+        email: this.registerForm.value.email,
+        password: this.registerForm.value.password
+      };
+      console.log(newUser);
+
+      this.authService.register(newUser).subscribe(
+        response => console.log('Registration successful:', response),
+        error => console.error('Registration error:', error)
+      );
     }
   }
-  
 
   resetForm() {
     this.registerForm.reset();
