@@ -1,17 +1,27 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './core/auth/login/login.component';
-import { ProfileComponent } from './profile/profile.component';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { ListChecklistComponent } from './checklist/views/list-checklist/list-checklist.component';
+import { ListReportComponent } from './report/views/list-report/list-report.component';
 import { authGuard, authLoggedGuard } from './core/guards/auth.guard';
+import { LoginComponent } from './core/auth/login/login.component';
+
 
 export const routes: Routes = [
-    {
-        path:"",
-        redirectTo: "profile",
-        pathMatch: 'full'
-    },
-    {
-        path:"profile",
-        component: ProfileComponent,
+    { path: '', component: LayoutComponent, 
+        children:[
+            {path: '', component: ListChecklistComponent}, 
+            {path: "checklists", loadChildren: () => 
+                import('./checklist/checklist.routes')
+                .then( mod => {
+                    return mod.CHECKLIST_ROUTES;
+                })
+            },
+            {path: "reports", component: ListReportComponent},
+            
+            
+            
+           
+        ],
         canActivate:[authGuard]
     },
     {
@@ -19,4 +29,5 @@ export const routes: Routes = [
         component: LoginComponent,
         canActivate:[authLoggedGuard]
     }
+
 ];

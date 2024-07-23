@@ -1,0 +1,27 @@
+#aside{
+    display: flex;
+    flex-direction: column;
+}
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
+
+}
+
+.logoutContainer{
+    display: flex;
+    height: 45vh;
+    align-items: flex-end;
+   
+}
+
+.logoutBut{
+    bottom: 0;
+    width: 100%;
+}
+.headerText  {
+    text-decoration: none;
+}
+
+

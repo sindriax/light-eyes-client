@@ -1,0 +1,26 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    span {
+      flex: 1;
+    }
+    button#more_vert {
+      margin-left: auto;
+    }
+  }
+  
+
+
+  #eagle{
+    width: 25px;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    border: 0;
+  }

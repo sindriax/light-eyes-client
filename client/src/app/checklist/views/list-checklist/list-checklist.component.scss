@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+:host{
+    @include layout-position;
+}
+
+.checklistContainerCard{
+    display: flex;
+    flex-direction: row;
+  
+}

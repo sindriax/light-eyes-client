@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Checklist } from 'app/shared/models/checklist';
+import { Report } from 'app/shared/models/reports';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChecklistService {
+export class ReportService {
 
   private url = 'http://localhost:3000';
 
 
   http = inject(HttpClient);
-  getAllChecklist():Observable<Checklist[]>{
-    return this.http.get<Checklist[]>(this.url.concat("/checklists"));
+  getAllReport():Observable<Report[]>{
+    return this.http.get<Report[]>(this.url.concat("/reports"));
   }
-
   constructor() { }
 }

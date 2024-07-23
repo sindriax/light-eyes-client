@@ -1,1 +1,14 @@
-<p>list-checklist works!</p>
+
+<section>
+  <div>      <button mat-fab extended routerLinkActive="active" [routerLink]="['checklists/checklistGenerator']"> 
+    <mat-icon>edit</mat-icon>
+    Create Checklist
+  </button></div>
+
+
+  <div class="checklistContainerCard">  @for (checklist of (checklists | async) || []; track $index) {
+    <app-checklist-card [checklist]="checklist"></app-checklist-card>
+  }</div>
+  <app-checklist-generator></app-checklist-generator>
+
+</section>

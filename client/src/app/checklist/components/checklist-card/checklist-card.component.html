@@ -1,1 +1,15 @@
-<p>checklist-card works!</p>
+
+<mat-card id="checklist-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"><img src=".../../../../../../assets/icons/Monogram.png" alt=""></div>
+     
+      <mat-card-subtitle>{{checklist.creator}}</mat-card-subtitle>
+      <mat-card-subtitle>{{checklist.creationDate}}</mat-card-subtitle>
+      <mat-card-title>{{checklist.checklistTitle}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+       {{checklist.checklistDescription}}
+      </p>
+    </mat-card-content>
+  </mat-card> 

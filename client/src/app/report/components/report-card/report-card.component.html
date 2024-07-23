@@ -1,1 +1,15 @@
-<p>report-card works!</p>
+
+<mat-card id="report-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"><img src=".../../../../../../assets/icons/Monogram.png" alt=""></div>
+     
+      <mat-card-subtitle>{{report.creator}}</mat-card-subtitle>
+      <mat-card-subtitle>{{report.creationDate}}</mat-card-subtitle>
+      <mat-card-title>{{report.reportTitle}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+       {{report.reportDescription}}
+      </p>
+    </mat-card-content>
+  </mat-card>  

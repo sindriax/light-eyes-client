@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChecklistGeneratorComponent } from './checklist-generator1.component';
+import { ChecklistGeneratorComponent } from './checklist-generator.component';
 
 describe('ChecklistGeneratorComponent', () => {
   let component: ChecklistGeneratorComponent;

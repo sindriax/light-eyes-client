@@ -1,0 +1,17 @@
+.new-question-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.question-input{
+    width: 95%;
+}
+
+.answer-selector{
+    width: 15%;
+    margin-right: 5%;
+}
+
+.answer-input{
+    width: 75%;
+}
