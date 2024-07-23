@@ -7,7 +7,8 @@ import { LoginComponent } from './core/auth/login/login.component';
 
 
 export const routes: Routes = [
-    { path: '', component: LayoutComponent, 
+
+    { path: '', component: LayoutComponent,
         children:[
             {path: '', component: ListChecklistComponent},
             {path: "checklists", loadChildren: () => 

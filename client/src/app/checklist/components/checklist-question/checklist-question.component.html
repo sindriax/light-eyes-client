@@ -1,8 +1,8 @@
 <form class="new-question-form">
-    <mat-form-field class="question-input">
-      <mat-label>Include a new question or checklist item</mat-label>
-      <textarea matInput placeholder="Ex. Procedimientos de Operación Documentados... "></textarea>
-    </mat-form-field>
+  <mat-form-field class="question-input">
+    <mat-label>Include a new question or checklist item</mat-label>
+    <textarea matInput placeholder="Ex. Procedimientos de Operación Documentados... "></textarea>
+  </mat-form-field>
   <mat-form-field class="answer-selector">
     <mat-label>Answer</mat-label>
     <mat-select>
@@ -17,34 +17,54 @@
     <textarea matInput placeholder="Ex.. Cumplimiento: Sí, tienen procedimientos operativos documentados. "></textarea>
   </mat-form-field>
 
-<div>
-  <mat-form-field class="answer-selector">
-  <mat-label>Answer</mat-label>
-  <mat-select>
-    @for (signselector of signselectors; track signselector) {
-      <mat-option [value]="signselector.value">{{signselector.viewValue}}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
+    <mat-form-field class="answer-selector">
+      <mat-label>Answer</mat-label>
+      <mat-select>
+        @for (signselector of signselectors; track signselector) {
+        <mat-option [value]="signselector.value">{{signselector.viewValue}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
 
-<mat-form-field class="answer-input">
-  <mat-label>Introduce the answer</mat-label>
-  <textarea matInput placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. "></textarea>
-</mat-form-field></div>
+    
+  @for (answer of answers; track $index) {
+    <div>
+      <mat-form-field class="answer-selector">
+        <mat-label>Answer</mat-label>
+        <mat-select [value]="answer.signselector">
+          @for (signselector of signselectors; track $index) {
+            <mat-option [value]="signselector.value">
+              {{signselector.viewValue}}
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="answer-input">
+        <mat-label>Introduce the answer</mat-label>
+        <textarea matInput[value]="answer.answer" placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. "></textarea>
+      </mat-form-field>
+    </div>
+  }
 
-<button mat-fab extended> 
-  <mat-icon>edit</mat-icon>
-  Add New answer
-</button>
+  <button mat-fab extended (click)="openNewAnswer()">
+    <mat-icon>edit</mat-icon>
+    Add New answer
+  </button>
 
-<button mat-fab extended> 
-  <mat-icon>edit</mat-icon>
-  Save question and add new Question
-</button>
+  <button mat-fab extended>
+    <mat-icon>edit</mat-icon>
+    Save question and add new Question
+  </button>
 
-<button mat-fab extended> 
-  <mat-icon>edit</mat-icon>
-  Save question and FINISH CHECKLIST
-</button>
+  <button mat-fab extended>
+    <mat-icon>edit</mat-icon>
+    Save question and FINISH CHECKLIST
+  </button>
 
-  </form>
+  @if (showAnswerForm) {
+    <app-checklist-answer (answerAdded)="addAnswer($event)"></app-checklist-answer>
+  }
+  
+</form>
+  

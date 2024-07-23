@@ -4,6 +4,5 @@ import { ListChecklistComponent } from "./views/list-checklist/list-checklist.co
 
 export const CHECKLIST_ROUTES: Route[] = [
     {path: '', component: ListChecklistComponent}, 
-    {path: 'checklists', component: ListChecklistComponent}, 
-    {path: "checklistGenerator", component: CreateChecklistComponent}
+    {path: "create", component: CreateChecklistComponent}
 ]
