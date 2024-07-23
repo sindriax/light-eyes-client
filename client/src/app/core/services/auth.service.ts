@@ -67,6 +67,6 @@ constructor (){
     logout (){
       this.localStorageService.removeToken();
       this.isLogged.set(false);
-      this.router.navigate(['/profile'])
+      this.router.navigate(['/auth'])
     }
 }

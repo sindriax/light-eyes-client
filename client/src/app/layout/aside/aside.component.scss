@@ -1,27 +1,52 @@
-#aside{
+mat-sidenav-container{
+    background-color: #F5EFF7;
     display: flex;
     flex-direction: column;
-}
-.sidenav{
-    display: flex;
-    flex-direction: column;
-    height: 45vh;
+    height: 97%;
+    border-radius: 1em;
+    margin: 1em;    
 
+    .sidenav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 2em;
+        height: 92%;
+        overflow-y: hidden;
+        text-align: left;
+
+        button{
+            background-color: transparent;
+            color: #45414A;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            height: 5vh;
+            font-size: 1.3em;
+            gap: 0.7em;
+
+            mat-icon{
+                color: #7C6BA7;
+                font-size: 1em;
+                font-weight: bold;
+                
+                        .active .mat-icon{
+                            color: white;
+                        }
+            }
+        }
+        
+        button:focus{
+            background-color: #7C6BA7;
+            color: white;
+
+            mat-icon:focus{
+                color:white;
+            }
+        }
+    }
 }
 
-.logoutContainer{
-    display: flex;
-    height: 45vh;
-    align-items: flex-end;
-   
-}
-
-.logoutBut{
-    bottom: 0;
-    width: 100%;
-}
-.headerText  {
-    text-decoration: none;
-}
-
-
+// .active .buutton{
+//     background-color: orange;
+// }

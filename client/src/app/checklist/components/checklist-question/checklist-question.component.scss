@@ -1,17 +1,44 @@
 .new-question-form{
     display: flex;
     flex-direction: column;
-}
+    padding: 2em;
+    border-radius: 1em;
+    border: 1px solid gray;
 
-.question-input{
-    width: 95%;
-}
+    .question-input{
+        height: 3%
+    }
 
-.answer-selector{
-    width: 15%;
-    margin-right: 5%;
-}
+    .answer-container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 3em;
 
-.answer-input{
-    width: 75%;
+        .answer-selector{
+            width: 8%;
+            height: 3%;
+        }
+
+        .answer-input{
+            width: 90%;
+            height: 3%;
+
+            .text-area{
+                height: 3%;
+            }
+        }
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        gap:1em;
+
+        button{
+            border-radius: 2em;
+            background-color: #F5EFF7;
+            border: 0;
+        }
+    }
 }

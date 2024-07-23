@@ -2,4 +2,12 @@
 
 #checklist-card{
     @include cards;
+    height: 30vh;
+    width: 13vw;
+    background-color: #F5EFF7;
+    gap: 1em;
+
+    mat-card-title{
+        margin-top: 1em;
+    }
 }

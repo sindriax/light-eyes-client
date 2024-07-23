@@ -1,26 +1,33 @@
 mat-toolbar {
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    span {
-      flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    background-color: #F5EFF7;
+
+    .logo{
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+    img{
+      width: 1.7em;
     }
-    button#more_vert {
-      margin-left: auto;
+    
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #7C6BA7;
     }
   }
-  
 
+    button{
+      background-color: transparent;
+      border: 0;
 
-  #eagle{
-    width: 25px;
-    height: auto;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  button {
-    border: 0;
+      .mat-icon{
+        font-size: 2em;
+      }
+    }
   }

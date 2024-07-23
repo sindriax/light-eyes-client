@@ -1,12 +1,28 @@
+#toggle-linear{
+  margin-bottom: 2em;
+}
 
-.mat-stepper-horizontal {
-    margin-top: 8px;
+.custom-form-field {
+  width: 100%;
+  height: 19em;
+
+  .description-box {
+  width: 100%;
   }
-  
-  .mat-mdc-form-field {
-    margin-top: 16px;
-  }
+}
+
+.mat-form-field-flex {
+  align-items: start;
+}
+
 .language-title-container{
   display: flex;
   flex-direction: column;
+}
+
+mat-stepper{
+  padding: 2em;
+  border-radius: 2em;
+  box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
+  background-color: white;
 }
