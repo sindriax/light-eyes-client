@@ -1,7 +1,29 @@
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: #7C6BA7; 
+}
+
+// Add color/icon for done
+.mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: #7C6BA7;
+}
+
+
+
+// .textarea .matInput{
+//   background-color: white
+// }
+
+// .mat-form-field{
+//   background-color: white;
+// }
+
+
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -12,7 +34,7 @@
 $light-eyes-client-theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$azure-palette,
+    primary: mat.$violet-palette,
     tertiary: mat.$blue-palette,
   ),
   density: (
