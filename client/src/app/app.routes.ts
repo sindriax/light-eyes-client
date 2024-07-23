@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout/layout.component';
-import { Component } from '@angular/core';
 import { ListChecklistComponent } from './checklist/views/list-checklist/list-checklist.component';
 import { ListReportComponent } from './report/views/list-report/list-report.component';
-import { CreateChecklistComponent } from './checklist/views/create-checklist/create-checklist.component';
+import { authGuard, authLoggedGuard } from './core/guards/auth.guard';
+import { LoginComponent } from './core/auth/login/login.component';
 
 
 export const routes: Routes = [
@@ -21,7 +21,13 @@ export const routes: Routes = [
             
             
            
-        ]
+        ],
+        canActivate:[authGuard]
+    },
+    {
+        path: "auth",
+        component: LoginComponent,
+        canActivate:[authLoggedGuard]
     }
 
 ];
