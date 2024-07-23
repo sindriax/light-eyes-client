@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component, ViewContainerRef  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,20 +23,28 @@ export class ChecklistQuestionComponent {
     {value: 'negative-4', viewValue: 'NO'},
  
   ]
-  answers: any[] = [];
-  showAnswerForm = false;
 
-  constructor(private answerService: GeneratorChecklistService) {
-    this.answerService.answers$.subscribe((answers: any[]) => this.answers = answers);
+  constructor (private viewContainerRef: ViewContainerRef){
+  }
+  addNewAnswer(){
+    this.viewContainerRef.createComponent(ChecklistAnswerComponent)
   }
 
-  openNewAnswer() {
-    this.showAnswerForm = true;
-  }
 
-  addAnswer(answer: any) {
-    this.answerService.addAnswer(answer);
-    this.showAnswerForm = false;
-  }
+  // answers: any[] = [];
+  // showAnswerForm = false;
+
+  // constructor(private answerService: GeneratorChecklistService) {
+  //   this.answerService.answers$.subscribe((answers: any[]) => this.answers = answers);
+  // }
+
+  // openNewAnswer() {
+  //   this.showAnswerForm = true;
+  // }
+
+  // addAnswer(answer: any) {
+  //   this.answerService.addAnswer(answer);
+  //   this.showAnswerForm = false;
+  // }
 
 }
