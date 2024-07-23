@@ -6,6 +6,7 @@ import { AuthService } from 'app/core/services/auth.service';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 export class CustomErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,16 +24,17 @@ export class CustomErrorStateMatcher implements ErrorStateMatcher {
 export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
-  authService = inject(AuthService)
-  matcher = new CustomErrorStateMatcher(); 
+  authService = inject(AuthService);
+  router = inject(Router);
+  matcher = new CustomErrorStateMatcher();
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
       // firstName: ['', Validators.required],
       // lastName: [''],
-      username: ['', Validators.required, Validators.minLength(8)],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
-      password: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/), Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/), Validators.minLength(8)]],
       confirmPassword: ['', Validators.required]
     }, {
       validator: this.mustMatch('password', 'confirmPassword')
@@ -57,6 +59,7 @@ export class RegisterComponent {
   }
 
   submit() {
+    console.log( "submit pressed" );
     this.submitted = true;
     if (this.registerForm.valid) {
       const newUser = {
@@ -67,7 +70,10 @@ export class RegisterComponent {
       console.log(newUser);
 
       this.authService.register(newUser).subscribe(
-        response => console.log('Registration successful:', response),
+        response => {
+          console.log('Registration successful:', response),
+          this.router.navigateByUrl('/profile')
+        },
         error => console.error('Registration error:', error)
       );
     }

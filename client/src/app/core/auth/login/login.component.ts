@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
   private formBuilder= inject(FormBuilder)
   router = inject(Router);
   loginForm!:FormGroup;
-  matcher = new CustomErrorStateMatcher(); 
+  matcher = new CustomErrorStateMatcher();
 
 
   ngOnInit(): void {
@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit{
     if(this.loginForm.valid){
       console.log("pass1");
       const logResult = this.authService.login(user).subscribe(r=>{
-      this.router.navigateByUrl('/profile')
-    });
+        this.router.navigateByUrl('/profile')
+      });
 
       console.log("logResult",logResult)
       console.log("pass2",user)
