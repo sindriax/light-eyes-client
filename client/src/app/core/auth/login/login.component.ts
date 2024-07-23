@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit{
     if(this.loginForm.valid){
       console.log("pass1");
       const logResult = this.authService.login(user).subscribe(r=>{
-        this.router.navigateByUrl('/profile')
+        this.router.navigateByUrl('')
       });
 
       console.log("logResult",logResult)

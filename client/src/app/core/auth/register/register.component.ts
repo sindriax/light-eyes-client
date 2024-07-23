@@ -72,7 +72,7 @@ export class RegisterComponent {
       this.authService.register(newUser).subscribe(
         response => {
           console.log('Registration successful:', response),
-          this.router.navigateByUrl('/profile')
+          this.router.navigateByUrl('')
         },
         error => console.error('Registration error:', error)
       );

@@ -9,7 +9,7 @@ import { LoginComponent } from './core/auth/login/login.component';
 export const routes: Routes = [
     { path: '', component: LayoutComponent, 
         children:[
-            {path: '', component: ListChecklistComponent}, 
+            {path: '', component: ListChecklistComponent},
             {path: "checklists", loadChildren: () => 
                 import('./checklist/checklist.routes')
                 .then( mod => {
@@ -17,10 +17,6 @@ export const routes: Routes = [
                 })
             },
             {path: "reports", component: ListReportComponent},
-            
-            
-            
-           
         ],
         canActivate:[authGuard]
     },
