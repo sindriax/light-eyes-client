@@ -1,5 +1,6 @@
 <form class="new-question-form">
   <mat-form-field class="question-input">
+    <mat-label>{{ questionCounter }}</mat-label>
     <mat-label>Include a new question or checklist item</mat-label>
     <textarea matInput placeholder="Ex. Procedimientos de Operación Documentados... "></textarea>
   </mat-form-field>
@@ -32,9 +33,9 @@
 <mat-icon>edit</mat-icon>
 Add New answer
 </button>
-<button mat-fab extended>
+<button (click)="addNewQuestion()" mat-fab extended>
 <mat-icon>edit</mat-icon>
-Save question and add new Question
+ Add new Question
 </button>
 <button mat-fab extended>
 <mat-icon>edit</mat-icon>

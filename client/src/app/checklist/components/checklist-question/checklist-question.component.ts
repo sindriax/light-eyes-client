@@ -16,6 +16,7 @@ import { ChecklistAnswerComponent } from "../checklist-answer/checklist-answer.c
 })
 export class ChecklistQuestionComponent {
 
+public questionCounter = 1;
 
 
  signselectors= [
@@ -30,6 +31,10 @@ export class ChecklistQuestionComponent {
     this.viewContainerRef.createComponent(ChecklistAnswerComponent)
   }
 
+  addNewQuestion(){
+    this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
+    this.questionCounter++;
+  }
 
   // answers: any[] = [];
   // showAnswerForm = false;
