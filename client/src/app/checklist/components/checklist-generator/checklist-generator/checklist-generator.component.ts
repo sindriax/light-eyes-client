@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ComponentFactoryResolver, inject, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,21 +9,35 @@ import { GeneratorChecklistService } from 'app/checklist/services/generator-chec
 import { ChecklistQuestionComponent } from "../../checklist-question/checklist-question.component";
 import { ChecklistAnswerComponent } from "../../checklist-answer/checklist-answer.component";
 import { Checklist } from 'app/shared/models/checklist';
+import { MatIcon } from '@angular/material/icon';
 
 
 
 @Component({
   selector: 'app-checklist-generator',
   standalone: true,
-  imports: [MatInputModule, MatStepperModule, MatButtonModule, MatFormFieldModule, ReactiveFormsModule, MatSelectModule, FormsModule, ChecklistQuestionComponent, ChecklistAnswerComponent],
+  imports: [MatInputModule, MatStepperModule, MatButtonModule, MatFormFieldModule, ReactiveFormsModule, MatSelectModule, FormsModule, ChecklistQuestionComponent, ChecklistAnswerComponent, MatIcon],
   templateUrl: './checklist-generator.component.html',
   styleUrl: './checklist-generator.component.scss'
 })
 export class ChecklistGeneratorComponent {
 
-
+  private _formBuilder = inject(FormBuilder)
   private generartorChecklistService = inject(GeneratorChecklistService)
-  constructor(private _formBuilder: FormBuilder) {}
+  // constructor(private _formBuilder: FormBuilder) {}
+  // private viewContainerRef = inject (ViewContainerRef)
+
+  private viewContainerRef: ViewContainerRef;
+
+
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    viewContainerRef: ViewContainerRef
+  ) {
+    this.viewContainerRef = viewContainerRef;
+  }
+
+
 
   languages = [
     {value: 'catala-0', viewValue: 'Català'},
@@ -33,16 +47,13 @@ export class ChecklistGeneratorComponent {
   checklistForm!: FormGroup;
   submitted = false;
 
-
-
- titleForm1 = this._formBuilder.group({
+  titleForm1 = this._formBuilder.group({
   language: ['', Validators.required],
   firstCtrl: ['', Validators.required],
   });
   checklistDescriptionForm2 = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
-
 
 newChecklist: Checklist={
   language: '',
@@ -51,8 +62,6 @@ newChecklist: Checklist={
 
 }
   isLinear = false;
-
-
 
   onSubmit(){
     const newChecklist = {
@@ -65,14 +74,48 @@ newChecklist: Checklist={
     this.generartorChecklistService.saveChecklist(this.newChecklist).subscribe(
       response => {
         console.log('Checklist saved successfully', response);
-   
       },
       error => {
         console.error('Error saving checklist', error);
-       
       }
     )
-
-
   }
+
+  public questionCounter = 1;
+
+  addNewQuestion() {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistQuestionComponent);
+    
+    const componentRef = this.viewContainerRef.createComponent(componentFactory);
+    
+    componentRef.instance.questionNumber = this.questionCounter;
+    
+    this.questionCounter++;
+  }
+
+
+  // XAVI's CODE
+//   addtionalQuestions: number[] = [];
+
+// public questionCounter = 1;
+
+
+//   signselectors= [
+//     {value: 'affirmative-3', viewValue: 'Yes'},
+//     {value: 'negative-4', viewValue: 'No'},
+//   ]
+
+
+  addNewAnswer(){
+    this.viewContainerRef.createComponent(ChecklistAnswerComponent)
+  }
+
+//   addNewQuestion(){
+//     if (this.questionCounter === 1){
+//       this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
+//       this.addtionalQuestions.push(this.questionCounter);
+//     }
+//     this.questionCounter++;
+//   }
+
 }

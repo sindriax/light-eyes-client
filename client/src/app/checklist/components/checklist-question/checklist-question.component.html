@@ -1,6 +1,5 @@
-
-<h1>Checklist</h1>
 <form class="new-question-form">
+    <span>{{ questionNumber }}</span>
     <mat-form-field class="question-input">
       <mat-label>Include a new question or checklist item</mat-label>
       <!-- <mat-label>{{ questionCounter }}</mat-label> -->
@@ -36,25 +35,12 @@
     <mat-label>Introduce the answer</mat-label>
     <textarea matInput placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. " id="text-area"></textarea>
   </mat-form-field>
-</div>
 
-<div class="buttons-container">
-  <div class="buttons">
-    <button mat-raised-button (click)="addNewAnswer()">
-      <mat-icon>edit</mat-icon>
-      Add new answer
-    </button>
-
-    <button mat-raised-button (click)="addNewQuestion()">
-      <mat-icon>edit</mat-icon>
-      Save and add new question
-    </button>
-
-    <button mat-raised-button>
-      <mat-icon>edit</mat-icon>
-      Save and <span>FINISH CHECKLIST</span>
-    </button>
-  </div>
+    
+  <button mat-raised-button > 
+    <mat-icon>edit</mat-icon>
+    Save answer
+  </button>
 </div>
 
 </form>

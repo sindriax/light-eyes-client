@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef  } from '@angular/core';
+import { Component, inject, Input, ViewContainerRef  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,19 +19,23 @@ import { ChecklistAnswerComponent } from "../checklist-answer/checklist-answer.c
 })
 export class ChecklistQuestionComponent {
 
+  @Input() questionNumber: number = 1;
+
+
+  private viewContainerRef = inject (ViewContainerRef)
+
+
 addtionalQuestions: number[] = [];
 
-public questionCounter = 1;
+public questionCounter = 2;
 
 
- signselectors= [
+// Hacer que el primero sea sí y la segunda no
+  signselectors= [
     {value: 'affirmative-3', viewValue: 'Yes'},
     {value: 'negative-4', viewValue: 'No'},
- 
   ]
 
-  constructor (private viewContainerRef: ViewContainerRef){
-  }
   addNewAnswer(){
     this.viewContainerRef.createComponent(ChecklistAnswerComponent)
   }
@@ -40,7 +44,6 @@ public questionCounter = 1;
     if (this.questionCounter === 1){
       this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
       this.addtionalQuestions.push(this.questionCounter);
-
     }
     this.questionCounter++;
   }

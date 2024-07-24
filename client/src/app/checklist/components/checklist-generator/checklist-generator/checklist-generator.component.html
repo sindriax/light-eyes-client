@@ -48,7 +48,25 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Question adding</ng-template>
+    <h1>Checklist</h1>
     <app-checklist-question></app-checklist-question>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button mat-raised-button (click)="addNewAnswer()">
+          <mat-icon>edit</mat-icon>
+          Add new answer
+        </button>
+
+        <button mat-raised-button (click)="addNewQuestion()">
+          <mat-icon>edit</mat-icon>
+          Save and add new question
+        </button>
+        <!-- <button mat-raised-button>
+          <mat-icon>edit</mat-icon>
+          Save and <span>FINISH CHECKLIST</span>
+        </button> -->
+      </div>
+  </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
