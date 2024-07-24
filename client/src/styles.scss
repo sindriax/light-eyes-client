@@ -1,7 +1,33 @@
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: #7C6BA7; 
+}
+
+// Add color/icon for done
+.mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: #7C6BA7;
+}
+
+.mat-label-state-edit{
+  color: black;
+}
+
+
+
+// .textarea .matInput{
+//   background-color: white
+// }
+
+// .mat-form-field{
+//   background-color: white;
+// }
+
+
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -12,13 +38,15 @@
 $light-eyes-client-theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$azure-palette,
+    primary: mat.$violet-palette,
     tertiary: mat.$blue-palette,
   ),
   density: (
     scale: 0,
   )
 ));
+
+// :root,:host{--sys-background:#141218;--sys-on-background:#e7e0e8;--sys-surface:#141218;--sys-surface-dim:#141218;--sys-surface-bright:#3b383e;--sys-surface-container-lowest:#0f0d13;--sys-surface-container-low:#1d1b20;--sys-surface-container:#211f24;--sys-surface-container-high:#2b292f;--sys-surface-container-highest:#36343a;--sys-on-surface:#e7e0e8;--sys-surface-variant:#49454e;--sys-on-surface-variant:#cbc4cf;--sys-inverse-surface:#e7e0e8;--sys-inverse-on-surface:#322f35;--sys-outline:#948f99;--sys-outline-variant:#49454e;--sys-shadow:#000000;--sys-scrim:#000000;--sys-surface-tint:#d0bcfe;--sys-primary:#d0bcfe;--sys-on-primary:#36265d;--sys-primary-container:#4d3d75;--sys-on-primary-container:#e9ddff;--sys-inverse-primary:#65558f;--sys-secondary:#d1bcfd;--sys-on-secondary:#37265d;--sys-secondary-container:#4e3d75;--sys-on-secondary-container:#eaddff;--sys-tertiary:#d0bcfe;--sys-on-tertiary:#36265d;--sys-tertiary-container:#4d3d75;--sys-on-tertiary-container:#e9ddff;--sys-error:#ffb4aa;--sys-on-error:#561e18;--sys-error-container:#73342c;--sys-on-error-container:#ffdad5;--sys-neutral:#7a767d;--sys-neutral-variant:#7a757f;--sys-primary-fixed:#e9ddff;--sys-primary-fixed-dim:#d0bcfe;--sys-on-primary-fixed:#210f47;--sys-on-primary-fixed-variant:#4d3d75;--sys-secondary-fixed:#eaddff;--sys-secondary-fixed-dim:#d1bcfd;--sys-on-secondary-fixed:#220f46;--sys-on-secondary-fixed-variant:#4e3d75;--sys-tertiary-fixed:#e9ddff;--sys-tertiary-fixed-dim:#d0bcfe;--sys-on-tertiary-fixed:#210f47;--sys-on-tertiary-fixed-variant:#4d3d75;--sys-inverse-secondary:#66558e;--sys-inverse-tertiary:#65558f;--sys-inverse-error:#904a42;--sys-error-fixed:#ffdad5;--sys-error-fixed-dim:#ffb4aa;--sys-on-error-fixed:#3b0906;--sys-on-error-fixed-variant:#73342c;}
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

@@ -1,5 +1,6 @@
 import { Component, ViewContainerRef  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -10,7 +11,9 @@ import { ChecklistAnswerComponent } from "../checklist-answer/checklist-answer.c
 @Component({
   selector: 'app-checklist-question',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatIconModule, ChecklistAnswerComponent],
+
+  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatIconModule, ChecklistAnswerComponent,  MatButton, MatButtonModule],
+
   templateUrl: './checklist-question.component.html',
   styleUrl: './checklist-question.component.scss'
 })
@@ -22,8 +25,8 @@ public questionCounter = 1;
 
 
  signselectors= [
-    {value: 'affirmative-3', viewValue: 'YES'},
-    {value: 'negative-4', viewValue: 'NO'},
+    {value: 'affirmative-3', viewValue: 'Yes'},
+    {value: 'negative-4', viewValue: 'No'},
  
   ]
 
