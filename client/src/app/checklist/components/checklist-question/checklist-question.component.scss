@@ -24,26 +24,33 @@
             width: 90%;
             height: 3%;
 
-            .text-area{
-                height: 3%;
+            #text-area{
+                height: 1em;
             }
         }
     }
 
+    .buttons-container{
+        width: 100%;
+        display: flex;
+        align-items: end;
+        justify-content: end;
+    }
+
     .buttons{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap:1em;
-        width: 35%;
+        width: 45%;
         justify-content: center;
-        // align-items: center;
 
         button{
-            border-radius: 2em;
-            // background-color: #7C6BA7;
-            border: solid 2px #7C6BA7;
-            background-color: transparent;
             color: #323233;
+            width: 35%;
+
+            span{
+                font-weight: bold;
+            }
         }
     }
 }
