@@ -16,6 +16,8 @@ import { ChecklistAnswerComponent } from "../checklist-answer/checklist-answer.c
 })
 export class ChecklistQuestionComponent {
 
+addtionalQuestions: number[] = [];
+
 public questionCounter = 1;
 
 
@@ -32,7 +34,11 @@ public questionCounter = 1;
   }
 
   addNewQuestion(){
-    this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
+    if (this.questionCounter === 1){
+      this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
+      this.addtionalQuestions.push(this.questionCounter);
+
+    }
     this.questionCounter++;
   }
 
