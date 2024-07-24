@@ -1,0 +1,26 @@
+.answer-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 3em;
+
+    .answer-selector{
+        width: 8%;
+        height: 3%;
+    }
+
+    .answer-input{
+        width: 90%;
+        height: 3%;
+
+        #text-area{
+            height: 1em;
+        }
+    }
+}
+
+
+button{
+    color: #323233;
+    width: 35%;
+}

@@ -1,14 +1,10 @@
-:root {
-    --backround-grey: red;
-}
-
 .grid-container {
     display: grid;
     grid-template-areas:
       "header header"
       "aside main";
     grid-template-rows: auto 1fr;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 18vw 1fr;
     height: 100vh;
   }
 
@@ -19,9 +15,7 @@
 
   .aside {
     grid-area: aside;
-    background-color: var(--backround-grey);
-    border: solid, 1px red;
-
+    // background-color: var(--backround-grey);
   }
 
   #main{
