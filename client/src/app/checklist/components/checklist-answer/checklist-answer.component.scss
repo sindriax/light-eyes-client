@@ -1,26 +1,35 @@
 .answer-container{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    justify-content: end;
+    align-items: end;
+    width: 96%;
     gap: 3em;
-
-    .answer-selector{
-        width: 8%;
-        height: 3%;
+    margin-left: 4%;
+    margin-top: 0.5%;
+    
+    .selector-input-container{
+        display: flex;
+        flex-direction: row;
+        // justify-content: end;
+        // align-items: end;
+        width: 100%;
+        gap: 3em;
+        margin-left: 4%;
+        margin-top: 0.5%;
+        border: 1px solid red;
     }
-
-    .answer-input{
-        width: 90%;
-        height: 3%;
-
-        #text-area{
-            height: 1em;
+    
+    #answer-selector{
+        width: 7%;
+        height: 5em;
+        margin-bottom: -1em;
         }
+
+    #answer-input{
+        width: 99%;
+        height: 5em;
+        margin-bottom: -1em;
     }
 }
 
-
-button{
-    color: #323233;
-    width: 35%;
-}

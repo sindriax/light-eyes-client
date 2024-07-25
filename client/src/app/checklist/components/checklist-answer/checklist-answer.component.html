@@ -1,7 +1,6 @@
-
 <div class="answer-container">
-
-    <mat-form-field class="answer-selector">
+  <div class="selector-input-container">
+    <mat-form-field id="answer-selector">
     <mat-label>Answer</mat-label>
     <mat-select>
       @for (signselector of signselectors; track signselector) {
@@ -9,8 +8,9 @@
       }
     </mat-select>
   </mat-form-field>
-  
-  <mat-form-field class="answer-input">
+  <mat-form-field id="answer-input">
     <mat-label>Introduce the answer</mat-label>
     <textarea matInput placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. " id="text-area"></textarea>
-  </mat-form-field></div>
+  </mat-form-field>
+</div>
+</div>

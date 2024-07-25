@@ -1,4 +1,4 @@
-import { Component, inject, Input, ViewContainerRef  } from '@angular/core';
+import { Component, ComponentFactoryResolver, inject, Input, ViewChild, ViewContainerRef  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,19 +18,25 @@ import { ChecklistAnswerComponent } from "../checklist-answer/checklist-answer.c
   styleUrl: './checklist-question.component.scss'
 })
 export class ChecklistQuestionComponent {
-
+  @ViewChild('answerContainer', { read: ViewContainerRef }) answerContainer!: ViewContainerRef;
   @Input() questionNumber: number = 1;
-
+  public questionCounter = 2;
 
   // private viewContainerRef = inject (ViewContainerRef)
 
+  private viewContainerRef: ViewContainerRef;
 
-// addtionalQuestions: number[] = [];
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    viewContainerRef: ViewContainerRef
+  ) {
+    this.viewContainerRef = viewContainerRef;
+  }
+addtionalQuestions: number[] = [];
 
-// public questionCounter = 2;
 
 
-// Hacer que el primero sea sí y la segunda no .. NEEDED
+// Hacer que el primero sea sí y la segunda no
   signselectors= [
     {value: 'affirmative-3', viewValue: 'Yes'},
     {value: 'negative-4', viewValue: 'No'},
@@ -40,6 +46,16 @@ export class ChecklistQuestionComponent {
   //   this.viewContainerRef.createComponent(ChecklistAnswerComponent)
   // }
 
+  //   addNewAnswer() {
+  //   const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistAnswerComponent);
+  //   this.answerContainer.createComponent(componentFactory);
+  // }
+
+  addNewAnswer() {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistAnswerComponent);
+    this.answerContainer.createComponent(componentFactory);
+  }
+
   // addNewQuestion(){
   //   if (this.questionCounter === 1){
   //     this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
@@ -47,8 +63,6 @@ export class ChecklistQuestionComponent {
   //   }
   //   this.questionCounter++;
   // }
-
-  // _______________________________
 
   // answers: any[] = [];
   // showAnswerForm = false;

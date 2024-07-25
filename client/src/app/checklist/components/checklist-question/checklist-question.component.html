@@ -8,7 +8,8 @@
       <textarea matInput placeholder="Ex. Procedimientos de Operación Documentados... " id="text-area"></textarea>
     </mat-form-field>
   </div>
-    <div class="answer-container">
+  <div class="answer-container">
+  <div class="selector-input-container">
       <mat-form-field id="answer-selector">
         <mat-label>Answer</mat-label>
         <mat-select>
@@ -23,27 +24,26 @@
         <textarea matInput placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. " id="text-area"></textarea>
       </mat-form-field>
     </div>
+  
 
-<div class="answer-container">
-  <mat-form-field id="answer-selector">
-    <mat-label>Answer</mat-label>
-    <mat-select>
-      @for (signselector of signselectors; track signselector) {
-        <mat-option [value]="signselector.value">{{signselector.viewValue}}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
 
-  <mat-form-field id="answer-input">
-    <mat-label>Introduce the answer</mat-label>
-    <textarea matInput placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. " id="text-area"></textarea>
-  </mat-form-field>
+  <div class="selector-input-container">
+    <mat-form-field id="answer-selector">
+      <mat-label>Answer</mat-label>
+      <mat-select>
+        @for (signselector of signselectors; track signselector) {
+          <mat-option [value]="signselector.value">{{signselector.viewValue}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
 
-    
-  <!-- <button mat-raised-button > 
-    <mat-icon>edit</mat-icon>
-    Save answer
-  </button> -->
+    <mat-form-field id="answer-input">
+      <mat-label>Introduce the answer</mat-label>
+      <textarea matInput placeholder="Ex. . Cumplimiento: Sí, tienen procedimientos operativos documentados. " id="text-area"></textarea>
+    </mat-form-field>
+  </div>
+
+  <ng-template #answerContainer><app-checklist-answer></app-checklist-answer></ng-template>
 </div>
 
 </form>

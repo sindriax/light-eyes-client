@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, inject, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef, inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,15 +21,16 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './checklist-generator.component.scss'
 })
 export class ChecklistGeneratorComponent {
-
   @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
+  @ViewChild('answerContainer', { read: ViewContainerRef }) answerContainer!: ViewContainerRef;
+  @ViewChild('initialQuestion', { read: ChecklistQuestionComponent }) initialQuestion!: ChecklistQuestionComponent;
+
 
   private _formBuilder = inject(FormBuilder)
   private generartorChecklistService = inject(GeneratorChecklistService)
-  // constructor(private _formBuilder: FormBuilder) {}
-  // private viewContainerRef = inject (ViewContainerRef)
-
   private viewContainerRef: ViewContainerRef;
+  public questionCounter = 2;
+  private questionComponents: ChecklistQuestionComponent[] = [];
 
 
   constructor(
@@ -38,8 +39,6 @@ export class ChecklistGeneratorComponent {
   ) {
     this.viewContainerRef = viewContainerRef;
   }
-
-
 
   languages = [
     {value: 'catala-0', viewValue: 'Català'},
@@ -65,6 +64,11 @@ newChecklist: Checklist={
 }
   isLinear = false;
 
+  ngAfterViewInit() {
+    this.initialQuestion.questionNumber = 1;
+    this.questionComponents.push(this.initialQuestion);
+  }
+
   onSubmit(){
     const newChecklist = {
       language: this.titleForm1.value.language,
@@ -82,15 +86,21 @@ newChecklist: Checklist={
     )
   }
 
-  public questionCounter = 2;
-
   addNewQuestion() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistQuestionComponent);
     const componentRef = this.questionContainer.createComponent(componentFactory);
-    componentRef.instance.questionNumber = this.questionCounter;
+    const instance = componentRef.instance as ChecklistQuestionComponent;
+    instance.questionNumber = this.questionCounter;
+    this.questionComponents.push(instance); // Store reference to the component
     this.questionCounter++;
   }
 
+  addNewAnswer() {
+    const lastQuestionComponent = this.questionComponents[this.questionComponents.length - 1];
+    if (lastQuestionComponent) {
+      lastQuestionComponent.addNewAnswer();
+    }
+  }
 
   // XAVI's CODE
 //   addtionalQuestions: number[] = [];
@@ -104,9 +114,7 @@ newChecklist: Checklist={
 //   ]
 
 
-  addNewAnswer(){
-    this.viewContainerRef.createComponent(ChecklistAnswerComponent)
-  }
+
 
 //   addNewQuestion(){
 //     if (this.questionCounter === 1){

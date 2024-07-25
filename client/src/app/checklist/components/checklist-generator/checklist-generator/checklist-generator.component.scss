@@ -12,6 +12,11 @@
     margin-bottom: 2em;
 }
 
+.answers-container{
+  display: flex;
+  flex-direction: column;
+}
+
 .custom-form-field {
   width: 100%;
   height: 19em;
@@ -61,4 +66,9 @@ mat-stepper{
       color: #323233;
       // width: 35%;
   }
+}
+
+.containers{
+  display: flex;
+  flex-direction: column;
 }
