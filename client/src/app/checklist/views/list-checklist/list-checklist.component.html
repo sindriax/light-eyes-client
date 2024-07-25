@@ -8,8 +8,8 @@
   </div>
 
   <div class="checklistContainerCard">  
-    @for (checklist of (checklists | async) || []; track $index) {
-      <app-checklist-card [checklist]="checklist"></app-checklist-card>
+    @for (checklist of (checklists | async) || []; track checklist.id) {
+      <app-checklist-card ></app-checklist-card>
     }
   </div>
 

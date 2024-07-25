@@ -26,6 +26,13 @@
       "creationDate":"15/07/1999 - 17:00", 
       "checklistTitle": "NIS1",
       "checklistDescription":"Deprecated ISO"
+    },
+    {
+      "id": "3",
+      "creator": "Daniel Cueto",
+      "creationDate":"15/07/2024 - 17:00", 
+      "checklistTitle": "NIS2",
+      "checklistDescription":"Best ISO to obtain"
     }
   ],
 
