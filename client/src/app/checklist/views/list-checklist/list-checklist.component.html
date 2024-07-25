@@ -3,15 +3,9 @@
   <div>      
     <button mat-fab extended routerLinkActive="active" [routerLink]="['create']"> 
    <mat-icon>edit</mat-icon>Create Checklist
-
     </button>
   </div>
-
   <div class="checklistContainerCard">  
-    @for (checklist of (checklists | async) || []; track checklist.id) {
       <app-checklist-card ></app-checklist-card>
-    }
   </div>
-
-
 </section>

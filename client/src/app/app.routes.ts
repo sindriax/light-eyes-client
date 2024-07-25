@@ -18,6 +18,12 @@ export const routes: Routes = [
                 })
             },
             {path: "reports", component: ListReportComponent},
+            {path: "reports", loadChildren: () => 
+                import("./report/report.routes")
+                .then(mod =>{
+                    return mod.REPORT_ROUTES;
+                })
+            }
         ],
         canActivate:[authGuard]
     },

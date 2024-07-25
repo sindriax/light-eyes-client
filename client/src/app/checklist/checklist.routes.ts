@@ -6,5 +6,5 @@ import { EditChecklistComponent } from "./views/edit-checklist/edit-checklist.co
 export const CHECKLIST_ROUTES: Route[] = [
     {path: '', component: ListChecklistComponent}, 
     {path: "create", component: CreateChecklistComponent},
-    { path: 'check-list-item/:id', component: EditChecklistComponent }
+    { path: 'item/:id', component: EditChecklistComponent }
 ]

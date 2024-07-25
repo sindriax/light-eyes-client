@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -7,17 +7,14 @@ import { RouterLink } from '@angular/router';
 import { ChecklistService } from 'app/checklist/services/checklist.service';
 import { Checklist } from 'app/shared/models/checklist';
 
-
 @Component({
-  selector: 'app-checklist-card',
+  selector: 'app-report-table',
   standalone: true,
   imports: [MatCardModule, MatIcon, RouterLink, MatTableModule, MatInputModule],
-  templateUrl: './checklist-card.component.html',
-  styleUrl: './checklist-card.component.scss',
+  templateUrl: './report-table.component.html',
+  styleUrl: './report-table.component.scss'
 })
-
-
-export class ChecklistCardComponent implements OnInit{
+export class ReportTableComponent {
   @Input() checklist!: Checklist[];
   filteredCheckList: Checklist[] = [];
   
@@ -39,9 +36,4 @@ export class ChecklistCardComponent implements OnInit{
 
   displayedColumns: string[] = ['checkListId', 'name', 'description', 'language', 'creationDate'];
   checkListSource = this.checklist;
-
-  // onSearch(filteredCheckList: Checklist[]){
-  //   filteredCheckList = filteredCheckList;
-  // }
 }
-

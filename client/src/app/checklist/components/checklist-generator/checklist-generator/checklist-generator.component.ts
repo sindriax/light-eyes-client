@@ -46,8 +46,8 @@ export class ChecklistGeneratorComponent {
 
 newChecklist: Checklist={
   language: '',
-  checklistTitle: '',
-  checklistDescription: '',
+  name: '',
+  description: '',
 
 }
   isLinear = false;

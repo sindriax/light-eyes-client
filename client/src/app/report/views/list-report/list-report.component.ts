@@ -6,11 +6,12 @@ import { ReportService } from 'app/report/services/report.service';
 import { Observable } from 'rxjs';
 import { Report } from 'app/shared/models/reports';
 import { ReportCardComponent } from "../../components/report-card/report-card.component";
+import { ReportTableComponent } from "../../components/report-table/report-table.component";
 
 @Component({
   selector: 'app-list-report',
   standalone: true,
-  imports: [AsyncPipe, MatButtonModule, MatCardModule, ReportCardComponent],
+  imports: [AsyncPipe, MatButtonModule, MatCardModule, ReportCardComponent, ReportTableComponent],
   templateUrl: './list-report.component.html',
   styleUrl: './list-report.component.scss'
 })
