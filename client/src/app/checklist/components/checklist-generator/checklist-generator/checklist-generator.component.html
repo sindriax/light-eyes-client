@@ -49,10 +49,10 @@
   <mat-step>
     <ng-template matStepLabel>Question adding</ng-template>
     <h1>Checklist</h1>
+    <div class="question-container">
     <ng-container #questionContainer>
       <app-checklist-question></app-checklist-question>
     </ng-container>
-    <!-- <div class="question-container"> -->
     <div class="buttons-container">
       <div class="buttons">
         <button mat-raised-button (click)="addNewAnswer()">
@@ -70,7 +70,7 @@
         </button> -->
       </div>
   </div>
-    <!-- </div> -->
+    </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>

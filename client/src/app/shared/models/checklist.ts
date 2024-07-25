@@ -1,7 +1,7 @@
 export interface Checklist{
     id?: number;
     creator?: string;
-    creationDate?: string;
+    creationDate?: Date;
     checklistTitle: string;
     checklistDescription: string;
     language?: string;

@@ -1,13 +1,15 @@
+#toggle-linear{
+  margin-top: 2em;
+  margin-left: 2em;
+  color: #493971;
+}
 .question-container{
     border-radius: 1em;
     border: 1px solid rgba(171, 171, 171, 0.696);
-    padding: 2em;
-
-}
-
-#toggle-linear{
-  margin-bottom: 2em;
-  color: #493971;
+    padding-right: 2em;
+    padding-left:2em;
+    padding-top: 2em;
+    margin-bottom: 2em;
 }
 
 .custom-form-field {
@@ -34,9 +36,29 @@ mat-stepper{
   border-radius: 2em;
   box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
   background-color: white;
+  margin: 2em;
 
   button{
     color: #493971;
   }
 }
 
+.buttons-container{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-bottom: 1em;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  gap:1em;
+  // width: 45%;
+  justify-content: center;
+
+  button{
+      color: #323233;
+      // width: 35%;
+  }
+}

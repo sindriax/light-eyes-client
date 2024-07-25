@@ -82,7 +82,7 @@ newChecklist: Checklist={
     )
   }
 
-  public questionCounter = 1;
+  public questionCounter = 2;
 
   addNewQuestion() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistQuestionComponent);
