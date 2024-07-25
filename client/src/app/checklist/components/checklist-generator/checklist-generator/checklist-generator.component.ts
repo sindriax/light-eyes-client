@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, inject, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +21,8 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './checklist-generator.component.scss'
 })
 export class ChecklistGeneratorComponent {
+
+  @ViewChild('questionContainer', { read: ViewContainerRef }) questionContainer!: ViewContainerRef;
 
   private _formBuilder = inject(FormBuilder)
   private generartorChecklistService = inject(GeneratorChecklistService)
@@ -68,7 +70,6 @@ newChecklist: Checklist={
       language: this.titleForm1.value.language,
       checklistTitle: this.titleForm1.value.firstCtrl,
       checklistDescription: this.checklistDescriptionForm2.value.secondCtrl,
-
     }
 
     this.generartorChecklistService.saveChecklist(this.newChecklist).subscribe(
@@ -85,11 +86,8 @@ newChecklist: Checklist={
 
   addNewQuestion() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistQuestionComponent);
-    
-    const componentRef = this.viewContainerRef.createComponent(componentFactory);
-    
+    const componentRef = this.questionContainer.createComponent(componentFactory);
     componentRef.instance.questionNumber = this.questionCounter;
-    
     this.questionCounter++;
   }
 

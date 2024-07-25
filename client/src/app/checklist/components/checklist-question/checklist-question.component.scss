@@ -1,12 +1,11 @@
 .new-question-form{
     display: flex;
     flex-direction: column;
-    padding: 2em;
-    border-radius: 1em;
-    border: 1px solid rgba(171, 171, 171, 0.696);
+    padding: 3em;
+
 
     .question-input{
-        height: 3%
+        height: 5em;
     }
 
     .answer-container{
@@ -25,7 +24,7 @@
             height: 3%;
 
             #text-area{
-                height: 1em;
+                height: 2em;
             }
         }
     }

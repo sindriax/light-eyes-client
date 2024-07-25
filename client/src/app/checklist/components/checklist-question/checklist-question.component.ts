@@ -22,31 +22,33 @@ export class ChecklistQuestionComponent {
   @Input() questionNumber: number = 1;
 
 
-  private viewContainerRef = inject (ViewContainerRef)
+  // private viewContainerRef = inject (ViewContainerRef)
 
 
-addtionalQuestions: number[] = [];
+// addtionalQuestions: number[] = [];
 
-public questionCounter = 2;
+// public questionCounter = 2;
 
 
-// Hacer que el primero sea sí y la segunda no
+// Hacer que el primero sea sí y la segunda no .. NEEDED
   signselectors= [
     {value: 'affirmative-3', viewValue: 'Yes'},
     {value: 'negative-4', viewValue: 'No'},
   ]
 
-  addNewAnswer(){
-    this.viewContainerRef.createComponent(ChecklistAnswerComponent)
-  }
+  // addNewAnswer(){
+  //   this.viewContainerRef.createComponent(ChecklistAnswerComponent)
+  // }
 
-  addNewQuestion(){
-    if (this.questionCounter === 1){
-      this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
-      this.addtionalQuestions.push(this.questionCounter);
-    }
-    this.questionCounter++;
-  }
+  // addNewQuestion(){
+  //   if (this.questionCounter === 1){
+  //     this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
+  //     this.addtionalQuestions.push(this.questionCounter);
+  //   }
+  //   this.questionCounter++;
+  // }
+
+  // _______________________________
 
   // answers: any[] = [];
   // showAnswerForm = false;

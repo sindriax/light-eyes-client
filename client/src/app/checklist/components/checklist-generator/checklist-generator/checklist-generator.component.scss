@@ -1,12 +1,9 @@
-@import '../../../../../app/styles/mixins';
+.question-container{
+    border-radius: 1em;
+    border: 1px solid rgba(171, 171, 171, 0.696);
+    padding: 2em;
 
-
-    // @include layout-position;
-
-// button .mat-raised-button{
-//   color: #493971;
-
-// button mat-raised-button
+}
 
 #toggle-linear{
   margin-bottom: 2em;
@@ -32,7 +29,6 @@
 }
 
 
-
 mat-stepper{
   padding: 2em;
   border-radius: 2em;
@@ -43,19 +39,4 @@ mat-stepper{
     color: #493971;
   }
 }
-
-// ::ng-deep .mat-step-header .mat-step-icon-selected {
-//   background-color: #7C6BA7; 
-// }
-
-// ::ng-deep .mat-step-header{
-//   border-bottom: #493971 2px solid;
-// }
-
-// .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
-//   background-color: transparent !important;
-//   color: $success;
-//   +.mat-step-label{
-//     color: $success !important;
-//   }
 
