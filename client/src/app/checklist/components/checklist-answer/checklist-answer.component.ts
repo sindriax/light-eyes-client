@@ -23,8 +23,8 @@ export class ChecklistAnswerComponent {
 
 
   signselectors= [
-    {value: 'affirmative-2', viewValue: 'YES'},
-    {value: 'negative-3', viewValue: 'NO'},
+    {value: 'affirmative-2', viewValue: 'Yes'},
+    {value: 'negative-3', viewValue: 'No'},
   ]
   
   newanswerForm: FormGroup;
