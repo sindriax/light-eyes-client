@@ -91,7 +91,7 @@ newChecklist: Checklist={
     const componentRef = this.questionContainer.createComponent(componentFactory);
     const instance = componentRef.instance as ChecklistQuestionComponent;
     instance.questionNumber = this.questionCounter;
-    this.questionComponents.push(instance); // Store reference to the component
+    this.questionComponents.push(instance);
     this.questionCounter++;
   }
 
@@ -101,27 +101,4 @@ newChecklist: Checklist={
       lastQuestionComponent.addNewAnswer();
     }
   }
-
-  // XAVI's CODE
-//   addtionalQuestions: number[] = [];
-
-// public questionCounter = 1;
-
-
-//   signselectors= [
-//     {value: 'affirmative-3', viewValue: 'Yes'},
-//     {value: 'negative-4', viewValue: 'No'},
-//   ]
-
-
-
-
-//   addNewQuestion(){
-//     if (this.questionCounter === 1){
-//       this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
-//       this.addtionalQuestions.push(this.questionCounter);
-//     }
-//     this.questionCounter++;
-//   }
-
 }

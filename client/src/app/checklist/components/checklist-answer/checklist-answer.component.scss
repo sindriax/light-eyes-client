@@ -1,8 +1,6 @@
 .answer-container{
     display: flex;
     flex-direction: row;
-    justify-content: end;
-    align-items: end;
     width: 96%;
     gap: 3em;
     margin-left: 4%;
@@ -11,13 +9,9 @@
     .selector-input-container{
         display: flex;
         flex-direction: row;
-        // justify-content: end;
-        // align-items: end;
         width: 100%;
         gap: 3em;
-        margin-left: 4%;
         margin-top: 0.5%;
-        border: 1px solid red;
     }
     
     #answer-selector{

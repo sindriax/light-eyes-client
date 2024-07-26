@@ -5,8 +5,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { GeneratorChecklistService } from 'app/checklist/services/generator-checklist.service';
-import { CommonModule } from '@angular/common';
 import { ChecklistAnswerComponent } from "../checklist-answer/checklist-answer.component";
 @Component({
   selector: 'app-checklist-question',
@@ -42,42 +40,9 @@ addtionalQuestions: number[] = [];
     {value: 'negative-4', viewValue: 'No'},
   ]
 
-  // addNewAnswer(){
-  //   this.viewContainerRef.createComponent(ChecklistAnswerComponent)
-  // }
-
-  //   addNewAnswer() {
-  //   const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistAnswerComponent);
-  //   this.answerContainer.createComponent(componentFactory);
-  // }
-
   addNewAnswer() {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistAnswerComponent);
     this.answerContainer.createComponent(componentFactory);
   }
-
-  // addNewQuestion(){
-  //   if (this.questionCounter === 1){
-  //     this.viewContainerRef.createComponent(ChecklistQuestionComponent); 
-  //     this.addtionalQuestions.push(this.questionCounter);
-  //   }
-  //   this.questionCounter++;
-  // }
-
-  // answers: any[] = [];
-  // showAnswerForm = false;
-
-  // constructor(private answerService: GeneratorChecklistService) {
-  //   this.answerService.answers$.subscribe((answers: any[]) => this.answers = answers);
-  // }
-
-  // openNewAnswer() {
-  //   this.showAnswerForm = true;
-  // }
-
-  // addAnswer(answer: any) {
-  //   this.answerService.addAnswer(answer);
-  //   this.showAnswerForm = false;
-  // }
 
 }

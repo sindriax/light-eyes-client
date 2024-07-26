@@ -50,27 +50,27 @@
     <ng-template matStepLabel>Question adding</ng-template>
     <h1>Checklist</h1>
     <div class="containers">
-    <div class="question-container">
-    <ng-container #questionContainer>
-      <app-checklist-question #initialQuestion></app-checklist-question>
-    </ng-container>
+      <div class="question-container">
+        <ng-container #questionContainer>
+          <app-checklist-question #initialQuestion></app-checklist-question>
+        </ng-container>
+      </div>
       <div class="answers-container">
-    <ng-template #answerContainer></ng-template>
+        <ng-template #answerContainer></ng-template>
       </div>
-    </div>
-    <div class="buttons-container">
-      <div class="buttons">
-        <button mat-raised-button (click)="addNewAnswer()">
-          <mat-icon>edit</mat-icon>
-          Add new answer
-        </button>
+      <div class="buttons-container">
+        <div class="buttons">
+          <button mat-raised-button (click)="addNewAnswer()">
+            <mat-icon>edit</mat-icon>
+            Add new answer
+          </button>
 
-        <button mat-raised-button (click)="addNewQuestion()">
-          <mat-icon>edit</mat-icon>
-          Save and add new question
-        </button>
+          <button mat-raised-button (click)="addNewQuestion()">
+            <mat-icon>edit</mat-icon>
+            Save and add new question
+          </button>
+        </div>
       </div>
-  </div>
     </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>

@@ -1,6 +1,7 @@
 .new-question-form{
     display: flex;
     flex-direction: column;
+    padding-bottom: 2em;
 
     .counter-question-container{
         width: 100%;
@@ -10,10 +11,10 @@
         justify-content: center;
         align-items: center;
         margin-top: 2em;
-
+        
         .counter{
             height: 3em;
-            width: 3em;
+            width: 3.2em;
             justify-content: center;
             padding: 0.3em;
 
@@ -35,7 +36,6 @@
             height: 5em;
             width: 96%;
             display: flex;
-            justify-content: center;
         }
 
     }
@@ -43,38 +43,27 @@
     .answer-container{
         display: flex;
         flex-direction: column;
-        // justify-content: end;
-        // align-items: end;
-        width: 96%;
-        // gap: 3em;
-        // margin-left: 4%;
-        // margin-top: 0.5%;
-        border: 1px solid orange;
+        width: 100%;
 
         .selector-input-container{
             display: flex;
             flex-direction: row;
-            // justify-content: end;
-            // align-items: end;
-            width: 100%;
+            width: 96%;
             gap: 3em;
             margin-left: 4%;
             margin-top: 0.5%;
-            border: 1px solid red;
         }
 
         #answer-selector{
             width: 7%;
             height: 5em;
             margin-bottom: -1em;
-            border: 1px solid green;
         }
 
         #answer-input{
-            width: 90%;
+            width: 99%;
             height: 5em;
             margin-bottom: -1em;
-            border: solid blue 1px;
         }
     }
 }

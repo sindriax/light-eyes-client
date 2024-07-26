@@ -19,31 +19,27 @@ import { MatSelectModule } from '@angular/material/select';
 export class ChecklistAnswerComponent {
 
   @ViewChild('answerContainer', { read: ViewContainerRef }) answerContainer!: ViewContainerRef;
+  @Output() answerAdded = new EventEmitter<any>();
 
 
   signselectors= [
     {value: 'affirmative-2', viewValue: 'YES'},
     {value: 'negative-3', viewValue: 'NO'},
   ]
-@Output() answerAdded = new EventEmitter<any>();
-newanswerForm: FormGroup;
+  
+  newanswerForm: FormGroup;
 
-constructor(private fb: FormBuilder) {
-  this.newanswerForm = this.fb.group({
-    answer: ['', Validators.required],
-    signselector: ['', Validators.required]
-  });
-}
-
-onSubmit() {
-  if (this.newanswerForm.valid) {
-    this.answerAdded.emit(this.newanswerForm.value);
-    this.newanswerForm.reset();
+  constructor(private fb: FormBuilder) {
+    this.newanswerForm = this.fb.group({
+      answer: ['', Validators.required],
+      signselector: ['', Validators.required]
+    });
   }
-}
 
-// addNewAnswer() {
-//   const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ChecklistAnswerComponent);
-//   this.answerContainer.createComponent(componentFactory);
-// }
+  onSubmit() {
+    if (this.newanswerForm.valid) {
+      this.answerAdded.emit(this.newanswerForm.value);
+      this.newanswerForm.reset();
+    }
+  }
 }
