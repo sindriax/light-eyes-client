@@ -1,36 +1,8 @@
-@import '../../../../../app/styles/mixins';
-
-
-    // @include layout-position;
-
-// button .mat-raised-button{
-//   color: #493971;
-
-// button mat-raised-button
-
 #toggle-linear{
-  margin-bottom: 2em;
+  margin-top: 2em;
+  margin-left: 2em;
   color: #493971;
 }
-
-.custom-form-field {
-  width: 100%;
-  height: 19em;
-
-  .description-box {
-  width: 100%;
-  }
-}
-
-.mat-form-field-flex {
-  align-items: start;
-}
-
-.language-title-container{
-  display: flex;
-  flex-direction: column;
-}
-
 
 
 mat-stepper{
@@ -38,24 +10,63 @@ mat-stepper{
   border-radius: 2em;
   box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
   background-color: white;
+  margin: 2em;
 
   button{
     color: #493971;
   }
+  .custom-form-field {
+    width: 100%;
+    height: 19em;
+  
+    .description-box {
+    width: 100%;
+    }
+  }
+  
+  .mat-form-field-flex {
+    align-items: start;
+  }
+  
+  .language-title-container{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-// ::ng-deep .mat-step-header .mat-step-icon-selected {
-//   background-color: #7C6BA7; 
-// }
+.containers{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-// ::ng-deep .mat-step-header{
-//   border-bottom: #493971 2px solid;
-// }
-
-// .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
-//   background-color: transparent !important;
-//   color: $success;
-//   +.mat-step-label{
-//     color: $success !important;
-//   }
-
+  .question-container{
+      border-radius: 1em;
+      border: 1px solid rgba(171, 171, 171, 0.696);
+      padding-right: 2em;
+      padding-left:2em;
+      padding-top: 2em;
+      margin-bottom: 2em;
+  }
+  .answers-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .buttons-container{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 1em;
+  }
+  
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    gap:1em;
+    justify-content: center;
+  
+    button{
+        color: #323233;
+    }
+  }
+}
