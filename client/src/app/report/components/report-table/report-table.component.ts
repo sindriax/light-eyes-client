@@ -4,8 +4,8 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
-import { ChecklistService } from 'app/checklist/services/checklist.service';
-import { Checklist } from 'app/shared/models/checklist';
+import { ReportService } from 'app/report/services/report.service';
+import { Report } from 'app/shared/models/reports';
 
 @Component({
   selector: 'app-report-table',
@@ -15,18 +15,18 @@ import { Checklist } from 'app/shared/models/checklist';
   styleUrl: './report-table.component.scss'
 })
 export class ReportTableComponent {
-  @Input() checklist!: Checklist[];
-  filteredCheckList: Checklist[] = [];
+  @Input() report!: Report[];
+  filteredReport: Report[] = [];
   
 
-  constructor( private checklistService: ChecklistService) {    
+  constructor( private reportService: ReportService) {    
   }
 
   ngOnInit(): void {
-    this.checklistService.getAllChecklist().subscribe(
-      (data: Checklist[])=>{
-        this.checklist = data;
-        this.filteredCheckList = this.checklist;
+    this.reportService.getAllReport().subscribe(
+      (data: Report[])=>{
+        this.report = data;
+        this.filteredReport = this.report;
       },
       (error: any)=>{
         console.error('error fetching check lists', error);
@@ -34,6 +34,6 @@ export class ReportTableComponent {
     );
   }
 
-  displayedColumns: string[] = ['checkListId', 'name', 'description', 'language', 'creationDate'];
-  checkListSource = this.checklist;
+  displayedColumns: string[] = ['reportId', 'name', 'description', 'language', 'creationDate', 'content'];
+  reportSource = this.report;
 }

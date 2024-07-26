@@ -5,5 +5,5 @@ import { ListReportComponent } from "./views/list-report/list-report.component";
 
 export const REPORT_ROUTES: Route[] = [
     {path: '', component: ListReportComponent}, 
-    { path: 'item/:id', component: EditReportComponent }
+    { path: 'report/:id', component: EditReportComponent }
 ]

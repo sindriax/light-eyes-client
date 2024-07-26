@@ -1,7 +1,7 @@
 import { Component, inject, Input, NgModule, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { ChecklistCardComponent } from "../../components/checklist-table/checklist-card.component";
+import { ChecklistCardComponent } from "../../components/checklist-table/checklist-table.component";
 import { Checklist } from 'app/shared/models/checklist';
 import { ChecklistService } from 'app/checklist/services/checklist.service';
 import { Observable } from 'rxjs';

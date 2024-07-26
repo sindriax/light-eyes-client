@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChecklistCardComponent } from "../../components/checklist-table/checklist-card.component";
+import { ChecklistCardComponent } from "../../components/checklist-table/checklist-table.component";
 import { ChecklistCheckboxComponent } from "../../components/checklist-checkbox/checklist-checkbox/checklist-checkbox.component";
 
 @Component({

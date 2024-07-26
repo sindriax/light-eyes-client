@@ -9,11 +9,11 @@ import { Checklist } from 'app/shared/models/checklist';
 
 
 @Component({
-  selector: 'app-checklist-card',
+  selector: 'app-checklist-table',
   standalone: true,
   imports: [MatCardModule, MatIcon, RouterLink, MatTableModule, MatInputModule],
-  templateUrl: './checklist-card.component.html',
-  styleUrl: './checklist-card.component.scss',
+  templateUrl: './checklist-table.component.html',
+  styleUrl: './checklist-table.component.scss',
 })
 
 

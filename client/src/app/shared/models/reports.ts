@@ -1,8 +1,8 @@
 export interface Report {
-    id?: number;
-    creator: string;
-    creationDate: string;
-    reportTitle: string;
-    reportDescription: string;
-
+    reportId?: number;
+    name: string;
+    description?: string;
+    language: string;
+    creationDate: Date;
+    content: string;
 }
