@@ -6,34 +6,33 @@
     grid-template-rows: auto 1fr;
     grid-template-columns: 18vw 1fr;
     height: 100vh;
+    // overflow: hidden;
   }
 
   .header {
     grid-area: header;
     position: fixed;
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    // height: auto;
-    z-index: 2; /* Ensure it's above other content */
-
+    z-index: 2; 
   }
 
   .aside {
     grid-area: aside;
     position: fixed;
-    height: 87%;
-    // top: 0;
+    height: 85%;
+    width: 18vw;
     bottom: 1em;
-    z-index: 2; /* Ensure it's above the main content */
-
+    z-index: 2; 
+    margin-bottom: 1em;
   }
 
-  #main{
+  .main-content{
     grid-area: main;
+    margin-top: 10vh;  
+    // height: calc(100vh - 10vh);
   }
 
-  .router{
-    display: hidden;
-  }
+  // .router{
+  //   // display: hidden;
+  //   display: block;
+  // }
