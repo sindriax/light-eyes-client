@@ -1,0 +1,28 @@
+<!-- <mat-step [stepControl]="firstFormGroup"> -->
+  <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field>
+            <!-- @for (language of languages; track $index) {
+                <mat-option [value]="language.value">
+                  {{language.viewValue}}
+                </mat-option>
+              } -->
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          <input type="text">
+          <input type="text">
+          <!-- <mat-select formControlName="language" >
+            @for (language of languages; track $index) {
+              <mat-option [value]="language.value">
+                {{language.viewValue}}
+              </mat-option>
+            }
+          </mat-select> -->
+          <select name="" id=""></select>
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    <!-- </mat-step> -->

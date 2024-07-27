@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreviewReportComponent } from './preview-report.component';
+import { ReportChecklistComponent } from './report-checklist.component';
 
-describe('PreviewReportComponent', () => {
-  let component: PreviewReportComponent;
-  let fixture: ComponentFixture<PreviewReportComponent>;
+describe('ReportChecklistComponent', () => {
+  let component: ReportChecklistComponent;
+  let fixture: ComponentFixture<ReportChecklistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PreviewReportComponent]
+      imports: [ReportChecklistComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PreviewReportComponent);
+    fixture = TestBed.createComponent(ReportChecklistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

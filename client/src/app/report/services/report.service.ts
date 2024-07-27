@@ -12,10 +12,11 @@ export class ReportService {
   private url = 'http://localhost:3000';
   apiUrl = environment.apiUrl;
 
-
   http = inject(HttpClient);
   getAllReport():Observable<Report[]>{
     return this.http.get<Report[]>(this.url.concat('/Report'));
   }
+
+  
   constructor() { }
 }

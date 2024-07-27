@@ -19,6 +19,11 @@
 //     }
 // }
 
-table{
-    width: 80vw;
+table {
+  width: 80vw;
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
+  background-color: white;
+  margin-top: 1em;
 }

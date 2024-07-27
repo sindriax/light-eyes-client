@@ -10,8 +10,6 @@ import { ChecklistQuestionComponent } from "../../checklist-question/checklist-q
 import { ChecklistAnswerComponent } from "../../checklist-answer/checklist-answer.component";
 import { Checklist } from 'app/shared/models/checklist';
 
-
-
 @Component({
   selector: 'app-checklist-generator',
   standalone: true,
