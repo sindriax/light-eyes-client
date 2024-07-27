@@ -10,12 +10,24 @@
 
   .header {
     grid-area: header;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    // height: auto;
+    z-index: 2; /* Ensure it's above other content */
 
   }
 
   .aside {
     grid-area: aside;
-    // background-color: var(--backround-grey);
+    position: fixed;
+    height: 87%;
+    // top: 0;
+    bottom: 1em;
+    z-index: 2; /* Ensure it's above the main content */
+
   }
 
   #main{
