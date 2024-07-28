@@ -15,6 +15,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { ReportService } from 'app/report/services/report.service';
 import { Report } from 'app/shared/models/reports';
 import { ReportBasicDataComponent } from "./report-basic-data/report-basic-data.component";
+import { ReportControlDataComponent } from "./report-control-data/report-control-data.component";
+import { ReportClientDataComponent } from "./report-client-data/report-client-data.component";
+import { ReportContentComponent } from "./report-content/report-content.component";
+import { ReportPreviewComponent } from "./report-preview/report-preview.component";
 
 @Component({
   selector: 'app-report-stepper',
@@ -27,23 +31,31 @@ import { ReportBasicDataComponent } from "./report-basic-data/report-basic-data.
     MatFormFieldModule,
     MatInputModule,
     MatCardModule, MatCheckboxModule, FormsModule, MatRadioModule,
-    ReportBasicDataComponent
+    ReportBasicDataComponent,
+    ReportControlDataComponent,
+    ReportClientDataComponent,
+    ReportContentComponent,
+    ReportPreviewComponent
 ],
   templateUrl: './report-stepper.component.html',
   styleUrl: './report-stepper.component.scss',
 })
 export class ReportStepperComponent  implements OnInit{
+sendForm() {
+throw new Error('Method not implemented.');
+}
   @Input() report!: Report[];
   // filteredReport: Report[] = [];
   reportIds: number[] = [];
   
-  firstFormGroup = this._formBuilder.group({
+  formBasicData = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
   
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+
   isLinear = false;
 
   constructor(private _formBuilder: FormBuilder, private reportService: ReportService) {}

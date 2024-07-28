@@ -1,60 +1,42 @@
 <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
   </button> -->
-  <mat-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup" label="Report Basic Data">
-    <app-report-basic-data></app-report-basic-data>
-    </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
-      <form [formGroup]="secondFormGroup">
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                 required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="formBasicData" label="Report Basic Data">
+    <form [formGroup]="formBasicData">
+      <app-report-basic-data></app-report-basic-data>
+    </form>
+  </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup" label="checkbox">
-      <mat-card>
-        <mat-card-content>
-          <h2 class="example-h2">Checkbox configuration</h2>
-      
-          <section class="example-section">
-            <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
-          </section>
-      
-          <section class="example-section">
-            <label class="example-margin">Align:</label>
-            <mat-radio-group [(ngModel)]="labelPosition">
-              <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
-              <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
-            </mat-radio-group>
-          </section>
-      
-          <section class="example-section">
-            <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
-          </section>
-        </mat-card-content>
-      </mat-card>
-    </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Report Control Data">
+    <form [formGroup]="secondFormGroup">
+      <app-report-control-data></app-report-control-data>
+    </form>
+  </mat-step>
 
-    
+  <mat-step [stepControl]="secondFormGroup" label="Report Client Data">
+    <form [formGroup]=" secondFormGroup">
+      <app-report-client-data></app-report-client-data>
+    </form>
+  </mat-step>
 
+  <mat-step [stepControl]="secondFormGroup" label="Report Content">
+    <form [formGroup]=" secondFormGroup">
+      <app-report-content></app-report-content>
+    </form>
+  </mat-step>
 
-
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperNext (click)="sendForm()">Send</button>
       </div>
-    </mat-step>
-  </mat-stepper>
+      <!-- <app-report-preview></app-report-preview> -->
+    </div>
+  </mat-step>
+</mat-stepper>

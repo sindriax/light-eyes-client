@@ -6,5 +6,6 @@ import { PreviewReportComponent } from "./views/edit-report/edit-report.componen
 
 export const REPORT_ROUTES: Route[] = [
     {path: '', component: ListReportComponent}, 
+    {path: 'create-report', component: ReportStepperComponent}, 
     { path: 'report/:id', component: PreviewReportComponent  }
 ]

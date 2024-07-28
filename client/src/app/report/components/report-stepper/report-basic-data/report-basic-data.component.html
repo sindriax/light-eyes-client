@@ -1,28 +1,39 @@
 <!-- <mat-step [stepControl]="firstFormGroup"> -->
-  <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
+  <section [formGroup]="formBasicData()" class="first-stepper">
+    <ng-template matStepLabel>Fill out your name</ng-template>
         <mat-form-field>
-            <!-- @for (language of languages; track $index) {
-                <mat-option [value]="language.value">
-                  {{language.viewValue}}
-                </mat-option>
-              } -->
           <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-          <input type="text">
-          <input type="text">
-          <!-- <mat-select formControlName="language" >
-            @for (language of languages; track $index) {
-              <mat-option [value]="language.value">
-                {{language.viewValue}}
-              </mat-option>
-            }
-          </mat-select> -->
-          <select name="" id=""></select>
+          <input matInput placeholder="Name" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Description" formControlName="description" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <input matInput placeholder="Type" formControlName="type" required>
+        </mat-form-field>
+        <mat-form-field>
+        <mat-select formControlName="language" matInput placeholder="Language">
+          @for (language of languages; track $index) {
+            <mat-option [value]="language.value">
+              {{language.viewValue}}
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Search for check List</mat-label>
+          <input matInput placeholder="Search for Check List" formControlName="search" required>
         </mat-form-field>
 
         <div>
           <button mat-button matStepperNext>Next</button>
         </div>
-      </form>
+      </section>
+        
+      <!-- {{ formBasicData().value| json }} -->
+      <!-- {{ formBasicData.get("name")?.value }} -->
+
     <!-- </mat-step> -->

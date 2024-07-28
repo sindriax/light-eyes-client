@@ -1,3 +1,12 @@
+@import '../../../styles/mixins';
+
+:host{
+    @include layout-position;
+    display: flex;
+    flex-direction: row;
+    height: 55vh;
+}
+
 mat-stepper{
     padding: 2em;
     border-radius: 2em;
