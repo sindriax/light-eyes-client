@@ -1,22 +1,25 @@
-<div>
-    <div class="counter-question-container">
-        <div class="counter">
-          <span>{{ questionNumber }}</span>
-        </div>
-<div></div>
-    <div class="question" [formGroup]="questionForm">
-        <mat-label>Include a new question or item</mat-label>
-        <input formControlName="content" placeholder="Include a new question or checklist item">
-        <div formArrayName="answers">
-          @for (answer of answers.controls; track $index) {
-            <app-checklist-answ [answerForm]="getAnswerFormGroup($index)"></app-checklist-answ>
+<div class="question-answer-container">
+  <div class="question-counter-container">
+      <div class="number">
+        <span>{{ questionNumber }}</span>
+      </div>
+  </div>
+  <div class="questions" [formGroup]="questionForm">
+      <!-- <mat-label>Include a new question or item</mat-label> -->
+      <input formControlName="content" placeholder="Include a new question or checklist item" class="questions-input">
+      <div formArrayName="answers" class="answers">
+        @for (answer of answers.controls; track $index) {
+          <div class="single-answer">
+          <app-checklist-answ [answerForm]="getAnswerFormGroup($index)"></app-checklist-answ>
+          <div class="button-container">
             <button mat-icon-button color="warn" (click)="removeAnswer($index)">
               <mat-icon>delete</mat-icon>
-            </button>}
-        </div>
-        
-        <button (click)="addAnswer()">Add new answer</button>
+            </button>
+          </div>
+          </div>}
       </div>
+      
+      <button (click)="addAnswer()" class="add-answer-button">Add new answer</button>
+  </div>
 
 </div>
-

@@ -1,30 +1,57 @@
-.answer-container{
+.answer-option{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    width: 96%;
-    gap: 3em;
-    margin-left: 4%;
-    margin-top: 0.5%;
-    border: solid, 1px, red($color: #000000);
-    
-    .selector-input-container{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        gap: 3em;
-        margin-top: 0.5%;
-    }
-    
-    #answer-selector{
-        width: 7%;
-        height: 5em;
-        margin-bottom: -1em;
-        }
+    gap: 1em;
+    border: 2px solid sandybrown;
 
     #answer-input{
-        width: 99%;
-        height: 5em;
-        margin-bottom: -1em;
+        width: 39.5em;
+        border: 3px solid yellow;
+        height: 3em;
+        background-color: #F5EFF7;
+        border: 0;
+        border-bottom: 1.5px solid black;
+        border-radius: 0.5em 0.5em 0 0;
+        font-size: 1em;
+    }
+
+    .option-selector{
+        background-color: #F5EFF7;
+        border: 0;
+        border-bottom: 1.5px solid black;
+        border-radius: 0.5em 0.5em 0 0;
+        font-size: 1em;
+        width: 4em;
     }
 }
 
+// .answer-option{
+//     display: flex;
+//     flex-direction: row;
+//     width: 96%;
+//     gap: 3em;
+//     margin-left: 4%;
+//     margin-top: 0.5%;
+//     border: solid, 1px, red($color: #000000);
+    
+//     .selector-input-container{
+//         display: flex;
+//         flex-direction: row;
+//         width: 100%;
+//         gap: 3em;
+//         margin-top: 0.5%;
+//     }
+    
+//     #answer-selector{
+//         width: 7%;
+//         height: 5em;
+//         margin-bottom: -1em;
+//         }
+
+//     #answer-input{
+//         width: 99%;
+//         height: 5em;
+//         margin-bottom: -1em;
+//     }
+// }
