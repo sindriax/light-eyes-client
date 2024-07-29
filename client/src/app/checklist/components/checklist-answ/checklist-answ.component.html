@@ -1,7 +1,14 @@
-
-<div class="answer-container" [formGroup]="answerForm">
-    <div class="selector-input-container">
-        <mat-form-field id="answer-selector">
+<div [formGroup]="answerForm">
+    <select formControlName="type">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <input formControlName="content" placeholder="Introduce the answer">
+  </div>
+<!-- 
+<div [formGroup]="answerForm">
+    
+        <mat-form-field>
 
             <mat-label>Answer</mat-label>
             <mat-select formControlName="type">
@@ -18,6 +25,5 @@
      
 
 
-    </div>
 
-  </div>
+  </div> -->
