@@ -1,32 +1,29 @@
 
-<table mat-table [dataSource]="checklist" class="mat-elevation-z8">
+<table mat-table [dataSource]="checkList" class="mat-elevation-z8">
 
   <ng-container matColumnDef="checkListId">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist. checkListId]">{{checklist. checkListId}}</a></td>
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist?.checkListId]">{{checklist?.checkListId}}</a></td>
   </ng-container>
 
-  <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist. checkListId]"> {{checklist.creator}}</a> </td>
+    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist?.checkListId]"> {{checklist.name}}</a> </td>
   </ng-container>
 
-  <!-- Weight Column -->
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist. checkListId]"> {{checklist.creationDate}}</a> </td>
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist?.checkListId]"> {{checklist.description}}</a> </td>
   </ng-container>
 
-  <!-- Symbol Column -->
   <ng-container matColumnDef="language">
     <th mat-header-cell *matHeaderCellDef> Title </th>
-    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist. checkListId]"> {{checklist.checklistTitle}}</a> </td>
+    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist?.checkListId]"> {{checklist.language}}</a> </td>
   </ng-container>
 
-  <ng-container matColumnDef="creationDate">
-    <th mat-header-cell *matHeaderCellDef> Description </th>
-    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist. checkListId]"> {{checklist.checklistDescription}}</a> </td>
+  <ng-container matColumnDef="createdDate">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let checklist"><a [routerLink]="['item/', checklist?.checkListId]"> {{checklist.createdDate}}</a> </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

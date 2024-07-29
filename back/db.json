@@ -12,62 +12,41 @@
     }
   ],
 
-  "checklists": [
+  "CheckList": [
     {
-      "id": "1",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/2024 - 17:00",
-      "checklistTitle": "NIS2",
-      "checklistDescription": "Best ISO to obtain",
-      "language": "es"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     },
     {
-      "id": "2",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/1999 - 17:00",
-      "checklistTitle": "NIS1",
-      "checklistDescription": "Deprecated ISO",
-      "language": "en"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     },
     {
-      "id": "3",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/2024 - 17:00",
-      "checklistTitle": "NIS2",
-      "checklistDescription": "Best ISO to obtain",
-      "language": "en"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     },
     {
-      "id": "4",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/2024 - 17:00",
-      "checklistTitle": "NIS2",
-      "checklistDescription": "Best ISO to obtain",
-      "language": "es"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     },
     {
-      "id": "5",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/2024 - 17:00",
-      "checklistTitle": "NIS2",
-      "checklistDescription": "Best ISO to obtain",
-      "language": "es"
-    },
-    {
-      "id": "6",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/2024 - 17:00",
-      "checklistTitle": "NIS2",
-      "checklistDescription": "Best ISO to obtain",
-      "language": "en"
-    },
-    {
-      "id": "7",
-      "creator": "Daniel Cueto",
-      "creationDate": "15/07/2024 - 17:00",
-      "checklistTitle": "NIS2",
-      "checklistDescription": "Best ISO to obtain",
-      "language": "es"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     }
   ],
 

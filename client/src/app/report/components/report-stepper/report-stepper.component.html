@@ -1,12 +1,7 @@
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button> -->
+<mat-stepper [linear]="isLinear" [formGroup]="reportForm" #stepper>
 
-<mat-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="formBasicData" label="Report Basic Data">
-    <form [formGroup]="formBasicData">
-      <app-report-basic-data></app-report-basic-data>
-    </form>
+    <app-report-basic-data [reportForm]="reportForm"></app-report-basic-data>
   </mat-step>
 
   <mat-step [stepControl]="secondFormGroup" label="Report Control Data">

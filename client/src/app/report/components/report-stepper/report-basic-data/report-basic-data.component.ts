@@ -1,8 +1,13 @@
-import { JsonPipe } from '@angular/common';
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import {
-  FormArray,
-  FormArrayName,
+  Component,
+  effect,
+  inject,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
+import {
   FormBuilder,
   FormControl,
   FormGroup,
@@ -10,12 +15,16 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
+import { BasicCheckList } from 'app/shared/models/checklist';
+import { ChecklistService } from 'app/checklist/services/checklist.service';
 
 @Component({
   selector: 'app-report-basic-data',
@@ -30,85 +39,70 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatRadioModule,
     MatSelectModule,
     JsonPipe,
+    AsyncPipe,
+    MatSlideToggleModule,
+    MatAutocompleteModule,
   ],
   templateUrl: './report-basic-data.component.html',
   styleUrls: ['./report-basic-data.component.scss'],
 })
-export class ReportBasicDataComponent {
-  @Output() formReady = new EventEmitter<FormGroup>();
-  //  reportForm: FormGroup;
-  formBasicData = signal<FormGroup>(
-    new FormGroup({
+export class ReportBasicDataComponent implements OnInit {
+  private checkListService = inject(ChecklistService);
+  filteredChecklists = signal<BasicCheckList[]>([]);
+  fb = inject(FormBuilder);
+  @Input() reportForm!: FormGroup;
+  basicDataFormGroup!: FormGroup;
+
+  // Form from report-stepper
+
+  constructor() {
+    effect(() => {
+      console.log('Signal changed');
+      console.log(this.filteredChecklists());
+    });
+  }
+
+  ngOnInit(): void {
+    this.checkListService.getAllChecklist().subscribe((data) => {
+      this.filteredChecklists.set(data);
+    });
+    // Init reportForm with new basicData
+    this.basicDataFormGroup = this.fb.group({
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required),
       language: new FormControl('', Validators.required),
-      search: new FormControl('', Validators.required),
-    })
-  );
+      checkList: new FormControl('', Validators.required),
+    });
 
-  constructor(private _formBuilder: FormBuilder, private fb: FormBuilder) {
-    // this.reportForm = this.fb.group({
-      // report: this.fb.array([this.createReport()])
-    // });
+    this.reportForm?.addControl('basicData', this.basicDataFormGroup);
+    console.log(this.reportForm);
   }
 
+  get checkListControl(): FormGroup {
+    return this.basicDataFormGroup.get('checkList') as FormGroup;
+  }
+
+  checklistSearch() {
+    let inputChecklistValue: string =
+      this.basicDataFormGroup.get('checkList')?.value;
+
+    console.log(inputChecklistValue);
+
+    this.checkListService
+      .getAllCheckListFiltered(inputChecklistValue)
+      .subscribe((data) => {
+        this.filteredChecklists.set(data);
+      });
+  }
 
   languages = [
     { value: 'catala-0', viewValue: 'Català' },
     { value: 'castellano-1', viewValue: 'Castellano' },
   ];
+
+  consoleData() {
+    console.log(this.reportForm);
+    console.log(this.filteredChecklists());
+  }
 }
- // formBasicData = this.fb.group({
-  //   name: ['', Validators.required],
-  //   description: ['', Validators.required],
-  //   type: ['', Validators.required],
-  //   language: ['', Validators.required],
-  //   search: ['', Validators.required],
-  // });
-
-  // get report() {
-  //   return this.formBasicData.get('name') as FormArray;
-  // }
-  // get description() {
-  //   return this.formBasicData.get('description') as FormControl;
-  // }
-  // get typet() {
-  //   return this.formBasicData.get('type') as FormControl;
-  // }
-  // get language() {
-  //   return this.formBasicData.get('language') as FormControl;
-  // }
-  // get checkList() {
-  //   return this.formBasicData.get('search') as FormControl;
-  // }
-
-  // addReport(){
-  //   this.reportForm.push(this.createReport());
-  // }
-
-  // formBasicData = new FormGroup({
-  //   "name": new FormControl("", Validators.required),
-  //   "description": new FormControl("", Validators.required),
-  //   "type": new FormControl("", Validators.required),
-  //   "language": new FormControl("", Validators.required),
-  //   "search": new FormControl("", Validators.required),
-  // });
-
-  // getReportFormGroup(index: number): FormGroup {
-  //   return this.question.at(index) as FormGroup;
-  // }
-
-  // createReport(): FormGroup{
-  //   return this.fb.group({
-  //     content:[""],
-  //     answers: this.fb.array([
-  //       this.createReport(),
-  //       this.createReport()
-  //     ])
-  //   })
-  // }
-
-  // addReport(){
-  //   this.reportForm.push(this.createReport());
-  // }

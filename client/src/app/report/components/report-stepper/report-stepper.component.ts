@@ -1,6 +1,7 @@
-import { Component, Input, model, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, model, OnInit } from '@angular/core';
 import {
   FormBuilder,
+  FormGroup,
   FormsModule,
   ReactiveFormsModule,
   Validators,
@@ -45,20 +46,30 @@ sendForm() {
 throw new Error('Method not implemented.');
 }
   @Input() report!: Report[];
+  @Input() reportBasicData = new EventEmitter <FormGroup>();
+  reportForm: FormGroup;
   // filteredReport: Report[] = [];
   reportIds: number[] = [];
   
-  formBasicData = this._formBuilder.group({
+  formBasicData = this.fb.group({
     firstCtrl: ['', Validators.required],
   });
   
-  secondFormGroup = this._formBuilder.group({
+  secondFormGroup = this.fb.group({
     secondCtrl: ['', Validators.required],
   });
 
   isLinear = false;
 
-  constructor(private _formBuilder: FormBuilder, private reportService: ReportService) {}
+  constructor(private fb: FormBuilder, private reportService: ReportService) {
+    this.reportForm = this.fb.group({
+      // basicData: this.fb.group({
+
+      // })
+    })
+
+    console.log(this.reportForm);
+  }
 
   ngOnInit(): void {
     this.reportService.getAllReport().subscribe(

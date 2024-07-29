@@ -21,7 +21,8 @@ export class ReportTableComponent implements OnInit {
   constructor(private reportService: ReportService) {}
 
   ngOnInit(): void {
-    this.reportService.getAllReport().subscribe(
+    this.reportService.getAllReport()
+    .subscribe(
       (data: Report[]) => {
         this.report = data;
         this.filteredReport = this.report;
