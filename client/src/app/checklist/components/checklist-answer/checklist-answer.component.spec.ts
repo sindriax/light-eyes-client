@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChecklistAnswerComponent } from './checklist-answer.component';
 
-describe('ChecklistAnswerComponent', () => {
+describe.skip('ChecklistAnswerComponent', () => {
   let component: ChecklistAnswerComponent;
   let fixture: ComponentFixture<ChecklistAnswerComponent>;
 

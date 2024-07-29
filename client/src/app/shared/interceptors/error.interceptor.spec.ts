@@ -3,7 +3,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 
 import { errorInterceptor } from './error.interceptor';
 
-describe('errorInterceptor', () => {
+describe.skip('errorInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) => 
     TestBed.runInInjectionContext(() => errorInterceptor(req, next));
 

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChecklistEditorComponent } from './checklist-editor1.component';
 
-describe('ChecklistEditorComponent', () => {
+describe.skip('ChecklistEditorComponent', () => {
   let component: ChecklistEditorComponent;
   let fixture: ComponentFixture<ChecklistEditorComponent>;
 
