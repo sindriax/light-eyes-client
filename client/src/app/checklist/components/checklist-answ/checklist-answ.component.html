@@ -1,0 +1,23 @@
+
+<div class="answer-container" [formGroup]="answerForm">
+    <div class="selector-input-container">
+        <mat-form-field id="answer-selector">
+
+            <mat-label>Answer</mat-label>
+            <mat-select formControlName="type">
+                <mat-option value="true">Yes</mat-option>
+                <mat-option value="false">No</mat-option>
+            </mat-select>
+       <div id="answer-container">
+        <mat-label>Introduce the answer</mat-label>
+              <input id="answer-input" formControlName="content" placeholder="Introduce the answer">
+       </div>
+            
+
+        </mat-form-field>
+     
+
+
+    </div>
+
+  </div>

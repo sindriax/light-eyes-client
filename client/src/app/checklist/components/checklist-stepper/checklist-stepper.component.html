@@ -1,0 +1,75 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step>
+    
+        
+       
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    
+    </mat-step>
+    <mat-step >
+
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+     
+    </mat-step>
+
+
+    <mat-step>
+     
+
+            <ng-template matStepLabel>Add Questions</ng-template>
+        <div class="containers"> <form [formGroup]="checkListForm">
+          <div class="question-container" formArrayName="questions">
+            <!-- questions are the get function that returns all questions from ts file -->
+            @for (question of questions.controls; track $index) {
+              <app-checklist-ques [questionForm]="getQuestionFormGroup($index)"></app-checklist-ques>
+            }
+          </div>
+        </form>
+      
+        <button mat-raised-button (click)="addQuestion()"><mat-icon>edit</mat-icon>Save and add new question</button>
+        <button mat-raised-button (click)="saveChecklist()">SAVE CHECKLIST</button>
+            </div>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+<!--   </mat-stepper>
+  <div class="containers">
+    <div class="question-container">
+      <ng-container #questionContainer>
+
+      </ng-container>
+    </div>
+    <div class="answers-container">
+      <ng-template #answerContainer></ng-template>
+    </div>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button mat-raised-button (click)="addNewAnswer()">
+          <mat-icon>edit</mat-icon>
+          Add new answer
+        </button>
+
+        <button mat-raised-button (click)="addNewQuestion()">
+          <mat-icon>edit</mat-icon>
+          Save and add new question
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
+  </div> 
+</mat-step> -->
