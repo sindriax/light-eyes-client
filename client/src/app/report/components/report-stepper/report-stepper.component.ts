@@ -20,6 +20,7 @@ import { ReportControlDataComponent } from "./report-control-data/report-control
 import { ReportClientDataComponent } from "./report-client-data/report-client-data.component";
 import { ReportContentComponent } from "./report-content/report-content.component";
 import { ReportPreviewComponent } from "./report-preview/report-preview.component";
+import { ReportChecklistComponent } from "./report-checklist/report-checklist.component";
 
 @Component({
   selector: 'app-report-stepper',
@@ -36,7 +37,8 @@ import { ReportPreviewComponent } from "./report-preview/report-preview.componen
     ReportControlDataComponent,
     ReportClientDataComponent,
     ReportContentComponent,
-    ReportPreviewComponent
+    ReportPreviewComponent,
+    ReportChecklistComponent
 ],
   templateUrl: './report-stepper.component.html',
   styleUrl: './report-stepper.component.scss',

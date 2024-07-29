@@ -22,8 +22,14 @@
     </form>
   </mat-step>
 
+  <mat-step [stepControl]="secondFormGroup" label="Report Content">
+    <form [formGroup]=" secondFormGroup">
+      <app-report-checklist></app-report-checklist>
+    </form>
+  </mat-step>
+
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
+    <ng-template matStepLabel>Preview</ng-template>
     <p>You are now done.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
