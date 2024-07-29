@@ -55,7 +55,7 @@
             @for (question of questions.controls; track $index) {
               <app-checklist-ques [questionForm]="getQuestionFormGroup($index)"></app-checklist-ques>
               <button mat-icon-button color="warn" (click)="removeQuestion($index)">
-                <mat-icon>delete</mat-icon>
+                <mat-icon>delete</mat-icon>Delete Question
               </button>
             }
           </div>

@@ -52,8 +52,9 @@ export class ChecklistQuesComponent {
 // removes answers
 
 removeAnswer(index: number): void {
-  const answers = this.questionForm.get('answers') as FormArray;
-  answers.removeAt(index);
+  if (this.answers.length > 2) {
+    this.answers.removeAt(index);
+  }
 }
   
 }

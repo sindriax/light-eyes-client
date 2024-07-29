@@ -71,7 +71,15 @@ removeQuestion(index: number): void {
   }
   // Send to endpoint all data for backend api to generate checklist template
   saveChecklist() {
-    const checklistData = this.checkListForm.value;
+    const questions = this.checkListForm.get('questions') as FormArray;
+
+    const checklistData = {
+      name: this.checkListForm.value.name,
+      description: this.checkListForm.value.description,
+      language: this.checkListForm.value.language,
+      checkListItems: questions.value
+    }
+    // console.log("questions", questions);
     console.log( checklistData );
   }
 }
