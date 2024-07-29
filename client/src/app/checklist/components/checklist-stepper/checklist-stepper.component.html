@@ -11,15 +11,21 @@
         </div>
     
     </mat-step>
-    <mat-step >
-
+    <mat-step label="Checklist description / summary" >
+        <h1>Description</h1>    
+        <form [formGroup]="checkListForm">
+            <mat-form-field class="custom-form-field">
+              <mat-label>Checklist description / summary</mat-label>
+              <input matInput formControlName="description" placeholder="Provide an introduction for the checklist" required class="description-box">
+            </mat-form-field>
+            <div>
 
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
      
-    </mat-step>
+
 
 
     <mat-step>

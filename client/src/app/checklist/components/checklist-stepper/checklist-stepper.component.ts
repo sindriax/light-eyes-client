@@ -24,6 +24,7 @@ export class ChecklistStepperComponent {
   // injects formBuilder service and initializes the checklist Form Group with a Form Array with one Question
   constructor(private fb: FormBuilder) {
     this.checkListForm = this.fb.group({
+      description: [''],
       questions: this.fb.array([ this.createQuestion() ])
     });
   }
