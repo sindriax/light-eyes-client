@@ -41,9 +41,9 @@ constructor (){
       tap((response: any) => {
         if (this.localStorageService.getToken()) {
           this.isLogged.set(true);
-        } 
+        }
       }),
-      catchError(  e=>of(e)))
+      catchError(e=>of(e)))
   }
 
   register(user: UserRegister) {

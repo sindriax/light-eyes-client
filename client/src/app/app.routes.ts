@@ -4,6 +4,8 @@ import { ListChecklistComponent } from './checklist/views/list-checklist/list-ch
 import { ListReportComponent } from './report/views/list-report/list-report.component';
 import { authGuard, authLoggedGuard } from './core/guards/auth.guard';
 import { LoginComponent } from './core/auth/login/login.component';
+import { AdminViewComponent } from './admin/views/admin-view/admin-view.component';
+import { adminGuard } from './core/guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -23,7 +25,8 @@ export const routes: Routes = [
                 .then(mod =>{
                     return mod.REPORT_ROUTES;
                 })
-            }
+            },
+            {path: "admin", component: AdminViewComponent, canActivate: [adminGuard]},
         ],
         canActivate:[authGuard]
     },
