@@ -93,5 +93,26 @@
       "createdDate": "2024-07-26T10:23:07.103Z",
       "language": "string"
     }
+  ],
+
+  "Reportss": [
+    {
+      "id": 1,
+      "reviewDate": "string",
+      "createdBy": "string",
+      "validatedBy": "string",
+      "reviewedBy": "string",
+      "documentCode": "string",
+      "department": "string"
+    },
+    {
+      "id": 2,
+      "reviewDate": "string",
+      "createdBy": "string",
+      "validatedBy": "string",
+      "reviewedBy": "string",
+      "documentCode": "string",
+      "department": "string"
+    }
   ]
 }

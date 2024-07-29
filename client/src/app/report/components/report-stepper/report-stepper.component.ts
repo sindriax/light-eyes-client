@@ -44,30 +44,14 @@ import { ReportChecklistComponent } from "./report-checklist/report-checklist.co
   styleUrl: './report-stepper.component.scss',
 })
 export class ReportStepperComponent  implements OnInit{
-sendForm() {
-throw new Error('Method not implemented.');
-}
   @Input() report!: Report[];
   @Input() reportBasicData = new EventEmitter <FormGroup>();
   reportForm: FormGroup;
-  // filteredReport: Report[] = [];
   reportIds: number[] = [];
   
-  formBasicData = this.fb.group({
-    firstCtrl: ['', Validators.required],
-  });
-  
-  secondFormGroup = this.fb.group({
-    secondCtrl: ['', Validators.required],
-  });
-
-  isLinear = false;
-
+  // isLinear = false;
   constructor(private fb: FormBuilder, private reportService: ReportService) {
     this.reportForm = this.fb.group({
-      // basicData: this.fb.group({
-
-      // })
     })
 
     console.log(this.reportForm);
@@ -85,10 +69,10 @@ throw new Error('Method not implemented.');
     );
   }
 
-  readonly checked = model(false);
-  readonly indeterminate = model(false);
-  readonly labelPosition = model<'before' | 'after'>('after');
-  readonly disabled = model(false);
+  // readonly checked = model(false);
+  // readonly indeterminate = model(false);
+  // readonly labelPosition = model<'before' | 'after'>('after');
+  // readonly disabled = model(false);
 
 
 }

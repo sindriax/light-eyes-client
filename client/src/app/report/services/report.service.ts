@@ -1,8 +1,8 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { ErrorHandler, inject, Injectable } from '@angular/core';
-import { Report } from 'app/shared/models/reports';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Report, ReportControlData } from 'app/shared/models/reports';
 import { environment } from 'environments/environment.development';
-import { catchError, Observable, pipe } from 'rxjs';
+import {  Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,16 @@ export class ReportService {
   apiUrl = environment.apiUrl;
 
   http = inject(HttpClient);
+
   getAllReport():Observable<Report[]>{
     return this.http.get<Report[]>(this.url.concat('/Report'));
+  }
+
+  getAllReportControlData():Observable<ReportControlData[]>{
+    return this.http.get<ReportControlData[]>(
+      this.url.concat('/Reportss')
+      // Report/getAllReports es la url correcta
+    )
   }
 
   addReport( report: Report ){
