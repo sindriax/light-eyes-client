@@ -3,8 +3,16 @@
   </button>
   <mat-stepper [linear]="isLinear" #stepper>
     <mat-step>
-    
-        
+    <h1>Title</h1>
+       <form  [formGroup]="checkListForm">
+
+<mat-form-field>
+<mat-label>Title</mat-label>
+<input matInput formControlName="title" placeholder="Introduce a tittle for the checklist" required class="description-box">
+
+</mat-form-field>
+
+       </form> 
        
         <div>
           <button mat-button matStepperNext>Next</button>
