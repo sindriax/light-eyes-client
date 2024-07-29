@@ -57,6 +57,12 @@ export class ChecklistStepperComponent {
       content: ['']
     });
   }
+// 
+removeQuestion(index: number): void {
+  const questions = this.checkListForm.get('questions') as FormArray;
+  questions.removeAt(index);
+}
+
   // event that adds new question to checklistFormGroup
   addQuestion(){
     const questions = this.checkListForm.get('questions') as FormArray; 

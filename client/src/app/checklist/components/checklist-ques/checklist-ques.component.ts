@@ -49,4 +49,11 @@ export class ChecklistQuesComponent {
       content: ['']
     });
   }
+// removes answers
+
+removeAnswer(index: number): void {
+  const answers = this.questionForm.get('answers') as FormArray;
+  answers.removeAt(index);
+}
+  
 }
