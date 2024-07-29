@@ -3,15 +3,27 @@
   </button>
   <mat-stepper [linear]="isLinear" #stepper>
     <mat-step>
+        <ng-template matStepLabel>Add Title and language</ng-template>
     <h1>Title</h1>
        <form  [formGroup]="checkListForm">
 
 <mat-form-field>
 <mat-label>Title</mat-label>
 <input matInput formControlName="title" placeholder="Introduce a tittle for the checklist" required class="description-box">
-
 </mat-form-field>
 
+
+<mat-form-field>
+    <mat-label>Language</mat-label>
+    <mat-form-field [formGroup]="checkListForm">
+        <mat-label>Select checklist language</mat-label>
+        <select formControlName="language" matNativeControl required>
+          <option value="true">Català</option>
+          <option value="false">Castellano</option>
+
+        </select>
+      </mat-form-field>
+  </mat-form-field>
        </form> 
        
         <div>
@@ -19,7 +31,8 @@
         </div>
     
     </mat-step>
-    <mat-step label="Checklist description / summary" >
+    <mat-step>
+        <ng-template matStepLabel>Add description</ng-template>
         <h1>Description</h1>    
         <form [formGroup]="checkListForm">
             <mat-form-field class="custom-form-field">

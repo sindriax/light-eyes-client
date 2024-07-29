@@ -6,11 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-checklist-ques',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ChecklistAnswComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatIconModule, MatButton, MatButtonModule],
+  imports: [FormsModule, ReactiveFormsModule, ChecklistAnswComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatIconModule, MatButton, MatButtonModule,MatOptionModule],
   templateUrl: './checklist-ques.component.html',
   styleUrl: './checklist-ques.component.scss'
 })
@@ -22,7 +23,7 @@ export class ChecklistQuesComponent {
   @Input() questionNumber: number = 1;
   public questionCounter = 2;
 
-  
+
   // injects FormBuilder service to be used on createAnswer for generating new dynamic FormGroups
   private fb = inject(FormBuilder);
 

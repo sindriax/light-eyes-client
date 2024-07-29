@@ -26,6 +26,7 @@ export class ChecklistStepperComponent {
     this.checkListForm = this.fb.group({
       description: [''],
       title: [''],
+      language: ['true'],
       questions: this.fb.array([ this.createQuestion() ])
     });
   }
