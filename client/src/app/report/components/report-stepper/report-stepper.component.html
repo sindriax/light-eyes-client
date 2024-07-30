@@ -7,19 +7,19 @@
 
   <mat-step label="Report Control Data">
     <form>
-      <app-report-control-data></app-report-control-data>
+      <app-report-control-data [formGroup]="reportForm" ></app-report-control-data>
     </form>
   </mat-step>
 
   <mat-step label="Report Client Data">
     <form>
-      <app-report-client-data></app-report-client-data>
+      <app-report-client-data [formGroup]="reportForm"></app-report-client-data>
     </form>
   </mat-step>
 
   <mat-step label="Report Content">
     <form>
-      <app-report-content></app-report-content>
+      <app-report-content [formGroup]="reportForm" ></app-report-content>
     </form>
   </mat-step>
 

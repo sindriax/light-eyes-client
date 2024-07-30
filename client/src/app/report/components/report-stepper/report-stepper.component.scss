@@ -4,7 +4,7 @@
     @include layout-position;
     display: flex;
     flex-direction: row;
-    height: 95%;
+    height: fit-content;
 }
 
 mat-stepper{

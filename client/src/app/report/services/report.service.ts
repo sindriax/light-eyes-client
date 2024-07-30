@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { LocalStorageService } from 'app/core/services/local-storage.service';
 import { Report, ReportControlData } from 'app/shared/models/reports';
 import { environment } from 'environments/environment.development';
-import {  Observable } from 'rxjs';
+import {  firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class ReportService {
 
   private url = 'http://localhost:3000';
   apiUrl = environment.apiUrl;
+  localStorage = inject(LocalStorageService);
 
   http = inject(HttpClient);
 
@@ -25,8 +27,8 @@ export class ReportService {
     )
   }
 
-  addReport( report: Report ){
-    return this.http.post<Report>(this.url, report );
+  async addReport( report: Report ){
+    const result = await firstValueFrom(this.http.post<Report>(this.url, report ));
   }
 
   
