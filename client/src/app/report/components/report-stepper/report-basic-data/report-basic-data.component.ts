@@ -1,20 +1,6 @@
 import { AsyncPipe, JsonPipe } from '@angular/common';
-import {
-  Component,
-  effect,
-  inject,
-  Input,
-  OnInit,
-  signal,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component, effect, inject, Input, OnInit, signal,} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,19 +15,8 @@ import { ChecklistService } from 'app/checklist/services/checklist.service';
 @Component({
   selector: 'app-report-basic-data',
   standalone: true,
-  imports: [
-    MatButtonModule,
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatSelectModule,
-    JsonPipe,
-    AsyncPipe,
-    MatSlideToggleModule,
-    MatAutocompleteModule,
+  imports: [ MatButtonModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule,
+    MatInputModule, MatRadioModule, MatSelectModule, JsonPipe, AsyncPipe, MatSlideToggleModule, MatAutocompleteModule,
   ],
   templateUrl: './report-basic-data.component.html',
   styleUrls: ['./report-basic-data.component.scss'],
@@ -77,6 +52,7 @@ export class ReportBasicDataComponent implements OnInit {
 
     this.reportForm?.addControl('basicData', this.basicDataFormGroup);
     console.log(this.reportForm);
+    
   }
 
   get checkListControl(): FormGroup {
@@ -95,6 +71,8 @@ export class ReportBasicDataComponent implements OnInit {
         this.filteredChecklists.set(data);
       });
   }
+
+  
 
   languages = [
     { value: 'catala-0', viewValue: 'Català' },

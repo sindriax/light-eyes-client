@@ -24,7 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ReportContentComponent implements OnInit {
   fb = inject(FormBuilder);
-  @Input() reportContent!: FormGroup;
+  @Input() reportForm!: FormGroup;
   contentFormGroup!: FormGroup;
 
   ngOnInit(): void {
@@ -32,11 +32,11 @@ export class ReportContentComponent implements OnInit {
       content: new FormControl('', Validators.required)
     });
 
-    this.reportContent?.addControl('contentData', this.contentFormGroup);
-    console.log(this.reportContent);
+    this.reportForm?.addControl('contentData', this.contentFormGroup);
+    console.log(this.reportForm);
   }
 
   consoleData() {
-    console.log(this.reportContent);
+    console.log(this.reportForm);
   }
 }

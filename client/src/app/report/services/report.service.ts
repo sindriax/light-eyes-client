@@ -9,27 +9,36 @@ import {  firstValueFrom, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReportService {
-
   private url = 'http://localhost:3000';
   apiUrl = environment.apiUrl;
-  localStorage = inject(LocalStorageService);
-
+  storage = inject(LocalStorageService);
   http = inject(HttpClient);
 
   getAllReport():Observable<Report[]>{
-    return this.http.get<Report[]>(this.url.concat('/Report'));
+    const options = {
+      headers: this.storage.sendHeaders()
+    }
+    return this.http.get<Report[]>(this.apiUrl.concat('/Report'), options);
   }
 
   getAllReportControlData():Observable<ReportControlData[]>{
+    const options = {
+      headers: this.storage.sendHeaders()
+    }
     return this.http.get<ReportControlData[]>(
-      this.url.concat('/Reportss')
+      this.apiUrl.concat('/Report'), options
       // Report/getAllReports es la url correcta
     )
   }
 
-  async addReport( report: Report ){
-    const result = await firstValueFrom(this.http.post<Report>(this.url, report ));
-  }
+  // async addReport( report: Report ){
+  //   const options = {
+  //     headers: this.storage.sendHeaders()
+  //   }
+  //   // const body : Report = {};
+
+  //   const result = await firstValueFrom(this.http.post<Report>(this.url, report ));
+  // }
 
   
   constructor() { }
