@@ -5,20 +5,23 @@
       </div>
   </div>
   <div class="questions" [formGroup]="questionForm">
-      <input formControlName="content" placeholder="Include a new question or checklist item" class="questions-input">
+    <mat-form-field>
+      <mat-label>Include a new question or checklist item</mat-label>
+      <input matInput formControlName="content"  class="questions-input">
+    </mat-form-field>
       <div formArrayName="answers" class="answers">
         @for (answer of answers.controls; track $index) {
           <div class="single-answer">
-          <app-checklist-answ [answerForm]="getAnswerFormGroup($index)"></app-checklist-answ>
-          <div class="button-container">
-            <button mat-icon-button color="warn" (click)="removeAnswer($index)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div>
+            <app-checklist-answ [answerForm]="getAnswerFormGroup($index)"></app-checklist-answ>
+            <div class="button-container">
+              <button mat-icon-button color="warn" (click)="removeAnswer($index)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </div>}
       </div>
       <div class="ans-button-container">
-        <button (click)="addAnswer()" id="add-answer-button"><mat-icon>edit</mat-icon>ADD NEW ANSWER</button>
+        <button mat-raised-button (click)="addAnswer()" id="add-answer-button"><mat-icon>edit</mat-icon>ADD NEW ANSWER</button>
       </div>
     </div>
 

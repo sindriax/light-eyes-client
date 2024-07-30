@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { AdminService } from 'app/admin/services/admin.service';
 import { PendingUser } from 'app/shared/models/auth';
@@ -7,7 +8,7 @@ import { PendingUser } from 'app/shared/models/auth';
 @Component({
   selector: 'app-pending-users-table',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatButton, MatButtonModule],
   templateUrl: './pending-users-table.component.html',
   styleUrl: './pending-users-table.component.scss'
 })
