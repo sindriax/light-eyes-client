@@ -4,47 +4,94 @@
       "id": "1",
       "email": "holi@hola.com",
       "password": "1234"
-  },
+    },
     {
       "id": "1d62",
       "email": "asfsdd@gmail.com",
       "password": "123456"
     }
-  ], 
+  ],
 
-  "checklists": [
+  "CheckList": [
     {
-      "id": "1",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/2024 - 17:00", 
-      "checklistTitle": "NIS2",
-      "checklistDescription":"Best ISO to obtain"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     },
     {
-      "id": "2",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/1999 - 17:00", 
-      "checklistTitle": "NIS1",
-      "checklistDescription":"Deprecated ISO"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     }
   ],
 
-
-    "reports": [
+  "checkListItem": [
     {
       "id": "1",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/2024 - 17:00", 
-      "reportTitle": "NIS2",
-      "reportDescription":"Best ISO to obtain"
+      "content": "hola amigo"
     },
     {
       "id": "2",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/1999 - 17:00", 
-      "reportTitle": "NIS1",
-      "reportDescription":"Deprecated ISO"
+      "content": "hola mundo"
+    }
+  ],
+
+  "checkListItemoptions": [
+    {
+      "id": "1",
+      "content": "hola amigo",
+      "isPositive": false
+    },
+    {
+      "id": "2",
+      "content": "hola mundo",
+      "isPositive": false
+    }
+  ],
+
+  "Report": [
+    {
+      "id": 1,
+      "name": "string",
+      "description": "string",
+      "content": "string",
+      "type": "string",
+      "createdDate": "2024-07-26T10:23:07.103Z",
+      "language": "string"
+    },
+    {
+      "id": 2,
+      "name": "string",
+      "description": "string",
+      "content": "string",
+      "type": "string",
+      "createdDate": "2024-07-26T10:23:07.103Z",
+      "language": "string"
     }
   ]
-
 }

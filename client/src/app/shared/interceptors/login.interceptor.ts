@@ -8,8 +8,6 @@ export const loginInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, n
   const localStorageService = inject(LocalStorageService);
 
   return next(req).pipe(tap(( response : any) => {
-    console.log( req );
-    console.log( response );
 
     if (response.ok && response.url?.startsWith(`${environment.apiUrl}/account/login`) ){
       console.log( 'login response is ok', response );
@@ -22,5 +20,3 @@ export const loginInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, n
   })
   )
 };
-
-

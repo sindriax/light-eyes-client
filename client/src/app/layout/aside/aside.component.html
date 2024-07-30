@@ -23,6 +23,11 @@
       <button mat-flat-button routerLinkActive="active" [routerLink]="['/checklists']"><mat-icon>home</mat-icon>Dashboard</button>
       <button mat-flat-button routerLinkActive="active" [routerLink]="['/checklists']"><mat-icon>playlist_add_check</mat-icon>Checklists</button>
       <button mat-flat-button routerLinkActive="active" [routerLink]="['/reports']"><mat-icon> insert_drive_file</mat-icon>Reports</button>
+
+      @if (authService.isAdmin()) {
+        <button mat-flat-button routerLinkActive="active" [routerLink]="['/admin']"><mat-icon> insert_drive_file</mat-icon>Admin</button>
+      }
+
     </div>
     <div class="logout-button">
       <button mat-flat-button class="logoutBut" (click)="onLogout()"><mat-icon>exit_to_app</mat-icon>Log out</button>

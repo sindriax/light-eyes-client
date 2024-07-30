@@ -1,6 +1,15 @@
-
-@for (report of (reports | async) || []; track $index) {
-    <app-report-card [report]="report"></app-report-card>
-}
-
+<section class="report">
+  <div>
+    <button
+      mat-fab
+      extended
+      routerLinkActive="active"
+      [routerLink]="['create-report']"
+    >
+      <mat-icon>edit</mat-icon>Create Checklist
+    </button>
+  </div>
+  <div class="checklistContainerCard"></div>
+  <app-report-table></app-report-table>
+</section>
 

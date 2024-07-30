@@ -11,8 +11,6 @@ import { ChecklistAnswerComponent } from "../../checklist-answer/checklist-answe
 import { Checklist } from 'app/shared/models/checklist';
 import { MatIcon } from '@angular/material/icon';
 
-
-
 @Component({
   selector: 'app-checklist-generator',
   standalone: true,
@@ -58,8 +56,8 @@ export class ChecklistGeneratorComponent {
 
 newChecklist: Checklist={
   language: '',
-  checklistTitle: '',
-  checklistDescription: '',
+  name: '',
+  description: '',
 
 }
   isLinear = false;
