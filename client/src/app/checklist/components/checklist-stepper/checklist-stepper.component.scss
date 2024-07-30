@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: row;
   height: fit-content;
-  width: fit-content;
+  // width: fit-content;
 }
 
 mat-stepper {
@@ -14,8 +14,8 @@ mat-stepper {
   box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
   background-color: white;
   margin: 1em; 
-  max-width: 90vw;
-  width: fit-content;
+  width: 100%;
+ // width: fit-content;
 
   .back-button, .reset-button, .next-button {
     color: #493971;
@@ -38,19 +38,21 @@ mat-stepper {
   .containers {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .question-container {
       border-radius: 1em;
       border: 1px solid rgba(190, 190, 190, 0.523);
       padding: 1em;
       margin: 1em 0;
+      width: 100%;
 
       .remove-but-container{
         width: 97%;
         display: flex;
         justify-content: end;
         margin-top: 0.5em;
-        
+
         #remove-button{
         //   border: 0;
         //   background-color:#F5EBFF;
@@ -76,6 +78,7 @@ mat-stepper {
     .answers-container {
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
   }
 }

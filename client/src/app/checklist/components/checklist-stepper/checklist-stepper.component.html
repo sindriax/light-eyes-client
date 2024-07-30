@@ -3,46 +3,48 @@
   </button> -->
   <mat-stepper [linear]="isLinear" #stepper>
     <mat-step>
-        <ng-template matStepLabel>Add Title and language</ng-template>
-    <h1>Title</h1>
-        <form  [formGroup]="checkListForm" class="language-title-container">
-
-            <mat-form-field>
-                <mat-label>Title</mat-label>
-                    <input matInput formControlName="title" placeholder="Introduce a tittle for the checklist" required class="description-box">
-                </mat-form-field>
-                
-            <mat-form-field>
-                <mat-label>Select checklist language</mat-label>
-                    <select formControlName="language" matNativeControl required>
-                        <option value="true">Català</option>
-                        <option value="false">Castellano</option>
-                    </select>
-              </mat-form-field>
-        </form> 
-
-        <div>
-          <button mat-button matStepperNext class="next-button">Next</button>
-        </div>
-    
+      <ng-template matStepLabel>Add Title and Language</ng-template>
+      <h1>Title</h1>
+      <form [formGroup]="checkListForm" class="language-title-container">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Introduce a title for the checklist" required class="description-box">
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Select checklist language</mat-label>
+          <select formControlName="language" matNativeControl required>
+            <option value="true">Català</option>
+            <option value="false">Castellano</option>
+          </select>
+        </mat-form-field>
+      </form>
+  
+      <div>
+        <button mat-button matStepperNext class="next-button">Next</button>
+      </div>
     </mat-step>
+  
     <mat-step>
-        <ng-template matStepLabel>Add description</ng-template>
-        <h1>Description</h1>    
-        <form [formGroup]="checkListForm">
-            <mat-form-field class="custom-form-field">
-              <mat-label>Checklist description / summary</mat-label>
-              <input matInput formControlName="description" placeholder="Provide an introduction for the checklist" required class="description-box">
-            </mat-form-field>
-            <div>
-
+      <ng-template matStepLabel>Add Description</ng-template>
+      <h1>Description</h1>
+      <form [formGroup]="checkListForm">
+        <mat-form-field class="custom-form-field">
+          <mat-label>Checklist description / summary</mat-label>
+          <input matInput formControlName="description" placeholder="Provide an introduction for the checklist" required class="description-box">
+        </mat-form-field>
+  
         <div>
           <button mat-button matStepperPrevious class="back-button">Back</button>
           <button mat-button matStepperNext class="next-button">Next</button>
         </div>
+      </form>
+    </mat-step>
+  
     <mat-step>
-            <ng-template matStepLabel>Add Questions</ng-template>
-        <div class="containers"> <form [formGroup]="checkListForm">
+      <ng-template matStepLabel>Add Questions</ng-template>
+      <div class="containers">
+        <form [formGroup]="checkListForm">
           <div class="question-container" formArrayName="questions">
             <!-- questions are the get function that returns all questions from ts file -->
             @for (question of questions.controls; track $index) {
@@ -56,14 +58,16 @@
             }
           </div>
         </form>
+  
         <div class="buttons-end">
-        <button mat-raised-button (click)="addQuestion()" class="add-button"><mat-icon>edit</mat-icon>ADD NEW QUESTION</button>
-        <button mat-raised-button (click)="saveChecklist()" class="save-button"><mat-icon>save</mat-icon>SAVE CHECKLIST</button>
+          <button mat-raised-button (click)="addQuestion()" class="add-button"><mat-icon>edit</mat-icon>ADD NEW QUESTION</button>
+          <button mat-raised-button (click)="saveChecklist()" class="save-button"><mat-icon>save</mat-icon>SAVE CHECKLIST</button>
         </div>
-            </div>
+      </div>
       <p>You are now done.</p>
       <div>
         <button mat-button matStepperPrevious class="back-button">Back</button>
         <button mat-button (click)="stepper.reset()" class="reset-button">Reset</button>
       </div>
     </mat-step>
+  </mat-stepper>
