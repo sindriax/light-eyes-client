@@ -2,7 +2,7 @@ mat-sidenav-container{
     background-color: #F5EFF7;
     display: flex;
     flex-direction: column;
-    height: 97%;
+    height: 100%;
     border-radius: 1em;
     margin: 1em;    
 
@@ -30,7 +30,7 @@ mat-sidenav-container{
                 font-size: 1em;
                 font-weight: bold;
                 
-                        .active .mat-icon{
+                button.mat-flat-button.active .mat-icon{
                             color: white;
                         }
             }
@@ -46,7 +46,3 @@ mat-sidenav-container{
         }
     }
 }
-
-// .active .buutton{
-//     background-color: orange;
-// }

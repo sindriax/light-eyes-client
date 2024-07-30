@@ -1,9 +1,9 @@
-export interface Checklist {
+export interface Checklist{
     checkListId?: number;
     name?: string;
     description: string;
+    createdDate?: Date;
     language?: string;
-    creationDate?: Date;
     // checkListItems: ChecklistItem[]
 }
 
