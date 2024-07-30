@@ -1,4 +1,4 @@
-<mat-stepper [formGroup]="reportForm" #stepper>
+<mat-stepper [formGroup]="reportForm" #stepper (ngSubmit)="handleFormSubmit()">
   <!-- [linear]="isLinear" -->
 
   <mat-step label="Report Basic Data">

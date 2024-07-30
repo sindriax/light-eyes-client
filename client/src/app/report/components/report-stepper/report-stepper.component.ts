@@ -47,7 +47,7 @@ import { ReportChecklistComponent } from './report-checklist/report-checklist.co
 export class ReportStepperComponent implements OnInit {
   @Input() report!: Report[];
   reportForm: FormGroup;
- 
+
   reportIds: number[] = [];
 
   // isLinear = false;
@@ -69,9 +69,18 @@ export class ReportStepperComponent implements OnInit {
       }
     );
   }
+// get reportFormBasicData(): FormGroup {
 
-  // readonly checked = model(false);
-  // readonly indeterminate = model(false);
-  // readonly labelPosition = model<'before' | 'after'>('after');
-  // readonly disabled = model(false);
+//   this.reportForm = {
+//     name: this.reportForm.value.name as string,
+//     description: this.reportForm.value.description as string,
+//     type: this.reportForm.value.type as string,
+//     language: this.reportForm.value.language as string,
+//     checkList: this.reportForm.value.checkList as []
+//   };
+// }
+
+  handleFormSubmit() {
+
+  }
 }
