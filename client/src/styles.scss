@@ -63,5 +63,11 @@ $light-eyes-client-theme: mat.define-theme((
 // @include mat.color-variants-backwards-compatibility($light-eyes-client-theme);
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%;
+            overflow-x: hidden;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

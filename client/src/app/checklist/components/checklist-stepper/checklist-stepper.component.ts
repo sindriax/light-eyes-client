@@ -20,9 +20,9 @@ export class ChecklistStepperComponent {
 
   public questionCounter = 2;
   isLinear = false;
-
-
   checkListForm: FormGroup;
+
+
   // injects formBuilder service and initializes the checklist Form Group with a Form Array with one Question
   constructor(private fb: FormBuilder, private generatorService: GeneratorChecklistService) {
     this.checkListForm = this.fb.group({
@@ -69,12 +69,12 @@ removeQuestion(index: number): void {
   addQuestion(){
     const questions = this.checkListForm.get('questions') as FormArray; 
     this.questions.push(this.createQuestion());
+    this.questionCounter++;
     console.log( this.checkListForm );
   }
   // Send to endpoint all data for backend api to generate checklist template
   saveChecklist() {
     const questions = this.checkListForm.get('questions') as FormArray;
-  
     const formattedChecklistItems = questions.controls.map((questionControl: AbstractControl) => {
       const questionGroup = questionControl as FormGroup;
       const questionValue = questionGroup.value;
@@ -86,6 +86,7 @@ removeQuestion(index: number): void {
         }))
       };
     });
+
   
     const checklistData: NewChecklistData = {
       name: this.checkListForm.value.title,
@@ -97,8 +98,7 @@ removeQuestion(index: number): void {
   
     console.log(checklistData);
   }
-
-
+  
   }
   
 
