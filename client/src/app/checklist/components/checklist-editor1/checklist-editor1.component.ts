@@ -24,14 +24,22 @@ export class ChecklistEditorComponent  {
 
 
   readonly labelPosition = model<'before' | 'after'>('after');
-checklistData: any;
-selectedOptions: { [key: string]: string } = {};
+  checklistData: any = {}; 
+  selectedOptions: { [key: string]: string } = {};
+  description: string = '';
+  title: string = '';
+  language: string = '';
 
 
 private generatorService = inject(GeneratorChecklistService)
 ngOnInit() {
   this.generatorService.checklistData$.subscribe(data => {
     this.checklistData = data;
+    if (data) {
+      this.description = data.description;
+      this.title = data.name;
+      this.language = data.language;
+    }
   });
 
   this.generatorService.selectedOptions$.subscribe(options => {

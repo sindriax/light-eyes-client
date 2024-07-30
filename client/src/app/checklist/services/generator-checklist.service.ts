@@ -68,6 +68,10 @@ getSelectedOptions() {
   return this.selectedOptions.value;
 }
 
+sendSelectedOptions(selectedOptions: { [key: string]: string }) {
+  return this.http.post(this.apiUrl, selectedOptions);
+}
+
 /* 
 getById(id: number) {
   const checklist = this.checklistData.find((item: { id: number; }) => item.id === id);

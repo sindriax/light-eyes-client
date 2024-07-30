@@ -8,6 +8,7 @@ import { ChecklistQuesComponent } from "../checklist-ques/checklist-ques.compone
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { GeneratorChecklistService } from 'app/checklist/services/generator-checklist.service';
+import { NewChecklistData } from 'app/shared/models/checklist';
 @Component({
   selector: 'app-checklist-stepper',
   standalone: true,
@@ -86,7 +87,7 @@ removeQuestion(index: number): void {
       };
     });
   
-    const checklistData = {
+    const checklistData: NewChecklistData = {
       name: this.checkListForm.value.title,
       description: this.checkListForm.value.description,
       language: this.checkListForm.value.language,
@@ -96,5 +97,8 @@ removeQuestion(index: number): void {
   
     console.log(checklistData);
   }
+
+
+  }
   
-}
+

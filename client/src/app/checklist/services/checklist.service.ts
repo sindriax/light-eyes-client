@@ -17,4 +17,7 @@ export class ChecklistService {
   }
 
   constructor() { }
-}
+
+  sendChecklistData(checklistData: {[key: string]: string }){
+    return this.http.post(this.url, checklistData)
+}}
