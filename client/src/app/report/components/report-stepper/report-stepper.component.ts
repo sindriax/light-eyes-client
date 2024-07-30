@@ -69,16 +69,6 @@ export class ReportStepperComponent implements OnInit {
       }
     );
   }
-// get reportFormBasicData(): FormGroup {
-
-//   this.reportForm = {
-//     name: this.reportForm.value.name as string,
-//     description: this.reportForm.value.description as string,
-//     type: this.reportForm.value.type as string,
-//     language: this.reportForm.value.language as string,
-//     checkList: this.reportForm.value.checkList as []
-//   };
-// }
 
   handleFormSubmit() {
 

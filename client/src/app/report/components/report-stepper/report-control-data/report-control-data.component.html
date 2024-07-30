@@ -1,69 +1,39 @@
-<section class="second-stepper" [formGroup]="controlDataFormGroup" >
-
-    <mat-form-field>
+<section class="second-stepper" [formGroup]="controlDataFormGroup">
+  <mat-form-field>
     <mat-label>Date</mat-label>
-    <input
-      matInput
-      formControlName="reviewDate"
-      placeholder=""
-      required
-    />
+    <input matInput formControlName="reviewDate" placeholder="" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Created by:</mat-label>
-    <input
-      matInput
-      formControlName="createdBy"
-      placeholder=""
-      required
-    />
+    <input matInput formControlName="createdBy" placeholder="" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Validated by:</mat-label>
-    <input
-      matInput
-      formControlName="validatedBy"
-      placeholder=""
-      required
-    />
+    <input matInput formControlName="validatedBy" placeholder="" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Reviewed by:</mat-label>
-    <input
-      matInput
-      formControlName="reviewedBy"
-      placeholder=""
-      required
-    />
+    <input matInput formControlName="reviewedBy" placeholder="" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Document code</mat-label>
-    <input
-      matInput
-      formControlName="documentCode"
-      placeholder=""
-      required
-    />
+    <input matInput formControlName="documentCode" placeholder="" />
   </mat-form-field>
 
   <mat-form-field>
-    
     <mat-label>Department</mat-label>
-    <input
-      matInput
-      formControlName="department"
-      placeholder=""
-      required
-    />
+    <input matInput formControlName="department" placeholder="" />
   </mat-form-field>
 
   <button (click)="consoleData()" mat-button>Console Data</button>
   <div>
     <button mat-button matStepperPrevious>Back</button>
     <button mat-button matStepperNext>Next</button>
+  <button (click)="submitForm()" mat-button>Submit</button>
+
   </div>
 </section>

@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, OnInit, Output, signal } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -10,7 +10,8 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ReportService } from 'app/report/services/report.service';
-import { ReportControlData } from 'app/shared/models/reports';
+import { Report, ReportControlData } from 'app/shared/models/reports';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-report-control-data',
@@ -29,6 +30,8 @@ export class ReportControlDataComponent implements OnInit {
   filteredReports = signal<ReportControlData[]>([]);
   fb = inject(FormBuilder);
   @Input() reportForm!: FormGroup;
+  // @Output() formSubmit = new EventEmitter<ReportControlData>(); 
+
   controlDataFormGroup!: FormGroup;
 
   ngOnInit(): void {
@@ -49,8 +52,17 @@ export class ReportControlDataComponent implements OnInit {
     console.log(this.reportForm);
   }
 
-  // get checkListControl(): FormGroup {
-  //   return this.controlDataFormGroup.get('report') as FormGroup;
+  // submitForm() {  // Añade esto
+  //   const formValue = {
+  //     reviewDate: this.controlDataFormGroup.value.reviewDate as string,
+  //     createdBy: this.controlDataFormGroup.value.createdBy as string,
+  //     validatedBy: this.controlDataFormGroup.value.validatedBy as string,
+  //     reviewedBy: this.controlDataFormGroup.value.reviewedBy as string,
+  //     documentCode: this.controlDataFormGroup.value.documentCode as string,
+  //     department: this.controlDataFormGroup.value.department as string,
+  //   };
+  //   this.formSubmit.emit(formValue);
+  //   console.log(formValue);
   // }
 
   consoleData() {

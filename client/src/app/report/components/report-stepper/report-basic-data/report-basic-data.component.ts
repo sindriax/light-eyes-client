@@ -1,5 +1,5 @@
 import { AsyncPipe, JsonPipe } from '@angular/common';
-import { Component, effect, inject, Input, OnInit, signal,} from '@angular/core';
+import { Component, effect, EventEmitter, inject, Input, OnInit, Output, signal,} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,6 +11,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { BasicCheckList } from 'app/shared/models/checklist';
 import { ChecklistService } from 'app/checklist/services/checklist.service';
+import { Report } from 'app/shared/models/reports';
 
 @Component({
   selector: 'app-report-basic-data',
@@ -26,6 +27,7 @@ export class ReportBasicDataComponent implements OnInit {
   filteredChecklists = signal<BasicCheckList[]>([]);
   fb = inject(FormBuilder);
   @Input() reportForm!: FormGroup;
+  @Output() formSubmit = new EventEmitter<BasicCheckList>(); 
   basicDataFormGroup!: FormGroup;
 
   // Form from report-stepper
@@ -72,7 +74,18 @@ export class ReportBasicDataComponent implements OnInit {
       });
   }
 
-  
+  submitForm() {  // Añade esto
+    const formValue = {
+      name: this.basicDataFormGroup.value.name as string,
+      description: this.basicDataFormGroup.value.description as string,
+      type: this.basicDataFormGroup.value.type as string,
+      language: this.basicDataFormGroup.value.language as string,
+      checkList: this.basicDataFormGroup.value.checkList as []
+    };
+    this.formSubmit.emit(formValue);
+    console.log(formValue);
+  }
+
 
   languages = [
     { value: 'catala-0', viewValue: 'Català' },
