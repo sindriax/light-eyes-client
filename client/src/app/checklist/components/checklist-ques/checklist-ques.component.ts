@@ -21,8 +21,6 @@ export class ChecklistQuesComponent {
 
   @Input() questionForm!: FormGroup;
   @Input() questionCounter: number = 1;
-  // public questionCounter = 2;
-
 
   // injects FormBuilder service to be used on createAnswer for generating new dynamic FormGroups
   private fb = inject(FormBuilder);

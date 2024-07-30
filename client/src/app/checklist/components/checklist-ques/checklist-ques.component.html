@@ -5,7 +5,6 @@
       </div>
   </div>
   <div class="questions" [formGroup]="questionForm">
-      <!-- <mat-label>Include a new question or item</mat-label> -->
       <input formControlName="content" placeholder="Include a new question or checklist item" class="questions-input">
       <div formArrayName="answers" class="answers">
         @for (answer of answers.controls; track $index) {

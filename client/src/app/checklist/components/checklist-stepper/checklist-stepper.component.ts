@@ -82,4 +82,6 @@ removeQuestion(index: number): void {
     // console.log("questions", questions);
     console.log( checklistData );
   }
+
+  
 }
