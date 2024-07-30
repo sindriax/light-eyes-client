@@ -1,29 +1,29 @@
-<div [formGroup]="answerForm">
-    <select formControlName="type">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
-    <input formControlName="content" placeholder="Introduce the answer">
-  </div>
+<div [formGroup]="answerForm" class="answer-option">
+  <select formControlName="type" class="option-selector">
+    <option value="true" class="option-selector">Yes</option>
+    <option value="false" class="option-selector">No</option>
+  </select>
+  <input formControlName="content" placeholder="Introduce the answer" class="answer-input">
+</div>
 <!-- 
 <div [formGroup]="answerForm">
-    
-        <mat-form-field>
+  
+      <mat-form-field>
 
-            <mat-label>Answer</mat-label>
-            <mat-select formControlName="type">
-                <mat-option value="true">Yes</mat-option>
-                <mat-option value="false">No</mat-option>
-            </mat-select>
-       <div id="answer-container">
-        <mat-label>Introduce the answer</mat-label>
-              <input id="answer-input" formControlName="content" placeholder="Introduce the answer">
-       </div>
-            
+          <mat-label>Answer</mat-label>
+          <mat-select formControlName="type">
+              <mat-option value="true">Yes</mat-option>
+              <mat-option value="false">No</mat-option>
+          </mat-select>
+     <div id="answer-container">
+      <mat-label>Introduce the answer</mat-label>
+            <input id="answer-input" formControlName="content" placeholder="Introduce the answer">
+     </div>
+          
 
-        </mat-form-field>
-     
+      </mat-form-field>
+   
 
 
 
-  </div> -->
+</div> -->
