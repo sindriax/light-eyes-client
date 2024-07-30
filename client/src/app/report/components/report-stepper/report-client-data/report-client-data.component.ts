@@ -1,12 +1,13 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-report-client-data',
   standalone: true,
-  imports: [MatFormFieldModule,  ReactiveFormsModule, FormsModule, MatInputModule ],
+  imports: [MatFormFieldModule,  ReactiveFormsModule, FormsModule, MatInputModule, MatButton ],
   templateUrl: './report-client-data.component.html',
   styleUrl: './report-client-data.component.scss'
 })
@@ -26,11 +27,7 @@ ngOnInit(): void {
   });
 
   this.reportForm?.addControl("clientData", this.clientDataFormGroup);
-  console.log(this.reportForm);
   }
 
-  consoleData() {
-    console.log(this.reportForm);
-  }
 
 }

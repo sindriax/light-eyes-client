@@ -1,5 +1,5 @@
 import { AsyncPipe, JsonPipe } from '@angular/common';
-import { Component, effect, EventEmitter, inject, Input, OnInit, Output, signal,} from '@angular/core';
+import { Component, effect, EventEmitter, inject, Input, OnInit, Output, signal, WritableSignal,} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,7 +27,7 @@ export class ReportBasicDataComponent implements OnInit {
   filteredChecklists = signal<BasicCheckList[]>([]);
   fb = inject(FormBuilder);
   @Input() reportForm!: FormGroup;
-  @Output() formSubmit = new EventEmitter<BasicCheckList>(); 
+  @Input() checkListId!: WritableSignal<number>;
   basicDataFormGroup!: FormGroup;
 
   // Form from report-stepper
@@ -74,26 +74,15 @@ export class ReportBasicDataComponent implements OnInit {
       });
   }
 
-  submitForm() {  // Añade esto
-    const formValue = {
-      name: this.basicDataFormGroup.value.name as string,
-      description: this.basicDataFormGroup.value.description as string,
-      type: this.basicDataFormGroup.value.type as string,
-      language: this.basicDataFormGroup.value.language as string,
-      checkList: this.basicDataFormGroup.value.checkList as []
-    };
-    this.formSubmit.emit(formValue);
-    console.log(formValue);
+  handleSelectChecklist(event: any){
+    if ( this.filteredChecklists()[0].name == event ){
+      let selectedId = this.filteredChecklists()[0].checkListId as number;
+      this.checkListId.set(selectedId);
+    }
   }
-
 
   languages = [
     { value: 'catala-0', viewValue: 'Català' },
     { value: 'castellano-1', viewValue: 'Castellano' },
   ];
-
-  consoleData() {
-    console.log(this.reportForm);
-    console.log(this.filteredChecklists());
-  }
 }

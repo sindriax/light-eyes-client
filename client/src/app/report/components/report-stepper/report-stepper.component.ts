@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, effect, inject, Input, OnInit, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -20,6 +20,8 @@ import { ReportClientDataComponent } from './report-client-data/report-client-da
 import { ReportContentComponent } from './report-content/report-content.component';
 import { ReportPreviewComponent } from './report-preview/report-preview.component';
 import { ReportChecklistComponent } from './report-checklist/report-checklist.component';
+import { ChecklistService } from 'app/checklist/services/checklist.service';
+import { CheckList } from 'app/shared/models/checklist';
 
 @Component({
   selector: 'app-report-stepper',
@@ -47,15 +49,33 @@ import { ReportChecklistComponent } from './report-checklist/report-checklist.co
 export class ReportStepperComponent implements OnInit {
   @Input() report!: Report[];
   reportForm: FormGroup;
-
   reportIds: number[] = [];
+  checkListId = signal<number>(0);
+  checkList = signal<CheckList>({
+    checkListId: 0,
+    name: '',
+    description: '',
+    language: '',
+    createdDate: '',
+    checkListItems: []
+  });
 
-  // isLinear = false;
+  checkListService = inject(ChecklistService);
+
   constructor(private fb: FormBuilder, private reportService: ReportService) {
     this.reportForm = this.fb.group({});
 
-    console.log(this.reportForm);
-    // console.log(this.reportFormData);
+    effect(() => {
+
+      // checklist has been set
+      if(this.checkListId() > 0){
+        // request checklist
+        this.checkListService.getSavedCheckListById(this.checkListId()).subscribe( (checklistResponse) => {
+          this.checkList.set(checklistResponse);
+        });
+      }
+
+    });
   }
 
   ngOnInit(): void {
@@ -71,6 +91,6 @@ export class ReportStepperComponent implements OnInit {
   }
 
   handleFormSubmit() {
-
+    console.log(this.reportForm.value);
   }
 }

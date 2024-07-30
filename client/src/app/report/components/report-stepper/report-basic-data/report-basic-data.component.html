@@ -1,4 +1,3 @@
-<!-- <mat-step [stepControl]="firstFormGroup"> -->
 <section [formGroup]="basicDataFormGroup" class="first-stepper">
   <ng-template matStepLabel>Fill out your name</ng-template>
   <mat-form-field>
@@ -34,6 +33,7 @@
       [matAutocomplete]="auto"
       formControlName="checkList"
       (keyup)="checklistSearch()"
+      (ngModelChange)="handleSelectChecklist($event)"
     />
     <mat-autocomplete #auto="matAutocomplete">
       @for (checkList of filteredChecklists(); track checkList) {
@@ -48,8 +48,6 @@
     </mat-autocomplete>
   </mat-form-field>
 
-  <button (click)="consoleData()" mat-button>Console Data</button>
-  <button (click)="submitForm()" mat-button>Submit</button>
   <div>
     <button mat-button matStepperNext>Next</button>
   </div>

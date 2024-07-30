@@ -23,6 +23,16 @@ export class ChecklistService{
     );
   }
 
+  getSavedCheckListById(id: number): Observable<CheckList>{
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.storage.getToken(),
+        'Accept': 'application/json'
+      })};
+
+      return this.http.get<CheckList>(`${this.apiUrl}/CheckList/${id}`, options)
+  };
+
   getAllCheckListFiltered(name: string): Observable<BasicCheckList[]> {
     const options = {
       headers: this.storage.sendHeaders(),
