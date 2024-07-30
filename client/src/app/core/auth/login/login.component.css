@@ -1,0 +1,75 @@
+@keyframes flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.landing-page {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  background-color: #F5EFF7;
+}
+.landing-page .left-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 7em;
+  margin-right: -7em;
+  margin-top: -5em;
+}
+.landing-page .left-side .landing-text {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+.landing-page .left-side .landing-text h1 {
+  font-size: 5em;
+  color: #7C6BA7;
+}
+.landing-page .left-side .landing-text img {
+  height: 15vh;
+}
+.landing-page .left-side .landing-text img:hover {
+  animation: flip 2s linear;
+  transform-style: preserve-3d;
+}
+.landing-page .left-side p {
+  width: 70%;
+  font-weight: normal;
+  font-size: 1.3em;
+}
+.landing-page .left-side p span {
+  color: #F66426;
+  font-weight: bold;
+}
+.landing-page .right-side {
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.landing-page .right-side mat-tab-group {
+  width: 50%;
+  border: 1px solid #E6E0E9;
+  margin-left: 18em;
+}
+.landing-page .right-side form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+.landing-page .right-side form button {
+  background-color: #7C6BA7;
+  color: white;
+}/*# sourceMappingURL=login.component.css.map */
