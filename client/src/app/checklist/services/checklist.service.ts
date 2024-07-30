@@ -11,19 +11,25 @@ import { LocalStorageService } from 'app/core/services/local-storage.service';
 export class ChecklistService{
 
   apiUrl = environment.apiUrl;
-
   http = inject(HttpClient);
-  storage = inject(LocalStorageService)
-
+  storage = inject(LocalStorageService);
 
   getAllChecklist(): Observable<BasicCheckList[]> {
+    const options = {
+      headers: this.storage.sendHeaders(),
+    };
     return this.http.get<BasicCheckList[]>(
-      this.apiUrl.concat('/CheckList/getAllChecklists')
+      this.apiUrl.concat('/CheckList/getAllChecklists'), options
     );
   }
 
-  getAllCheckListFiltered(name: string): Observable<BasicCheckList[]>{
-    return this.http.get<BasicCheckList[]>(this.apiUrl.concat(`/CheckList/getAllChecklists?Name=${name}`))
+  getAllCheckListFiltered(name: string): Observable<BasicCheckList[]> {
+    const options = {
+      headers: this.storage.sendHeaders(),
+    };
+    return this.http.get<BasicCheckList[]>(
+      this.apiUrl.concat(`/CheckList/getAllChecklists?Name=${name}`), options
+    );
   }
   
 

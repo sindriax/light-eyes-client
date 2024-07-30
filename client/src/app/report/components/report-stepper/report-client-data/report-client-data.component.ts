@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ReportClientDataComponent implements OnInit {
   fb = inject(FormBuilder);
-  @Input() reportClientData!: FormGroup;
+  @Input() reportForm!: FormGroup;
   clientDataFormGroup!: FormGroup;
 
 ngOnInit(): void {
@@ -25,12 +25,12 @@ ngOnInit(): void {
     contactPhone: new FormControl('', Validators.required),
   });
 
-  this.reportClientData?.addControl("clientData", this.clientDataFormGroup);
-  console.log(this.reportClientData);
+  this.reportForm?.addControl("clientData", this.clientDataFormGroup);
+  console.log(this.reportForm);
   }
 
   consoleData() {
-    console.log(this.reportClientData);
+    console.log(this.reportForm);
   }
 
 }
