@@ -18,9 +18,9 @@ export class ChecklistStepperComponent {
 
   public questionCounter = 2;
   isLinear = false;
-
-
   checkListForm: FormGroup;
+
+
   // injects formBuilder service and initializes the checklist Form Group with a Form Array with one Question
   constructor(private fb: FormBuilder) {
     this.checkListForm = this.fb.group({
@@ -67,12 +67,12 @@ removeQuestion(index: number): void {
   addQuestion(){
     const questions = this.checkListForm.get('questions') as FormArray; 
     this.questions.push(this.createQuestion());
+    this.questionCounter++;
     console.log( this.checkListForm );
   }
   // Send to endpoint all data for backend api to generate checklist template
   saveChecklist() {
     const questions = this.checkListForm.get('questions') as FormArray;
-
     const checklistData = {
       name: this.checkListForm.value.name,
       description: this.checkListForm.value.description,

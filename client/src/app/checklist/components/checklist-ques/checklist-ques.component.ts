@@ -20,8 +20,8 @@ export class ChecklistQuesComponent {
   // interface question to be implemented
 
   @Input() questionForm!: FormGroup;
-  @Input() questionNumber: number = 1;
-  public questionCounter = 2;
+  @Input() questionCounter: number = 1;
+  // public questionCounter = 2;
 
 
   // injects FormBuilder service to be used on createAnswer for generating new dynamic FormGroups

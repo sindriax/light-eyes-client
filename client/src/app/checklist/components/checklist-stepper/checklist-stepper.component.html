@@ -46,7 +46,7 @@
           <div class="question-container" formArrayName="questions">
             <!-- questions are the get function that returns all questions from ts file -->
             @for (question of questions.controls; track $index) {
-              <app-checklist-ques [questionForm]="getQuestionFormGroup($index)"></app-checklist-ques>
+              <app-checklist-ques [questionForm]="getQuestionFormGroup($index)" [questionCounter]="$index + 1"></app-checklist-ques>
               <div class="remove-but-container">
                 <button mat-icon-button (click)="removeQuestion($index)" id="remove-button">
                   <mat-icon>delete</mat-icon>
