@@ -11,7 +11,6 @@ mat-stepper{
   box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
   background-color: white;
   margin: 2em;
-  border: 3px solid orange;
 
   button{
     color: #493971;
@@ -40,7 +39,6 @@ mat-stepper{
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 3px solid blue;
 
   .question-container{
       border-radius: 1em;
@@ -75,10 +73,10 @@ mat-stepper{
 }
 
 .remove-button{
-  color: #323233;
+  // color: #323233;
   border: 0;
-  border-radius: 3em;
-  font-weight: bold;
+  // border-radius: 3em;
+  // font-weight: bold;
   background-color:#F5EBFF;
   width: 13em;
   height: 2em;
@@ -87,6 +85,16 @@ mat-stepper{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
+  color: #323233;
+  border: 0;
+  border-radius: 3em;
+  font-weight: 500;
+  background-color:#FFFBFF;
+  margin-bottom: 1em;
 }
 
 .buttons-end{

@@ -1,4 +1,3 @@
-stepper HTML:
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
   </button>
@@ -56,7 +55,7 @@ stepper HTML:
         </form>
         <div class="buttons-end">
         <button mat-raised-button (click)="addQuestion()" class="add-button"><mat-icon>edit</mat-icon>ADD NEW QUESTION</button>
-        <button mat-raised-button (click)="saveChecklist()" class="save-button">SAVE CHECKLIST</button>
+        <button mat-raised-button (click)="saveChecklist()" class="save-button"><mat-icon>save</mat-icon>SAVE CHECKLIST</button>
         </div>
             </div>
       <p>You are now done.</p>
