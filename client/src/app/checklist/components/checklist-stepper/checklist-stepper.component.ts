@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormArray} from '@angular/forms';
+import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormArray, AbstractControl} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -73,15 +73,27 @@ removeQuestion(index: number): void {
   // Send to endpoint all data for backend api to generate checklist template
   saveChecklist() {
     const questions = this.checkListForm.get('questions') as FormArray;
+    const formattedChecklistItems = questions.controls.map((questionControl: AbstractControl) => {
+      const questionGroup = questionControl as FormGroup;
+      const questionValue = questionGroup.value;
+      return {
+        content: questionValue.content,
+        checkListItemOptions: questionValue.answers.map((answer: any) => ({
+          content: answer.content,
+          isPositive: answer.type === 'true'
+        }))
+      };
+    });
+ 
     const checklistData = {
-      name: this.checkListForm.value.name,
+      name: this.checkListForm.value.title,
       description: this.checkListForm.value.description,
       language: this.checkListForm.value.language,
-      checkListItems: questions.value
-    }
-    // console.log("questions", questions);
-    console.log( checklistData );
+      createdDate: new Date().toISOString(),
+      checkListItems: formattedChecklistItems
+    };
+  
+    console.log(checklistData);
   }
-
   
 }
