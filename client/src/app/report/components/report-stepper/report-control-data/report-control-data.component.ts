@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, OnInit, Output, signal } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -25,16 +25,12 @@ import { ReportControlData } from 'app/shared/models/reports';
   styleUrl: './report-control-data.component.scss',
 })
 export class ReportControlDataComponent implements OnInit {
-  private reportService = inject(ReportService);
-  filteredReports = signal<ReportControlData[]>([]);
   fb = inject(FormBuilder);
   @Input() reportForm!: FormGroup;
+
   controlDataFormGroup!: FormGroup;
 
   ngOnInit(): void {
-    this.reportService.getAllReportControlData().subscribe((data) => {
-      this.filteredReports.set(data);
-    });
 
     this.controlDataFormGroup = this.fb.group({
       reviewDate: new FormControl('', Validators.required),
@@ -46,15 +42,6 @@ export class ReportControlDataComponent implements OnInit {
     });
 
     this.reportForm?.addControl('controlData', this.controlDataFormGroup);
-    console.log(this.reportForm);
   }
 
-  // get checkListControl(): FormGroup {
-  //   return this.controlDataFormGroup.get('report') as FormGroup;
-  // }
-
-  consoleData() {
-    console.log(this.reportForm);
-    console.log(this.filteredReports());
-  }
 }

@@ -1,8 +1,8 @@
-<mat-stepper [formGroup]="reportForm" #stepper (ngSubmit)="handleFormSubmit()">
+<mat-stepper [formGroup]="reportForm" #stepper>
   <!-- [linear]="isLinear" -->
 
   <mat-step label="Report Basic Data">
-    <app-report-basic-data [reportForm]="reportForm"></app-report-basic-data>
+    <app-report-basic-data [reportForm]="reportForm" [checkListId]="checkListId"></app-report-basic-data>
   </mat-step>
 
   <mat-step label="Report Control Data">
@@ -25,8 +25,11 @@
 
   <mat-step label="Report Content">
     <form>
-      <app-report-checklist></app-report-checklist>
+      <app-report-checklist [checkList]="checkList"></app-report-checklist>
     </form>
+    <div>
+      <button mat-button matStepperNext (click)="handleFormSubmit()">Create Report</button>
+    </div>
   </mat-step>
 
   <mat-step>
@@ -35,9 +38,6 @@
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
-      <div>
-        <button mat-button matStepperNext>Send</button>
-      </div>
     </div>
   </mat-step>
   

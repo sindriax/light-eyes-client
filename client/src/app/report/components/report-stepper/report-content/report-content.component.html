@@ -1,9 +1,10 @@
 <section class="thirdstepper" [formGroup]="contentFormGroup">
-    <mat-form-field>
-        <mat-label>Content</mat-label>
-        <input matInput placeholder="Type" formControlName="content" required />
-      </mat-form-field>
-
-  <button (click)="consoleData()" mat-button>Console Data</button>
-
+  <mat-form-field>
+    <mat-label>Content</mat-label>
+    <textarea matInput placeholder="Content" formControlName="content" rows="20" required></textarea>
+  </mat-form-field>
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
+  </div>
 </section>
