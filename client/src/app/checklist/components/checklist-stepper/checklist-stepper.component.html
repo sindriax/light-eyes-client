@@ -1,6 +1,6 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
+  </button> -->
   <mat-stepper [linear]="isLinear" #stepper>
     <mat-step>
         <ng-template matStepLabel>Add Title and language</ng-template>
@@ -48,7 +48,7 @@
             @for (question of questions.controls; track $index) {
               <app-checklist-ques [questionForm]="getQuestionFormGroup($index)" [questionCounter]="$index + 1"></app-checklist-ques>
               <div class="remove-but-container">
-                <button mat-icon-button (click)="removeQuestion($index)" id="remove-button">
+                <button mat-raised-button (click)="removeQuestion($index)" id="remove-button">
                   <mat-icon>delete</mat-icon>
                   DELETE QUESTION
                 </button>

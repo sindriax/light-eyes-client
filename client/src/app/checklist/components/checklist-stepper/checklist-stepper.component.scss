@@ -1,98 +1,87 @@
-#toggle-linear{
-  margin-top: 2em;
-  margin-left: 2em;
-  color: #493971;
+@import '../../../styles/mixins';
+
+:host {
+  @include layout-position;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  width: fit-content;
 }
 
-
-mat-stepper{
-  padding: 2em;
-  border-radius: 2em;
+mat-stepper {
+  padding: 1em; 
+  border-radius: 2em; 
   box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
   background-color: white;
-  margin: 2em;
-  width: 85%;
+  margin: 1em; 
+  max-width: 90vw;
   width: fit-content;
 
-  .back-button, .reset-button, .next-button{
+  .back-button, .reset-button, .next-button {
     color: #493971;
   }
   .custom-form-field {
     width: 100%;
-    height: 19em;
+    height: 40vh;
   
     .description-box {
-    width: 100%;
+      width: auto;
     }
   }
-  
-  .mat-form-field-flex {
-    align-items: start;
-  }
-  
-  .language-title-container{
+
+  .language-title-container {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-}
 
-.containers{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  .containers {
+    display: flex;
+    flex-direction: column;
 
-  .question-container{
+    .question-container {
       border-radius: 1em;
-      border: 1px solid rgba(171, 171, 171, 0.696);
-      padding-right: 2em;
-      padding-left:2em;
-      padding-top: 2em;
-      margin-bottom: 2em;
-      margin-top: 2em;
+      border: 1px solid rgba(190, 190, 190, 0.523);
+      padding: 1em;
+      margin: 1em 0;
+
+      .remove-but-container{
+        width: 97%;
+        display: flex;
+        justify-content: end;
+        margin-top: 0.5em;
+        
+        #remove-button{
+        //   border: 0;
+        //   background-color:#F5EBFF;
+        //   width: 14.5em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        //   padding-top: 0.8em;
+        //   padding-bottom: 0.8em;
+        //   font-family: Roboto, "Helvetica Neue", sans-serif;
+        //   box-shadow: 0.01em 0.09em 0.01em 0.08em rgb(182, 180, 180, 0.653);
+            color: #323233;
+        //   border: 0;
+        //   border-radius: 3em;
+        //   font-weight: 500;
+        //   background-color:#FFFBFF;
+        //   margin-bottom: 1em;
+        //   font-size: 0.8em;
+        }
+      }
+    }
+    .answers-container {
+      display: flex;
+      flex-direction: column;
+    }
   }
-  .answers-container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
-.remove-but-container{
-  width: 97%;
-  display: flex;
-  justify-content: end;
-  margin-top: 0.5em;
-  
-
 }
 
 
-#remove-button{
-  border: 0;
-  background-color:#F5EBFF;
-  width: 14.5em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  box-shadow: 0.01em 0.09em 0.01em 0.08em rgb(182, 180, 180, 0.653);
-  color: #323233;
-  border: 0;
-  border-radius: 3em;
-  font-weight: 500;
-  background-color:#FFFBFF;
-  margin-bottom: 1em;
-  font-size: 0.8em;
-}
 
-#remove-button:hover{
-  background-color: #F5E7FF;
-  box-shadow: 0.01em 0.18em 0.01em 0.08em rgba(182, 180, 180, 0.653);
-}
 
 .buttons-end{
   display: flex;
@@ -100,15 +89,14 @@ mat-stepper{
   justify-content: end;
   gap: 1em;
 
-    button{
-      color: #323233;
-  }
-}
-
-.add-button{
-  width: 20%;
-}
-
-.save-button{
-  width: 20%;
+      .add-button{
+        width: 20%;
+        color: #323233;
+      }
+      
+      .save-button{
+        width: 20%;
+        color: #323233;
+      }
+  
 }
