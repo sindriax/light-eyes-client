@@ -36,7 +36,8 @@
         }
     }
     .questions{
-        flex: 100%;
+        width: 100%;
+        margin-bottom: -1.5em;
         
         .questions-input{
             height: 3em;
@@ -46,7 +47,7 @@
             border-bottom: 1.5px solid rgba(59, 58, 58, 0.456);
             border-radius: 0.5em 0.5em 0 0;
             font-size: 1em;
-            background-color: #F5EFF7;
+            background-color: #E8E0EB;
             margin-bottom: 1em;
             text-indent: 0.7em;
 
@@ -57,7 +58,8 @@
     .answers{
         display: flex;
         flex-direction: column;
-        width: 96%;
+        // width: 96%;
+        width: 100%;
         gap:1em;
 
         .single-answer{
@@ -67,7 +69,7 @@
             align-items: space-around;
             justify-content: space-between;
             margin-bottom:0.5em;
-            width: 100%;
+            // width: 96%;
 
             .button-container{
                 height: 3em;
@@ -92,29 +94,27 @@
     display: flex;
     justify-content: end;
     margin-top: 0.5em;
-
-    #add-answer-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.2em;
-        color: #323233;
-        border: 0;
-        border-radius: 3em;
-        font-weight: 500;
-        background-color:#FFFBFF;
-        width: 14em;
-        // height: 2em;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-        font-family: Roboto, "Helvetica Neue", sans-serif;
-        box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
-
-    }
 }
 
+#add-answer-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    color: #323233;
+    border: 0;
+    border-radius: 3em;
+    font-weight: 500;
+    background-color:#FFFBFF;
+    width: 14em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    box-shadow: 0.01em 0.09em 0.01em 0.08em rgb(182, 180, 180, 0.653);
+
+}
 #add-answer-button:hover{
     cursor: pointer;
-    background-color: #5e496d;
-    width: 38em;
+    background-color: #F5E7FF;
+    box-shadow: 0.01em 0.18em 0.01em 0.08em rgba(182, 180, 180, 0.653);
 }

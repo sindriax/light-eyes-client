@@ -4,10 +4,10 @@
     flex-direction: row;
     gap: 1em;
 
-    #answer-input{
-        width: 39.5em;
+    .answer-input{
+        width: 59vw;
         height: 3em;
-        background-color: #F5EFF7;
+        background-color: #E8E0EB;
         border: 0;
         border-bottom: 1.5px solid rgba(59, 58, 58, 0.456);
         border-radius: 0.5em 0.5em 0 0;
@@ -17,7 +17,7 @@
     }
 
     .option-selector{
-        background-color: #F5EFF7;
+        background-color: #E8E0EB;
         border: 0;
         border-bottom: 1.5px solid rgba(59, 58, 58, 0.456);
         border-radius: 0.5em 0.5em 0 0;
@@ -28,32 +28,6 @@
     }
 }
 
-// .answer-option{
-//     display: flex;
-//     flex-direction: row;
-//     width: 96%;
-//     gap: 3em;
-//     margin-left: 4%;
-//     margin-top: 0.5%;
-//     border: solid, 1px, red($color: #000000);
-    
-//     .selector-input-container{
-//         display: flex;
-//         flex-direction: row;
-//         width: 100%;
-//         gap: 3em;
-//         margin-top: 0.5%;
-//     }
-    
-//     #answer-selector{
-//         width: 7%;
-//         height: 5em;
-//         margin-bottom: -1em;
-//         }
-
-//     #answer-input{
-//         width: 99%;
-//         height: 5em;
-//         margin-bottom: -1em;
-//     }
-// }
+.answer-input:focus{
+    border: 0;
+}

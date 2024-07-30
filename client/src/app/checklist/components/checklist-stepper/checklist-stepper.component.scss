@@ -11,8 +11,10 @@ mat-stepper{
   box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
   background-color: white;
   margin: 2em;
+  width: 85%;
+  width: fit-content;
 
-  button{
+  .back-button, .reset-button, .next-button{
     color: #493971;
   }
   .custom-form-field {
@@ -47,54 +49,49 @@ mat-stepper{
       padding-left:2em;
       padding-top: 2em;
       margin-bottom: 2em;
+      margin-top: 2em;
   }
   .answers-container{
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  .buttons-container{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    padding-bottom: 1em;
-  }
-  
-  .buttons{
-    display: flex;
-    flex-direction: row;
-    gap:1em;
-    justify-content: center;
-  
-    button{
-        color: #323233;
-    }
-  }
 }
 
-.remove-button{
-  // color: #323233;
+.remove-but-container{
+  width: 97%;
+  display: flex;
+  justify-content: end;
+  margin-top: 0.5em;
+  
+
+}
+
+
+#remove-button{
   border: 0;
-  // border-radius: 3em;
-  // font-weight: bold;
   background-color:#F5EBFF;
-  width: 13em;
-  height: 2em;
-  font-size: 1em;
+  width: 14.5em;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
+  box-shadow: 0.01em 0.09em 0.01em 0.08em rgb(182, 180, 180, 0.653);
   color: #323233;
   border: 0;
   border-radius: 3em;
   font-weight: 500;
   background-color:#FFFBFF;
   margin-bottom: 1em;
+  font-size: 0.8em;
+}
+
+#remove-button:hover{
+  background-color: #F5E7FF;
+  box-shadow: 0.01em 0.18em 0.01em 0.08em rgba(182, 180, 180, 0.653);
 }
 
 .buttons-end{
@@ -102,11 +99,16 @@ mat-stepper{
   width: 100%;
   justify-content: end;
   gap: 1em;
+
+    button{
+      color: #323233;
+  }
 }
+
 .add-button{
- width: 25%;
+  width: 20%;
 }
 
 .save-button{
-  width: 14vw;
+  width: 20%;
 }
