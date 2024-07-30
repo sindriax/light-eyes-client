@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormArray, AbstractControl} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { GeneratorChecklistService } from 'app/checklist/services/generator-checklist.service';
 import { NewChecklistData } from 'app/shared/models/checklist';
+import { ChecklistService } from 'app/checklist/services/checklist.service';
 @Component({
   selector: 'app-checklist-stepper',
   standalone: true,
@@ -21,6 +22,7 @@ export class ChecklistStepperComponent {
   public questionCounter = 2;
   isLinear = false;
   checkListForm: FormGroup;
+  checkListService = inject(ChecklistService);
 
 
   // injects formBuilder service and initializes the checklist Form Group with a Form Array with one Question
@@ -95,7 +97,11 @@ removeQuestion(index: number): void {
       createdDate: new Date().toISOString(),
       checkListItems: formattedChecklistItems
     };
-  
+
+    const response = this.checkListService.sendChecklistData(checklistData)
+        .subscribe( response => {
+          console.log('checklist created', response);
+        });
     console.log(checklistData);
   }
   
