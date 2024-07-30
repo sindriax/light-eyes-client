@@ -1,0 +1,15 @@
+#checklist-card {
+  width: 20vw;
+  height: 30vh;
+  width: 15vw;
+  background-color: #F5EFF7;
+  gap: 1em;
+}
+#checklist-card mat-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#checklist-card mat-card-title {
+  font-weight: bold;
+}/*# sourceMappingURL=checklist-card.component.css.map */

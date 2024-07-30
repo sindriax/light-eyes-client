@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ChecklistQuesComponent } from "../checklist-ques/checklist-ques.component";
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { GeneratorChecklistService } from 'app/checklist/services/generator-checklist.service';
 @Component({
   selector: 'app-checklist-stepper',
   standalone: true,
@@ -22,7 +23,7 @@ export class ChecklistStepperComponent {
 
   checkListForm: FormGroup;
   // injects formBuilder service and initializes the checklist Form Group with a Form Array with one Question
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private generatorService: GeneratorChecklistService) {
     this.checkListForm = this.fb.group({
       description: ['', Validators.required],
       title: ['', Validators.required],
