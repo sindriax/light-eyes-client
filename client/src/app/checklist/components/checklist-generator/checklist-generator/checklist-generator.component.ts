@@ -60,6 +60,12 @@ newChecklist: Checklist={
   description: '',
 
 }
+// dinamic form
+
+checklistItem: any[] = [{checklistOption:[]}]
+
+// dinamic form
+
   isLinear = false;
 
   ngAfterViewInit() {

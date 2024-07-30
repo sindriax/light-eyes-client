@@ -28,9 +28,17 @@
 
   .main-content{
     grid-area: main;
-    margin-top: 10vh;  
-    // height: calc(100vh - 10vh);
+    margin-top: 10vh; 
+    width: fit-content; 
+    width: 100%;
+    max-width: 80%;
+    box-sizing: border-box;
   }
+
+  .main-content > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
   // .router{
   //   // display: hidden;
