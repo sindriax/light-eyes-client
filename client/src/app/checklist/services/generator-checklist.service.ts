@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Checklist } from 'app/shared/models/checklist';
+import { CheckList } from 'app/shared/models/checklist';
 import { Observable, of } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
@@ -30,7 +30,7 @@ export class GeneratorChecklistService {
 
   http = inject(HttpClient);
 
-saveChecklist(checklist: Checklist): Observable<any>{
+saveChecklist(checklist: CheckList): Observable<any>{
   return this.http.post(this.url, checklist)
 }
 
