@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import  {MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -15,7 +15,9 @@ import { AuthService } from 'app/core/services/auth.service';
   styleUrl: './aside.component.scss'
 })
 export class AsideComponent {
-  constructor(public authService: AuthService) {}
+  public authService = inject(AuthService);
+  
+  constructor() {}
 
   onLogout() {
     this.authService.logout();

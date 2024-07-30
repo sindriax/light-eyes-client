@@ -2,24 +2,27 @@
 
 :host{
     @include layout-position;
+    display: flex;
+    flex-direction: row;
 }
 
 .checklist{
-    width: 95%;
     margin-top: 1em;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
     button{
-        width: 100%;
+        width: 950%;
         height: 8vh;
-        margin: 1em;
+        // margin: 1em;
         background-color: white;
         color: #7C6BA7;
     }
     
-    .checklist-container-card{
-        display: flex;
-        flex-direction: row;
-        margin: 1em;
-        gap: 2em;
-    }
-}
+    // .checklist-container-card{
+    //     display: flex;
+    //     flex-direction: row;
+    //     margin: 1em;
+    //     gap: 2em;
+    // }
