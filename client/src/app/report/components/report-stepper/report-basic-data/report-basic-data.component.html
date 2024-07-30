@@ -20,7 +20,7 @@
     <mat-label>Type</mat-label>
     <input matInput placeholder="Type" formControlName="type" required />
   </mat-form-field>
-  
+
   <mat-form-field>
     <mat-select formControlName="language" matInput placeholder="Language">
       @for (language of languages; track $index) {
@@ -53,7 +53,7 @@
     </mat-autocomplete>
   </mat-form-field>
 
-  <!-- <button (click)="consoleData()" mat-button>Console Data</button> -->
+  <button (click)="consoleData()" mat-button>Console Data</button>
   <div>
     <button mat-button matStepperNext>Next</button>
   </div>

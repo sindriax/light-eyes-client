@@ -1,0 +1,29 @@
+.grid-container {
+  display: grid;
+  grid-template-areas: "header header" "aside main";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 18vw 1fr;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.aside {
+  grid-area: aside;
+  position: fixed;
+  height: 85%;
+  width: 18vw;
+  bottom: 1em;
+  z-index: 2;
+  margin-bottom: 1em;
+}
+
+.main-content {
+  grid-area: main;
+  margin-top: 10vh;
+}/*# sourceMappingURL=layout.component.css.map */
