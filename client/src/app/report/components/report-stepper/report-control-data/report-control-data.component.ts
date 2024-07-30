@@ -1,4 +1,3 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import {
   FormBuilder,
@@ -21,8 +20,6 @@ import { ReportControlData } from 'app/shared/models/reports';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    JsonPipe,
-    AsyncPipe,
   ],
   templateUrl: './report-control-data.component.html',
   styleUrl: './report-control-data.component.scss',
@@ -31,13 +28,13 @@ export class ReportControlDataComponent implements OnInit {
   private reportService = inject(ReportService);
   filteredReports = signal<ReportControlData[]>([]);
   fb = inject(FormBuilder);
-  @Input() reportFormData!: FormGroup;
+  @Input() reportForm!: FormGroup;
   controlDataFormGroup!: FormGroup;
 
   ngOnInit(): void {
-    // this.reportService.getAllReportControlData().subscribe((data) => {
-    //   this.filteredReports.set(data);
-    // });
+    this.reportService.getAllReportControlData().subscribe((data) => {
+      this.filteredReports.set(data);
+    });
 
     this.controlDataFormGroup = this.fb.group({
       reviewDate: new FormControl('', Validators.required),
@@ -48,8 +45,8 @@ export class ReportControlDataComponent implements OnInit {
       department: new FormControl('', Validators.required),
     });
 
-    this.reportFormData?.addControl('controlData', this.controlDataFormGroup);
-    console.log(this.reportFormData);
+    this.reportForm?.addControl('controlData', this.controlDataFormGroup);
+    console.log(this.reportForm);
   }
 
   // get checkListControl(): FormGroup {
@@ -57,7 +54,7 @@ export class ReportControlDataComponent implements OnInit {
   // }
 
   consoleData() {
-    console.log(this.reportFormData);
+    console.log(this.reportForm);
     console.log(this.filteredReports());
   }
 }

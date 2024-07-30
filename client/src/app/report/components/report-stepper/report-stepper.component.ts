@@ -47,20 +47,12 @@ import { ReportChecklistComponent } from './report-checklist/report-checklist.co
 export class ReportStepperComponent implements OnInit {
   @Input() report!: Report[];
   reportForm: FormGroup;
-  // reportFormData: FormGroup;
-  // reportClientData: FormGroup;
-  // contentData: FormGroup;
+ 
   reportIds: number[] = [];
 
   // isLinear = false;
   constructor(private fb: FormBuilder, private reportService: ReportService) {
     this.reportForm = this.fb.group({});
-
-    // this.reportFormData = this.fb.group({});
-
-    // this.reportClientData = this.fb.group({});
-
-    // this.contentData = this.fb.group({});
 
     console.log(this.reportForm);
     // console.log(this.reportFormData);
