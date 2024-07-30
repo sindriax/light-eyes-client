@@ -9,7 +9,19 @@ export const authGuard: CanActivateFn = () => {
     if (authService.isLogged()){
         return true;
     } else {
-        router.navigate(['/auth'])
+        router.navigate(['/auth']);
+        return false;
+    }
+}
+
+export const authLoggedGuard: CanActivateFn = () => {
+    const authService = inject (AuthService)
+    const router = inject (Router)
+    
+    if (!authService.isLogged()){
+        return true;
+    } else {
+        router.navigate(['']);
         return false;
     }
 }

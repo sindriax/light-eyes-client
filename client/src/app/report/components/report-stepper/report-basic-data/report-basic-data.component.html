@@ -1,0 +1,60 @@
+<!-- <mat-step [stepControl]="firstFormGroup"> -->
+<section [formGroup]="basicDataFormGroup" class="first-stepper">
+  <ng-template matStepLabel>Fill out your name</ng-template>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      placeholder="Description"
+      formControlName="description"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <input matInput placeholder="Type" formControlName="type" required />
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-select formControlName="language" matInput placeholder="Language">
+      @for (language of languages; track $index) {
+      <mat-option [value]="language.value">
+        {{ language.viewValue }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Check List</mat-label>
+    <input
+      matInput
+      aria-label="State"
+      [matAutocomplete]="auto"
+      formControlName="checkList"
+      (keyup)="checklistSearch()"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (checkList of filteredChecklists(); track checkList) {
+      <mat-option
+        [value]="checkList.name"
+        [attr.data-id]="checkList.checkListId"
+      >
+        <span>{{ checkList.name }}</span> |
+        <small>Language: {{ checkList.language }}</small>
+      </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <!-- <button (click)="consoleData()" mat-button>Console Data</button> -->
+  <div>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+</section>

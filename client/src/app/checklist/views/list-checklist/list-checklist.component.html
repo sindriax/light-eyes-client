@@ -1,1 +1,11 @@
-<p>list-checklist works!</p>
+
+<section  class="checklist">
+  <div>      
+    <button mat-fab extended routerLinkActive="active" [routerLink]="['create']"> 
+   <mat-icon>edit</mat-icon>Create Checklist
+    </button>
+  </div>
+  <div class="checklistContainerCard">  
+      <app-checklist-table></app-checklist-table>
+  </div>
+</section>

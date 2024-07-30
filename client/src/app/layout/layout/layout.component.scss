@@ -1,0 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "aside main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 18vw 1fr;
+    height: 100vh;
+  }
+
+  .header {
+    grid-area: header;
+
+  }
+
+  .aside {
+    grid-area: aside;
+    // background-color: var(--backround-grey);
+  }
+
+  #main{
+    grid-area: main;
+  }
+
+  .router{
+    display: hidden;
+  }

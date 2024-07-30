@@ -1,0 +1,35 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #F5EFF7;
+
+    .logo{
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+    img{
+      width: 1.7em;
+    }
+    
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #7C6BA7;
+    }
+  }
+
+    button{
+      background-color: transparent;
+      border: 0;
+
+      .mat-icon{
+        font-size: 2em;
+        // color:#493971;
+        color: #7C6BA7;
+      }
+    }
+  }

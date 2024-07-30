@@ -1,0 +1,67 @@
+
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="titleForm1">
+    <form [formGroup]="titleForm1" (ngSubmit)="onSubmit()">
+      <div class="language-title-container">  
+        <h1>Setup</h1>
+        <mat-form-field>
+          <mat-label>Select checklist language</mat-label>
+
+          <mat-select formControlName="language">
+            @for (language of languages; track $index) {
+              <mat-option [value]="language.value">
+                {{language.viewValue}}
+              </mat-option>
+            }
+          </mat-select>
+          
+        </mat-form-field>
+  
+      <ng-template matStepLabel>Language and title</ng-template>
+    
+      <mat-form-field>
+        <mat-label>Create a new Checklist</mat-label>
+        <input matInput placeholder="Introduce a checklist title" formControlName="firstCtrl" required>
+      </mat-form-field>
+    </div>
+      <div>
+        <button  type="submit" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="checklistDescriptionForm2" label="Checklist description / summary">
+
+    <h1>Description</h1>    
+    <form [formGroup]="checklistDescriptionForm2">
+        <mat-form-field class="custom-form-field">
+          <mat-label>Checklist description / summary</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Provide an introduction for the checklist" required class="description-box">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Question adding</ng-template>
+    <app-checklist-question></app-checklist-question>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Preview</ng-template>
+  
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

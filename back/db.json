@@ -1,9 +1,97 @@
 {
   "users": [
     {
-      "email": "a@a.com",
-      "password": "$2a$10$Vh8.Eh8zc2FugdoMiG.bb.CHFpYdeMKvd79X13uOjONfrZoxLE9bq",
-      "id": "FmEPy0i"
+      "id": "1",
+      "email": "holi@hola.com",
+      "password": "1234"
+    },
+    {
+      "id": "1d62",
+      "email": "asfsdd@gmail.com",
+      "password": "123456"
+    }
+  ],
+
+  "CheckList": [
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    }
+  ],
+
+  "checkListItem": [
+    {
+      "id": "1",
+      "content": "hola amigo"
+    },
+    {
+      "id": "2",
+      "content": "hola mundo"
+    }
+  ],
+
+  "checkListItemoptions": [
+    {
+      "id": "1",
+      "content": "hola amigo",
+      "isPositive": false
+    },
+    {
+      "id": "2",
+      "content": "hola mundo",
+      "isPositive": false
+    }
+  ],
+
+  "Report": [
+    {
+      "id": 1,
+      "name": "string",
+      "description": "string",
+      "content": "string",
+      "type": "string",
+      "createdDate": "2024-07-26T10:23:07.103Z",
+      "language": "string"
+    },
+    {
+      "id": 2,
+      "name": "string",
+      "description": "string",
+      "content": "string",
+      "type": "string",
+      "createdDate": "2024-07-26T10:23:07.103Z",
+      "language": "string"
     }
   ]
 }
