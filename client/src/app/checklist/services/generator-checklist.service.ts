@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { LocalStorageService } from 'app/core/services/local-storage.service';
 import { CheckList } from 'app/shared/models/checklist';
+import { environment } from 'environments/environment';
 import { Observable, of } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
@@ -24,14 +26,12 @@ interface ChecklistData {
 })
 export class GeneratorChecklistService {
 
-
-  private url = 'http://localhost:3000';
-
-
+  apiUrl = environment.apiUrl; 
   http = inject(HttpClient);
+ storage = inject(LocalStorageService);
 
 saveChecklist(checklist: CheckList): Observable<any>{
-  return this.http.post(this.url, checklist)
+  return this.http.post(this.apiUrl, checklist)
 }
 
 
@@ -67,6 +67,18 @@ setSelectedOption(questionContent: string, selectedOption: string) {
 getSelectedOptions() {
   return this.selectedOptions.value;
 }
+
+getSavedCheckListById(id: string): Observable<CheckList>{
+  const options = {
+    headers: new HttpHeaders({
+      'Authorization': 'Bearer ' + this.storage.getToken(),
+      'Accept': 'application/json'
+    })
+  }; return this.http.get<CheckList>(`${this.apiUrl}/CheckList/${id}`, options)
+};
+
+
+}
 /* 
 sendSelectedOptions(selectedOptions: { [key: string]: string }) {
   return this.http.post(this.apiUrl, selectedOptions);
@@ -78,4 +90,4 @@ getById(id: number) {
   return of(checklist); } */
 
 
-}
+

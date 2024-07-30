@@ -7,6 +7,7 @@ import { ChecklistService } from 'app/checklist/services/checklist.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ChecklistEditorComponent } from "../../components/checklist-editor1/checklist-editor1.component";
 
 @Component({
   selector: 'app-list-checklist',
@@ -16,8 +17,9 @@ import { RouterLink } from '@angular/router';
     MatIcon,
     ChecklistCardComponent,
     AsyncPipe,
-    RouterLink
-  ],
+    RouterLink,
+    ChecklistEditorComponent
+],
   templateUrl: './list-checklist.component.html',
   styleUrl: './list-checklist.component.scss',
 })

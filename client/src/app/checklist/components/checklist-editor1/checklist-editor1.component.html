@@ -1,19 +1,17 @@
 <mat-card>
   <mat-card-content>
-
     <div>
-   
       <h3>Title: {{ title }}</h3>
       <h2>Description: {{ description }}</h2>
-    
     </div>
     <h2 class="example-h2">Complete the checklist</h2>
     <section class="example-section">
-      @for ( question of checklistData.checkListItems; track question.content) {
+      @for (question of checklistData?.checkListItems; track question.checkListItemId) {
         <h3>{{ question.content }}</h3>
         <mat-radio-group [(ngModel)]="selectedOptions[question.content]" (change)="onOptionSelected(question.content, selectedOptions[question.content])">
-          @for ( option of question.checkListItemOptions; track option.content) {
-            <mat-radio-button [value]="option.content">
+          @for (option of question.checkListItemOptions; track option.checkListItemOptionId) {
+            <mat-radio-button [value]="option.content" [checked]="selectedOptions[question.content] === option.content">
+              <mat-icon>{{ isPositive(option) ? 'check_circle' : 'cancel' }}</mat-icon>
               {{ option.content }}
             </mat-radio-button>
           } @empty {
@@ -25,82 +23,4 @@
       }
     </section>
   </mat-card-content>
-</mat-card> 
-<!-- <mat-card>
-    <mat-card-content>
-      <h2 class="example-h2">Checkbox configuration</h2>
-  
-   
-  
-      <section class="example-section">
-
-        <mat-radio-group [(ngModel)]="selectedOptions[item.content]" (change)="onOptionSelected(item.content, selectedOptions[item.content])">
-
-
-        </mat-radio-group>
-        <div>   
-            @for(item of checklistData.checklistItem; track $index){
-              <h3> {{item.content}}</h3> 
-              @for(option of item.checklistItemOption; track $index ){
-<h2>{{option.content}}</h2>
-              }
-            }
-       
-
-
-        </div>
-   
-      </section>
-
-    </mat-card-content>
-  </mat-card> -->
-
-<!--   <mat-card>
-    <mat-card-content>
-      <h2 class="example-h2">Checkbox configuration</h2>
-  
-   
-  
-      <section class="example-section">
-        
-        <mat-radio-group [(ngModel)]="labelPosition">
-          <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
-          <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
-        </mat-radio-group>
-      </section>
-
-    </mat-card-content>
-  </mat-card> -->
-
-
-<!-- <section class="example-section">
-    <mat-checkbox class="example-margin">Check me!</mat-checkbox>
-    <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox>
-  </section>
-  
-  <section class="example-section" *ngIf="task">
-    <span class="example-list-section">
-      <mat-checkbox
-        class="example-margin"
-        [checked]="task.completed"
-        [indeterminate]="partiallyComplete()"
-        (change)="update($event.checked)"
-      >
-        {{ task.name }}
-      </mat-checkbox>
-    </span>
-    <span class="example-list-section">
-      <ul>
-        <li>
-        @for(subtask of task.subtasks; track $index){
-            <mat-checkbox [checked]="subtask.completed" (change)="update($event.checked, i)">
-                {{ subtask.name }}
-              </mat-checkbox>
-        }
-        
- 
-       
-        </li>
-      </ul>
-    </span>
-  </section> -->
+</mat-card>
