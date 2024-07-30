@@ -6,8 +6,8 @@
     </div>
     <h2 class="example-h2">Complete the checklist</h2>
     <section class="example-section">
-      @for (question of checklistData?.checkListItems; track question.checkListItemId) {
-        <h3>{{ question.content }}</h3>
+      @for (question of checklistData?.checkListItems; track question.checkListItemId; let idx = $index) {
+        <h3>{{ idx + 1 }}.{{ question.content }}</h3>
         <mat-radio-group [(ngModel)]="selectedOptions[question.content]" (change)="onOptionSelected(question.content, selectedOptions[question.content])">
           @for (option of question.checkListItemOptions; track option.checkListItemOptionId) {
             <mat-radio-button [value]="option.content" [checked]="selectedOptions[question.content] === option.content">
