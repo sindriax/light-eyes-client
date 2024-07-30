@@ -1,0 +1,44 @@
+<mat-stepper [formGroup]="reportForm" #stepper>
+  <!-- [linear]="isLinear" -->
+
+  <mat-step label="Report Basic Data">
+    <app-report-basic-data [reportForm]="reportForm"></app-report-basic-data>
+  </mat-step>
+
+  <mat-step label="Report Control Data">
+    <form>
+      <app-report-control-data [formGroup]="reportForm" ></app-report-control-data>
+    </form>
+  </mat-step>
+
+  <mat-step label="Report Client Data">
+    <form>
+      <app-report-client-data [formGroup]="reportForm"></app-report-client-data>
+    </form>
+  </mat-step>
+
+  <mat-step label="Report Content">
+    <form>
+      <app-report-content [formGroup]="reportForm" ></app-report-content>
+    </form>
+  </mat-step>
+
+  <mat-step label="Report Content">
+    <form>
+      <app-report-checklist></app-report-checklist>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Preview</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <div>
+        <button mat-button matStepperNext>Send</button>
+      </div>
+    </div>
+  </mat-step>
+  
+</mat-stepper>

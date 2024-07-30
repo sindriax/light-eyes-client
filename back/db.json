@@ -4,47 +4,162 @@
       "id": "1",
       "email": "holi@hola.com",
       "password": "1234"
-  },
+    },
     {
       "id": "1d62",
       "email": "asfsdd@gmail.com",
       "password": "123456"
     }
-  ], 
+  ],
 
-  "checklists": [
+  "CheckList": [
     {
-      "id": "1",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/2024 - 17:00", 
-      "checklistTitle": "NIS2",
-      "checklistDescription":"Best ISO to obtain"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     },
     {
-      "id": "2",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/1999 - 17:00", 
-      "checklistTitle": "NIS1",
-      "checklistDescription":"Deprecated ISO"
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
+    },
+    {
+      "checkListId": "1",
+      "name": "Daniel Cueto",
+      "description": "Best ISO to obtain",
+      "createdDate": "15/07/2024 - 17:00",
+      "checkListItems": "CheckListItem[]"
     }
   ],
 
-
-    "reports": [
+  "checkListItem": [
     {
       "id": "1",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/2024 - 17:00", 
-      "reportTitle": "NIS2",
-      "reportDescription":"Best ISO to obtain"
+      "content": "hola amigo"
     },
     {
       "id": "2",
-      "creator": "Daniel Cueto",
-      "creationDate":"15/07/1999 - 17:00", 
-      "reportTitle": "NIS1",
-      "reportDescription":"Deprecated ISO"
+      "content": "hola mundo"
+    }
+  ],
+
+  "checkListItemoptions": [
+    {
+      "id": "1",
+      "content": "hola amigo",
+      "isPositive": false
+    },
+    {
+      "id": "2",
+      "content": "hola mundo",
+      "isPositive": false
+    }
+  ],
+
+  "Report": [
+    {
+      "id": 1,
+      "name": "string",
+      "description": "string",
+      "content": "string",
+      "type": "string",
+      "createdDate": "2024-07-26T10:23:07.103Z",
+      "language": "string"
+    },
+    {
+      "id": 2,
+      "name": "string",
+      "description": "string",
+      "content": "string",
+      "type": "string",
+      "createdDate": "2024-07-26T10:23:07.103Z",
+      "language": "string"
+    }
+  ],
+
+  "Reportss": [
+    {
+      "id": 1,
+      "reviewDate": "string",
+      "createdBy": "string",
+      "validatedBy": "string",
+      "reviewedBy": "string",
+      "documentCode": "string",
+      "department": "string"
+    },
+    {
+      "id": 2,
+      "reviewDate": "string",
+      "createdBy": "string",
+      "validatedBy": "string",
+      "reviewedBy": "string",
+      "documentCode": "string",
+      "department": "string"
+    }
+  ],
+  "Client": [
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "companyName": "Tech Solutions",
+      "area": "Desarrollo de Software",
+      "contactEmail": "juan.perez@techsolutions.com",
+      "contactPhone": "+34 600 123 456"
+    },
+    {
+      "id": 2,
+      "firstName": "Ana",
+      "lastName": "García",
+      "companyName": "Marketing Pro",
+      "area": "Marketing Digital",
+      "contactEmail": "ana.garcia@marketingpro.com",
+      "contactPhone": "+34 600 654 321"
+    },
+    {
+      "id": 3,
+      "firstName": "Luis",
+      "lastName": "Martínez",
+      "companyName": "Finanzas SA",
+      "area": "Consultoría Financiera",
+      "contactEmail": "luis.martinez@finanzassa.com",
+      "contactPhone": "+34 600 789 012"
+    },
+    {
+      "id": 4,
+      "firstName": "María",
+      "lastName": "López",
+      "companyName": "Salud Integral",
+      "area": "Servicios Médicos",
+      "contactEmail": "maria.lopez@saludintegral.com",
+      "contactPhone": "+34 600 345 678"
+    },
+    {
+      "id": 5,
+      "firstName": "Carlos",
+      "lastName": "Sánchez",
+      "companyName": "Construcciones Modernas",
+      "area": "Construcción",
+      "contactEmail": "carlos.sanchez@construccionesmodernas.com",
+      "contactPhone": "+34 600 987 654"
     }
   ]
-
 }

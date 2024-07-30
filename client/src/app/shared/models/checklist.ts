@@ -1,11 +1,10 @@
-export interface Checklist{
-    id?: number;
-    creator?: string;
-    creationDate?: Date;
-    checklistTitle: string;
-    checklistDescription: string;
+export interface BasicCheckList{
+    checkListId?: number;
+    name?: string;
+    description: string;
+    createdDate?: Date;
     language?: string;
-
+    // checkListItems: ChecklistItem[]
 }
 
 

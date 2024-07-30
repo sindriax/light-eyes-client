@@ -15,7 +15,7 @@ import { AuthService } from 'app/core/services/auth.service';
   styleUrl: './aside.component.scss'
 })
 export class AsideComponent {
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   onLogout() {
     this.authService.logout();

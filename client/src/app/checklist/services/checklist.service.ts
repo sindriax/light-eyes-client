@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Checklist, NewChecklistData } from 'app/shared/models/checklist';
+import { inject, Injectable, signal } from '@angular/core';
+import { BasicCheckList, NewChecklistData } from 'app/shared/models/checklist';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { LocalStorageService } from 'app/core/services/local-storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChecklistService {
 
@@ -15,10 +15,16 @@ export class ChecklistService {
   http = inject(HttpClient);
   storage = inject(LocalStorageService)
 
-  
-  getAllChecklist():Observable<Checklist[]>{
-    return this.http.get<Checklist[]>(this.apiUrl.concat("/checklists"));
+
+  getAllChecklist(): Observable<BasicCheckList[]> {
+    return this.http.get<BasicCheckList[]>(
+      this.apiUrl.concat('/CheckList/getAllChecklists')
+    );
   }
+
+  getAllCheckListFiltered(name: string): Observable<BasicCheckList[]>{
+    return this.http.get<BasicCheckList[]>(this.apiUrl.concat(`/CheckList/getAllChecklists?Name=${name}`))
+  
 
   constructor() { }
 

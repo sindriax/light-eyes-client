@@ -4,5 +4,14 @@
     @include layout-position;
     display: flex;
     flex-direction: row;
+    
+}
+
+.report{
+    margin-top: 1em;
+}
+
+button{
+    width: 100%;
 }
 
