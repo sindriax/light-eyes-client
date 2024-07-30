@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,5 +16,9 @@ export class LocalStorageService {
   
   removeToken(){
     localStorage.removeItem('token');
+  }
+
+  sendHeaders(){
+    return new HttpHeaders({'Authorization': 'Bearer ' + this.getToken()});
   }
 }

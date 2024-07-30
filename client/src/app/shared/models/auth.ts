@@ -5,3 +5,14 @@ export interface JwtToken {
   email: string;
   role: string[]
 }
+
+export interface PendingUser {
+  id: string;
+  userName: string;
+  email: string;
+  isActive: boolean;
+}
+
+export interface ActivateUserRequest {
+  id: string;
+}
