@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatError, MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatTab, MatTabGroup, MatTabLabel } from '@angular/material/tabs';
@@ -7,6 +7,11 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { Router } from '@angular/router';
+import {
+  MatDialog
+} from '@angular/material/dialog';
+import { Dialog } from '@angular/cdk/dialog';
+import { DialogComponent } from 'app/core/components/dialog/dialog.component';
 
 export class CustomErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,7 +24,8 @@ export class CustomErrorStateMatcher implements ErrorStateMatcher {
   standalone: true,
   imports: [ReactiveFormsModule, MatLabel, MatTabLabel, MatTabGroup, MatTab, MatFormField, MatError, MatHint, MatInputModule, MatButton],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -27,6 +33,11 @@ export class RegisterComponent {
   authService = inject(AuthService);
   router = inject(Router);
   matcher = new CustomErrorStateMatcher();
+  readonly dialog = inject(MatDialog);
+
+  openDialog() {
+    this.dialog.open(DialogComponent);
+  }
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -71,8 +82,10 @@ export class RegisterComponent {
 
       this.authService.register(newUser).subscribe(
         response => {
-          console.log('Registration successful:', response),
-          this.router.navigateByUrl('')
+          console.log('Registration successful:', response);
+          this.openDialog();
+          this.router.navigateByUrl('');
+          this.resetForm();
         },
         error => console.error('Registration error:', error)
       );
