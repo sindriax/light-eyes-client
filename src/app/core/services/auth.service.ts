@@ -12,7 +12,7 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  private url = environment.apiUrl;
+  private url = environment.API_URL;
   private http = inject(HttpClient)
   private router = inject(Router);
   private localStorageService = inject(LocalStorageService);

@@ -9,7 +9,7 @@ import {  firstValueFrom, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReportService {
-  apiUrl = environment.apiUrl;
+  apiUrl = environment.API_URL;
   storage = inject(LocalStorageService);
   http = inject(HttpClient);
 

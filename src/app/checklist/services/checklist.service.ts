@@ -10,7 +10,7 @@ import { LocalStorageService } from 'app/core/services/local-storage.service';
 })
 export class ChecklistService{
 
-  apiUrl = environment.apiUrl;
+  apiUrl = environment.API_URL;
   http = inject(HttpClient);
   storage = inject(LocalStorageService);
 

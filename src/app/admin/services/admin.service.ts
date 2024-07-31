@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-  apiUrl = environment.apiUrl;
+  apiUrl = environment.API_URL;
   http = inject(HttpClient);
   storage = inject(LocalStorageService);
 
