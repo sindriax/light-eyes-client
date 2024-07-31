@@ -18,3 +18,13 @@ fs.writeFile(targetPath, envFile, (err) => {
         console.log(successColor, `${checkSign} Successfully generated environment.development.ts`);
     }
 });
+
+const targetPathProduction = path.join(__dirname, './src/environments/environment.ts');
+fs.writeFile(targetPath, envFile, (err) => {
+    if (err) {
+        console.error(err);
+        throw err;
+    } else {
+        console.log(successColor, `${checkSign} Successfully generated environment.development.ts`);
+    }
+});
