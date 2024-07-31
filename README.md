@@ -101,16 +101,16 @@ In the next sprint, we plan to implement the following features:
 
 ## Our Team:
 <p> <a href="https://github.com/xavimrg">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"> Xavi Martín, Project Owner & Developer</a></p>
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> Xavi Martín, Project Owner & Developer</p><a href="https://linkedin.com/in/javier-m-4aa72199">LinkedIn</a>
 
 <p> <a href="https://github.com/DCueto">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"> Daniel Cueto, SCRUM Master & Developer</a></p>
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> Daniel Cueto, SCRUM Master & Developer</p><a href="https://linkedin.com/in/dcuetome/">LinkedIn</a>
 
 <p> <a href="https://github.com/Lapiceros">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"> Julio Merubia, Developer</a></p>
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> Julio Merubia, Developer</p><a href="https://linkedin.com/in/juliomerubia/">LinkedIn</a
 
 <p> <a href="https://github.com/sandiaxcx">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"> Sandra Ramírez, Developer</a></p>
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> Sandra Ramírez, Developer</p><a href="https://linkedin.com/in/sandraramirezpuente/">LinkedIn</a
 
 <p> <a href="https://github.com/limematheuz">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"> Matheus Ribeiro, Developer</a></p>
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> Matheus Ribeiro, Developer</p><a href="https://linkedin.com/in/matheus-ribeiro-lima/">LinkedIn</a
