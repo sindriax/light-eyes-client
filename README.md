@@ -97,6 +97,7 @@ In the next sprint, we plan to implement the following features:
 ## Resources
 - [Light Eyes Design](https://www.figma.com/design/dtrGIfWZh3tb2KlXVKerbM/Final-Project?node-id=0-1&t=YKeKJnJ087I873I5-1): View of our design on Figma.
 - [Project Management Kanban Board](https://trello.com/b/dn13Bkos/final-project): View of our Kanban board on Trello.
+- [Light Eyes Backend Repository](https://github.com/DCueto/light-eyes): Github Repository for our Backend code.
 
 ## Our Team:
 <p> <a href="https://github.com/xavimrg">
