@@ -8,7 +8,7 @@ const setEnv = () => {
     });
     // `environment.ts` file structure
     const envFile = `export const environment = {
-        apiKey: '${process.env.API_KEY}',
+        API_URL: '${process.env.API_KEY}',
         production: true,
         };
         `;
