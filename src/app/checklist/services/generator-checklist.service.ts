@@ -43,7 +43,7 @@ addAnswer(answer: any) {
   this.answersSubject.next([...currentAnswers, answer]);
 }
 
-// checklist editor 
+// checklist editor
 private checklistData = new BehaviorSubject<ChecklistData | null>(null);
 checklistData$ = this.checklistData.asObservable();
 

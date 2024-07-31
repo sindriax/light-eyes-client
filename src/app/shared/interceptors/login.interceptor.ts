@@ -9,10 +9,10 @@ export const loginInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, n
 
   return next(req).pipe(tap(( response : any) => {
 
-    if (response.ok && response.url?.startsWith(`${environment.apiUrl}/account/login`) ){
+    if (response.ok && response.url?.startsWith(`${environment.API_URL}/account/login`) ){
       console.log( 'login response is ok', response );
       localStorageService.setToken(response.body.token);
-    } else if (response.ok && response.url?.startsWith(`${environment.apiUrl}/account/register`)) {
+    } else if (response.ok && response.url?.startsWith(`${environment.API_URL}/account/register`)) {
       console.log('register response is ok', response );
       // localStorageService.setToken(response.body.token);
     }
