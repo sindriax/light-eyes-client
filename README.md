@@ -1,31 +1,3 @@
-# LightEyesClient
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
 # Light Eyes Reports 🗎
 
 ## Table of Contents
@@ -34,9 +6,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [Technical Competencies](#technical-competencies)
 - [Technologies](#technologies)
 - [Tools](#tools)
-- [Installation](#installation)
 - [Technical Operation](#technical-operation)
 - [Future Enhancements](#future-enhancements)
+- [Deployment](#deployment)
+- [Resources](#resources)
 - [Our Team](#out-team)
 
 ## General Information
@@ -88,8 +61,6 @@ List of Tools:
 - [XUnit](https://xunit.net/): For back-end testing.
 - [Docker Compose](https://docs.docker.com/compose/): Tool for defining and running multi-container Docker applications.
 
-## Installation
-
 ## Technical Operation
 
 ### Data Collection:
@@ -108,10 +79,24 @@ Consultants can access the platform via a web interface to configure parameters 
 
 In the next sprint, we plan to implement the following features:
 
-- **DOCX Report Generator:** Enable the generation of reports in DOCX format.
+- **DOCX and PDF Report Generator:** Enable the generation of reports in DOCX and PDF format.
 - **Preview Step:** Introduce a preview step for reports before final generation. This feature is not available yet.
+- **Save Reports in Database:** Store reports directly in the database.
+- **Implement Markdown Editor:** Add a markdown editor for report creation and modification.
+- **Edit Checklists and Reports:** Allow editing of already created and saved checklists and reports.
+- **Preview Report View:** Implement a preview view of the created report.
+- **Section Titles in Checklists:** Include titles between each section of the checklist.
+- **Company Style Adaptation:** Graphically adapt the styles to match the company's branding.
+- **User Feedback Implementation:** Offer more feedback to the user during the report creation process.
+- **Process Status Messages:** Inform users with messages about the status of the report creation process.
 
-## Deploy
+## Deployment
+- [Light Eyes Client](https://light-eyes-client-fs4wxwpji-daniels-projects-1629a465.vercel.app/auth): Deploy for FrontEnd.
+- [Light Eyes API](https://light-eyes-reports.live/swagger/index.html): Deploy for BackEnd.
+
+## Resources
+- [Light Eyes Design](https://www.figma.com/design/dtrGIfWZh3tb2KlXVKerbM/Final-Project?node-id=0-1&t=YKeKJnJ087I873I5-1): View of our design on Figma.
+- [Project Management Kanban Board](https://trello.com/b/dn13Bkos/final-project): View of our Kanban board on Trello.
 
 ## Our Team:
 <p> <a href="https://github.com/xavimrg">
