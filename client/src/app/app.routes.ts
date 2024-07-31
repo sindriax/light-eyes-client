@@ -12,7 +12,7 @@ export const routes: Routes = [
 
     { path: '', component: LayoutComponent,
         children:[
-            {path: '', component: ListChecklistComponent},
+            {path: '', redirectTo: 'checklists', pathMatch: 'full'},
             {path: "checklists", loadChildren: () => 
                 import('./checklist/checklist.routes')
                 .then( mod => {
@@ -26,7 +26,7 @@ export const routes: Routes = [
                     return mod.REPORT_ROUTES;
                 })
             },
-            {path: "admin", component: AdminViewComponent, canActivate: [adminGuard]},
+            {path: "admin", component: AdminViewComponent, canActivate: [adminGuard]}
         ],
         canActivate:[authGuard]
     },

@@ -1,1 +1,40 @@
-<p>Hola, soy el checklist del paso 5</p>
+<mat-card>
+  <mat-card-content>
+    <div>
+      <h3>Title: {{ checkList().name }}</h3>
+      <h2>Description: {{ checkList().description }}</h2>
+    </div>
+    <h2 class="example-h2">Complete the checklist</h2>
+    <section class="example-section">
+      @for (question of checkList().checkListItems; track question.checkListItemId; let idx = $index) {
+        <h3>{{ idx + 1 }}.{{ question.content }}</h3>
+        <mat-radio-group [(ngModel)]="selectedOptions[question.content]" (change)="onOptionSelected(question.content, selectedOptions[question.content])">
+          @for (option of question.checkListItemOptions; track option.checkListItemOptionId) {
+            <mat-radio-button [value]="option.checkListItemOptionId" [checked]="selectedOptions[question.content] === option.checkListItemOptionId">
+              <mat-icon>{{ isPositive(option) ? 'check_circle' : 'cancel' }}</mat-icon>
+              {{ option.content }}
+            </mat-radio-button>
+          } @empty {
+            <p>No options available.</p>
+          }
+        </mat-radio-group>
+      } @empty {
+        <p>No checklist items available.</p>
+      }
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<button (click)="consoleArrayData()">Console Array</button>
+
+
+<!-- <div class="complete-checklist">
+  @for (item of checkList().checkListItems; track $index) {
+    <p>{{item.content}}</p>
+
+    @for (option of item.checkListItemOptions; track $index) {
+      <p>{{option.content}}</p>
+      <p>{{option.isPositive}}</p>
+    }
+  }
+</div> -->

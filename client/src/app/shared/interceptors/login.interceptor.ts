@@ -14,7 +14,7 @@ export const loginInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, n
       localStorageService.setToken(response.body.token);
     } else if (response.ok && response.url?.startsWith(`${environment.apiUrl}/account/register`)) {
       console.log('register response is ok', response );
-      localStorageService.setToken(response.body.token);
+      // localStorageService.setToken(response.body.token);
     }
     return response
   })

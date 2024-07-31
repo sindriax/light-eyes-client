@@ -1,0 +1,6 @@
+:host {
+  display: block;
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+}/*# sourceMappingURL=list-report.component.css.map */

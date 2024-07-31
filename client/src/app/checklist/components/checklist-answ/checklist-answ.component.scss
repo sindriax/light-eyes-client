@@ -1,0 +1,25 @@
+.answer-option{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+
+        .option-selector{
+            background-color: #E8E0EB;
+            border: 0;
+            border-bottom: 1px solid rgb(59, 58, 58);
+            border-radius: 0.4em 0.4em 0 0;
+            font-size: 1em;
+            width: 4em;
+            text-indent: 0.5em;
+            height: 3.5em;
+        }
+
+    .field-input{
+        width: 40vw;
+    }
+}
+    
+// .answer-input:focus{
+//     border: 0;
+// }

@@ -1,1 +1,36 @@
-<p>report-client-data works!</p>
+<section class="thirdstepper" [formGroup]="clientDataFormGroup">
+    <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" formControlName="firstName" required />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" formControlName="lastName" required />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Company Name</mat-label>
+        <input matInput placeholder="Company Name" formControlName="companyName" required />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Area</mat-label>
+        <input matInput placeholder="Area" formControlName="area" required />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Contact Email</mat-label>
+        <input type="email" matInput placeholder="Contact Email" formControlName="contactEmail" required />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Contact Phone</mat-label>
+        <input matInput placeholder="Contact Phone" formControlName="contactPhone" required />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+</section>

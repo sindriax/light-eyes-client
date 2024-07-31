@@ -1,26 +1,20 @@
-<!-- <mat-step [stepControl]="firstFormGroup"> -->
 <section [formGroup]="basicDataFormGroup" class="first-stepper">
   <ng-template matStepLabel>Fill out your name</ng-template>
   <mat-form-field>
     <mat-label>Name</mat-label>
-    <input matInput placeholder="Name" formControlName="name" required />
+    <input matInput placeholder="Name" formControlName="name" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Description</mat-label>
-    <input
-      matInput
-      placeholder="Description"
-      formControlName="description"
-      required
-    />
+    <input matInput placeholder="Description" formControlName="description" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Type</mat-label>
-    <input matInput placeholder="Type" formControlName="type" required />
+    <input matInput placeholder="Type" formControlName="type" />
   </mat-form-field>
-  
+
   <mat-form-field>
     <mat-select formControlName="language" matInput placeholder="Language">
       @for (language of languages; track $index) {
@@ -39,6 +33,7 @@
       [matAutocomplete]="auto"
       formControlName="checkList"
       (keyup)="checklistSearch()"
+      (ngModelChange)="handleSelectChecklist($event)"
     />
     <mat-autocomplete #auto="matAutocomplete">
       @for (checkList of filteredChecklists(); track checkList) {
@@ -53,7 +48,6 @@
     </mat-autocomplete>
   </mat-form-field>
 
-  <!-- <button (click)="consoleData()" mat-button>Console Data</button> -->
   <div>
     <button mat-button matStepperNext>Next</button>
   </div>

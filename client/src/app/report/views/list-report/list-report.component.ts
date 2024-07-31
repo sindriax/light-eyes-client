@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-list-report',
   standalone: true,
-  imports: [AsyncPipe, MatButtonModule, MatCardModule, ReportTableComponent, MatIcon, ChecklistCardComponent, RouterLink],
+  imports: [AsyncPipe, MatButtonModule, MatCardModule, ReportTableComponent, MatIcon, RouterLink],
   templateUrl: './list-report.component.html',
   styleUrl: './list-report.component.scss',
 })

@@ -13,8 +13,6 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   private url = environment.apiUrl;
-  private tokenKey = 'auth-token';
-
   private http = inject(HttpClient)
   private router = inject(Router);
   private localStorageService = inject(LocalStorageService);
@@ -57,9 +55,6 @@ constructor (){
     return this.http.post<UserResponse>(`${this.url}/account/register`, user, options).pipe(
       tap((response: any) => {
         console.log('Registration successful:', response);
-        if (this.localStorageService.getToken()){
-          this.isLogged.set(true)
-        }
       }),
       catchError(e => {
         console.error('Registration error:', e);

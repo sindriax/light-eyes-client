@@ -1,25 +1,43 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { ErrorHandler, inject, Injectable } from '@angular/core';
-import { Report } from 'app/shared/models/reports';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { LocalStorageService } from 'app/core/services/local-storage.service';
+import { Report, ReportControlData } from 'app/shared/models/reports';
 import { environment } from 'environments/environment.development';
-import { catchError, Observable, pipe } from 'rxjs';
+import {  firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportService {
-
-  private url = 'http://localhost:3000';
   apiUrl = environment.apiUrl;
-
+  storage = inject(LocalStorageService);
   http = inject(HttpClient);
+
   getAllReport():Observable<Report[]>{
-    return this.http.get<Report[]>(this.url.concat('/Report'));
+    const options = {
+      headers: this.storage.sendHeaders()
+    }
+    return this.http.get<Report[]>(this.apiUrl.concat('/Report'), options);
   }
 
-  addReport( report: Report ){
-    return this.http.post<Report>(this.url, report );
+  getAllReportControlData():Observable<ReportControlData[]>{
+    const options = {
+      headers: this.storage.sendHeaders()
+    }
+    return this.http.get<ReportControlData[]>(
+      this.apiUrl.concat('/Report'), options
+      // Report/getAllReports es la url correcta
+    )
   }
+
+  // async addReport( report: Report ){
+  //   const options = {
+  //     headers: this.storage.sendHeaders()
+  //   }
+  //   // const body : Report = {};
+
+  //   const result = await firstValueFrom(this.http.post<Report>(this.url, report ));
+  // }
 
   
   constructor() { }

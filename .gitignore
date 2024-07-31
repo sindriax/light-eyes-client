@@ -35,13 +35,6 @@ testem.log
 .DS_Store
 Thumbs.db
 .env
-
-
-
-
-
-
-
-
-
-
+/environments
+environment.ts
+environment.development.ts

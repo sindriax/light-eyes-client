@@ -1,31 +1,35 @@
-<mat-stepper [linear]="isLinear" [formGroup]="reportForm" #stepper>
+<mat-stepper [formGroup]="reportForm" #stepper>
+  <!-- [linear]="isLinear" -->
 
-  <mat-step [stepControl]="formBasicData" label="Report Basic Data">
-    <app-report-basic-data [reportForm]="reportForm"></app-report-basic-data>
+  <mat-step label="Report Basic Data">
+    <app-report-basic-data [reportForm]="reportForm" [checkListId]="checkListId"></app-report-basic-data>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Report Control Data">
-    <form [formGroup]="secondFormGroup">
-      <app-report-control-data></app-report-control-data>
+  <mat-step label="Report Control Data">
+    <form>
+      <app-report-control-data [reportForm]="reportForm"></app-report-control-data>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Report Client Data">
-    <form [formGroup]=" secondFormGroup">
-      <app-report-client-data></app-report-client-data>
+  <mat-step label="Report Client Data">
+    <form>
+      <app-report-client-data [reportForm]="reportForm"></app-report-client-data>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Report Content">
-    <form [formGroup]=" secondFormGroup">
-      <app-report-content></app-report-content>
+  <mat-step label="Report Content">
+    <form>
+      <app-report-content [reportForm]="reportForm" ></app-report-content>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Report Content">
-    <form [formGroup]=" secondFormGroup">
-      <app-report-checklist></app-report-checklist>
+  <mat-step label="Report Content">
+    <form>
+      <app-report-checklist [checkList]="checkList"></app-report-checklist>
     </form>
+    <div>
+      <button mat-button matStepperNext (click)="handleFormSubmit()">Create Report</button>
+    </div>
   </mat-step>
 
   <mat-step>
@@ -34,10 +38,7 @@
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
-      <div>
-        <button mat-button matStepperNext (click)="sendForm()">Send</button>
-      </div>
-      <!-- <app-report-preview></app-report-preview> -->
     </div>
   </mat-step>
+  
 </mat-stepper>

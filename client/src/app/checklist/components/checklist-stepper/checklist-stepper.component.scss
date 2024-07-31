@@ -1,0 +1,105 @@
+@import '../../../styles/mixins';
+
+:host {
+  @include layout-position;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  // width: fit-content;
+}
+
+mat-stepper {
+  padding: 1em; 
+  border-radius: 2em; 
+  box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(182, 180, 180);
+  background-color: white;
+  margin: 1em; 
+  width: 100%;
+ // width: fit-content;
+
+  .back-button, .reset-button, .next-button {
+    color: #493971;
+  }
+  .custom-form-field {
+    width: 100%;
+    height: 40vh;
+  
+    .description-box {
+      width: auto;
+    }
+  }
+
+  .language-title-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .containers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .question-container {
+      border-radius: 1em;
+      border: 1px solid rgba(190, 190, 190, 0.523);
+      padding: 1em;
+      margin: 1em 0;
+      width: 100%;
+
+      .remove-but-container{
+        width: 97%;
+        display: flex;
+        justify-content: end;
+        margin-top: 0.5em;
+
+        #remove-button{
+        //   border: 0;
+        //   background-color:#F5EBFF;
+        //   width: 14.5em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        //   padding-top: 0.8em;
+        //   padding-bottom: 0.8em;
+        //   font-family: Roboto, "Helvetica Neue", sans-serif;
+        //   box-shadow: 0.01em 0.09em 0.01em 0.08em rgb(182, 180, 180, 0.653);
+            color: #323233;
+        //   border: 0;
+        //   border-radius: 3em;
+        //   font-weight: 500;
+        //   background-color:#FFFBFF;
+        //   margin-bottom: 1em;
+        //   font-size: 0.8em;
+        }
+      }
+    }
+    .answers-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+.buttons-end{
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  gap: 1em;
+
+      .add-button{
+        width: 20%;
+        color: #323233;
+      }
+      
+      .save-button{
+        width: 20%;
+        color: #323233;
+      }
+  
+}

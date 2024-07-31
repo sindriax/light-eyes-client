@@ -41,7 +41,6 @@ export class ReportTableComponent implements OnInit {
     'type',
     'createdDate',
     'language',
-    'clientId',
     'client',
   ];
   reportSource = this.report;

@@ -1,0 +1,28 @@
+<div class="question-answer-container">
+  <div class="question-counter-container">
+      <div class="number">
+        <span>{{ questionCounter }}</span>
+      </div>
+  </div>
+  <div class="questions" [formGroup]="questionForm">
+    <mat-form-field>
+      <mat-label>Include a new question or checklist item</mat-label>
+      <input matInput formControlName="content"  class="questions-input">
+    </mat-form-field>
+      <div formArrayName="answers" class="answers">
+        @for (answer of answers.controls; track $index) {
+          <div class="single-answer">
+            <app-checklist-answ [answerForm]="getAnswerFormGroup($index)"></app-checklist-answ>
+            <div class="button-container">
+              <button mat-icon-button color="warn" (click)="removeAnswer($index)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>}
+      </div>
+      <div class="ans-button-container">
+        <button mat-raised-button (click)="addAnswer()" id="add-answer-button"><mat-icon>edit</mat-icon>ADD NEW ANSWER</button>
+      </div>
+    </div>
+
+</div>
