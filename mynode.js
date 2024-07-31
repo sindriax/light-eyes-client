@@ -2,7 +2,6 @@ const setEnv = () => {
     const fs = require('fs');
     const writeFile = fs.writeFile;
     const targetPath = './src/environments/environment.ts';
-    const colors = require('colors');
     require('dotenv').config({
       path: 'src/.env'
     });
@@ -18,7 +17,7 @@ const setEnv = () => {
             console.error(err);
             throw err;
         } else {
-            console.log(successColor, `${checkSign} Successfully generated environment.development.ts`);
+            console.log(`Successfully generated environment.ts`);
         }
     });
 }
