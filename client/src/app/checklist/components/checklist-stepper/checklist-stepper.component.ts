@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { GeneratorChecklistService } from 'app/checklist/services/generator-checklist.service';
 import { NewChecklistData } from 'app/shared/models/checklist';
 import { ChecklistService } from 'app/checklist/services/checklist.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-checklist-stepper',
   standalone: true,
@@ -23,6 +24,7 @@ export class ChecklistStepperComponent {
   isLinear = false;
   checkListForm: FormGroup;
   checkListService = inject(ChecklistService);
+  router = inject(Router);
 
 
   // injects formBuilder service and initializes the checklist Form Group with a Form Array with one Question
@@ -101,6 +103,7 @@ removeQuestion(index: number): void {
     const response = this.checkListService.sendChecklistData(checklistData)
         .subscribe( response => {
           console.log('checklist created', response);
+          this.router.navigate(['checklists']);
         });
     console.log(checklistData);
   }
