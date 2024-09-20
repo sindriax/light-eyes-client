@@ -3,18 +3,22 @@
 ## Table of Contents
 
 - [General Information](#general-information)
+- [Demo](#demo)
 - [Technical Competencies](#technical-competencies)
 - [Technologies](#technologies)
 - [Tools](#tools)
 - [Technical Operation](#technical-operation)
 - [Future Enhancements](#future-enhancements)
-- [Deployment](#deployment)
 - [Resources](#resources)
-- [Our Team](#out-team)
+- [Our Team](#our-team)
 
 ## General Information
 
 **Light Eyes Reports** is an innovative project developed for Light Eyes, a cybersecurity company. This full-stack application automates the generation of customized cybersecurity consulting reports, providing a streamlined solution for both the company and its clients.
+
+## Demo
+- [Light Eyes Client](https://light-eyes-client.vercel.app/auth): Deploy for FrontEnd.
+- [Light Eyes API](https://light-eyes-reports.live/swagger/index.html): Deploy for BackEnd.
 
 ### Objectives:
 - **Automatic Report Generation:** Generate detailed and customized cybersecurity reports based on specified parameters.
@@ -90,16 +94,12 @@ In the next sprint, we plan to implement the following features:
 - **User Feedback Implementation:** Offer more feedback to the user during the report creation process.
 - **Process Status Messages:** Inform users with messages about the status of the report creation process.
 
-## Deployment
-- [Light Eyes Client](https://light-eyes-client-fs4wxwpji-daniels-projects-1629a465.vercel.app/auth): Deploy for FrontEnd.
-- [Light Eyes API](https://light-eyes-reports.live/swagger/index.html): Deploy for BackEnd.
-
 ## Resources
 - [Light Eyes Design](https://www.figma.com/design/dtrGIfWZh3tb2KlXVKerbM/Final-Project?node-id=0-1&t=YKeKJnJ087I873I5-1): View of our design on Figma.
 - [Project Management Kanban Board](https://trello.com/b/dn13Bkos/final-project): View of our Kanban board on Trello.
 - [Light Eyes Backend Repository](https://github.com/DCueto/light-eyes): Github Repository for our Backend code.
 
-## Our Team:
+## Our Team
 <p> <a href="https://github.com/xavimrg">
     <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> Xavi Martín, Project Owner & Developer - <a href="https://linkedin.com/in/javier-m-4aa72199">LinkedIn</a></p>
 
